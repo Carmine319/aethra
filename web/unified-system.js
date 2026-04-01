@@ -16,3 +16,28 @@
 
   nodes.forEach(function (el) { io.observe(el); });
 })();
+
+(function () {
+  var line = document.getElementById("organismStateLine");
+  var tag = document.querySelector(".status-indicator");
+  if (!line && !tag) return;
+
+  var states = [
+    "Scanning economic surface...",
+    "Signal detected",
+    "Interpreting context",
+    "Deploying asset...",
+    "Optimising performance..."
+  ];
+
+  var i = 0;
+  function tick() {
+    var txt = states[i % states.length];
+    if (line) line.textContent = txt;
+    if (tag && txt) tag.textContent = txt.replace("...", "");
+    i += 1;
+  }
+
+  tick();
+  window.setInterval(tick, 5500);
+})();

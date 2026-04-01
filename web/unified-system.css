@@ -363,6 +363,49 @@ pre {
 .bar-scaling-kill { background: #b45353; }
 .sparkline-bar.active { outline: 2px solid var(--ink-primary); outline-offset: 1px; }
 
+.organism-loop {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted-text);
+  line-height: 1.65;
+}
+
+.organism-loop li {
+  margin-bottom: 0.35rem;
+}
+
+.organism-loop li:last-child {
+  margin-bottom: 0;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+  margin-top: 1rem;
+}
+
+.stack-item {
+  border-top: 1px solid rgba(198, 163, 107, 0.3);
+  padding-top: 0.75rem;
+}
+
+.stack-item h3 {
+  margin-bottom: 0.35rem;
+}
+
+.stack-item p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.state-line {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--accent-intel);
+  letter-spacing: 0.04em;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(8px);
