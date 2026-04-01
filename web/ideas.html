@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AETHRA — Ideas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    :root {
+      --page-blue: #e8edf1;
+      --page-blue-deep: #dde6ec;
+      --page-blue-soft: #f3f6f8;
+      --ink: #11181f;
+      --muted: #2f3d48;
+      --gold: #a87941;
+      --gold-soft: rgba(168, 121, 65, 0.14);
+      --accent-slate: #6f93a3;
+      --radius: 18px;
+      --card-border: rgba(47, 62, 70, 0.18);
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 70% at 100% 0%, rgba(132, 180, 192, 0.14) 0%, transparent 52%),
+        linear-gradient(165deg, var(--page-blue-soft) 0%, var(--page-blue) 42%, var(--page-blue-deep) 100%);
+      line-height: 1.7;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+    .masthead {
+      padding: 1.35rem 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .masthead-nav {
+      display: flex;
+      gap: 1.15rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .masthead-nav::-webkit-scrollbar { display: none; }
+    .masthead-nav a {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .masthead-nav a:hover { color: var(--gold); }
+    .status-indicator {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-slate);
+      border: 1px solid rgba(111, 147, 163, 0.35);
+      padding: 0.42rem 0.7rem;
+      border-radius: 999px;
+    }
+    .editorial { padding: clamp(3.5rem, 5vw, 5rem) 0; }
+    .section-inner {
+      background: linear-gradient(150deg, rgba(255, 255, 255, 0.78) 0%, rgba(244, 248, 251, 0.86) 100%);
+      border: 1px solid rgba(168, 121, 65, 0.14);
+      border-radius: 14px;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      box-shadow: 0 8px 28px rgba(47, 62, 70, 0.06);
+    }
+    .section-kicker {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6f4a2e;
+      margin: 0 0 0.75rem;
+    }
+    .section-title {
+      margin: 0 0 1rem;
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.45rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .lede { margin: 0; color: var(--muted); max-width: 42rem; }
+    .form-wrap {
+      margin-top: 1.35rem;
+      max-width: 44rem;
+      display: grid;
+      gap: 0.95rem;
+    }
+    label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    input, textarea {
+      width: 100%;
+      margin-top: 0.4rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      border-color: rgba(168, 121, 65, 0.5);
+      box-shadow: 0 0 0 3px rgba(168, 121, 65, 0.12);
+    }
+    textarea { min-height: 145px; resize: vertical; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.65rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, #9c6f3c 0%, var(--gold) 100%);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: linear-gradient(135deg, #8f6332 0%, #9f713e 100%); }
+    .trust-note {
+      margin: 1.25rem 0 0;
+      font-size: 0.88rem;
+      color: var(--accent-slate);
+      line-height: 1.65;
+      max-width: 42rem;
+    }
+    .site-footer {
+      padding: 2rem 0 3rem;
+      font-size: 0.82rem;
+      color: var(--accent-slate);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 860px) {
+      .masthead { flex-wrap: wrap; }
+      .status-indicator { display: none; }
+      .masthead-nav { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap masthead">
+    <a class="logo" href="/index.html">AETHRA</a>
+    <nav class="masthead-nav" aria-label="Primary">
+      <a href="/index.html#home">Home</a>
+      <a href="/index.html#three-pillars">Three pillars</a>
+      <a href="/index.html#acquisition-core">Acquisition</a>
+      <a href="/index.html#marketplace">Portfolio</a>
+      <a href="/index.html#about">About</a>
+      <a href="/ideas.html" aria-current="page">Ideas</a>
+      <a href="/business.html">Business</a>
+    </nav>
+    <span class="status-indicator">Ideas intake</span>
+  </header>
+
+  <section class="editorial">
+    <div class="wrap section-inner">
+      <p class="section-kicker">Ideas</p>
+      <h1 class="section-title">Turn Your Idea Into Revenue</h1>
+      <p class="lede">AETHRA validates, builds, and deploys ideas into real revenue systems.</p>
+
+      <form class="form-wrap" method="post" action="#">
+        <label>
+          Idea description
+          <textarea name="ideaDescription" required placeholder="Describe the core idea, problem, and why now."></textarea>
+        </label>
+        <label>
+          Target audience
+          <input type="text" name="targetAudience" required placeholder="Who specifically is this for?" />
+        </label>
+        <label>
+          Desired outcome
+          <input type="text" name="desiredOutcome" required placeholder="What result should this system produce?" />
+        </label>
+        <label>
+          Brand name (optional)
+          <input type="text" name="brandName" placeholder="Optional proposed brand name" />
+        </label>
+        <label>
+          Social media handles
+          <input type="text" name="socialHandles" required placeholder="@handle, profile URL, or account list" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required placeholder="you@company.com" />
+        </label>
+        <div>
+          <button type="submit" class="btn">Submit Idea</button>
+        </div>
+      </form>
+
+      <p class="trust-note">
+        AETHRA evaluates submissions and deploys high-potential ideas into live systems. Revenue share applies only when revenue is generated.
+      </p>
+    </div>
+  </section>
+
+  <footer class="wrap site-footer">AETHRA does not sell software — it transforms input into revenue and evolves with every cycle.</footer>
+</body>
+</html>
