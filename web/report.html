@@ -7,23 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink: #2f3e46; --muted: #6b7280; --gold: #d4af37; --bg: #f2ede4; }
-    body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; padding: 2rem clamp(1rem, 4vw, 3rem); }
-    h1 { font-family: "Playfair Display", Georgia, serif; font-size: 1.75rem; margin: 0 0 0.5rem; }
-    .card { max-width: 36rem; background: rgba(255,255,255,0.75); border: 1px solid rgba(47,62,70,0.08); border-radius: 18px; padding: 1.75rem; box-shadow: 0 12px 40px rgba(47,62,70,0.06); }
-    .muted { color: var(--muted); font-size: 0.92rem; margin-top: 1rem; }
-    ul { margin: 1rem 0 0; padding-left: 1.25rem; }
-    a { color: var(--gold); }
-    .err { color: #b04a4a; }
-  </style>
+  <link rel="stylesheet" href="/unified-system.css" />
 </head>
-<body>
-  <div class="card">
-    <h1>AETHRA results</h1>
-    <p class="muted" style="margin-top:0">Anonymised venture signals — no personal identifiers.</p>
+<body class="organism-surface">
+  <main class="wrap editorial">
+  <div class="section-inner reveal narrow">
+    <h1 class="section-title">AETHRA results</h1>
+    <p class="muted">Anonymised venture signals — no personal identifiers.</p>
     <div id="content"><p class="muted">Loading…</p></div>
   </div>
+  </main>
+  <script src="/unified-system.js" defer></script>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);

@@ -4,114 +4,83 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AETHRA Capital Dashboard</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #0b1020; color: #e7ecff; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
-    .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .title { font-size: 22px; font-weight: 700; }
-    .muted { color: #96a2d0; font-size: 13px; }
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
-    .card { background: #141b33; border: 1px solid #273052; border-radius: 10px; padding: 12px; }
-    .k { font-size: 12px; color: #96a2d0; }
-    .v { font-size: 20px; margin-top: 4px; font-weight: 700; }
-    .controls, .run { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-    button { background: #3046d3; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
-    button.secondary { background: #25305a; }
-    input { background: #0e1430; color: #e7ecff; border: 1px solid #293663; border-radius: 8px; padding: 8px; }
-    .log { margin-top: 16px; background: #0d132a; border: 1px solid #273052; border-radius: 10px; padding: 12px; }
-    .mono { font-family: Consolas, monospace; font-size: 12px; white-space: pre-wrap; word-break: break-word; }
-    .sparkline-wrap { margin-top: 8px; }
-    .sparkline-row { display: grid; grid-template-columns: 140px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
-    .sparkline-label { color: #96a2d0; font-size: 12px; }
-    .sparkline-track { display: flex; gap: 3px; align-items: flex-end; height: 40px; background: #111a34; border: 1px solid #25315f; border-radius: 6px; padding: 4px; }
-    .sparkline-bar { width: 8px; border-radius: 2px; }
-    .bar-profit { background: #38bdf8; }
-    .bar-conversion { background: #22c55e; }
-    .bar-scaling-scale { background: #f59e0b; }
-    .bar-scaling-hold { background: #64748b; }
-    .bar-scaling-kill { background: #ef4444; }
-    .legend { margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: #aab4de; }
-    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
-    .sparkline-bar.active { outline: 2px solid #e7ecff; outline-offset: 1px; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/unified-system.css" />
 </head>
-<body>
+<body class="organism-surface">
+  <div class="site-shell">
   <div class="wrap">
-    <div class="header">
+    <header class="masthead">
+      <a class="logo" href="/index.html">AETHRA</a>
+      <nav class="masthead-nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a href="/ideas.html">Ideas</a>
+        <a href="/business.html">Business</a>
+      </nav>
+      <span class="status-indicator" id="last-updated">not loaded</span>
+    </header>
+
+    <div class="u-card reveal">
       <div>
-        <div class="title">AETHRA Capital Mode</div>
-        <div class="muted">Live autonomous profit engine monitor</div>
+        <h1 class="section-title">AETHRA Capital Mode</h1>
+        <p class="muted">Live autonomous profit engine monitor</p>
       </div>
-      <div class="muted" id="last-updated">not loaded</div>
     </div>
 
-    <div class="grid">
-      <div class="card"><div class="k">Loop</div><div class="v" id="loop-running">-</div></div>
-      <div class="card"><div class="k">Selected Idea</div><div class="v" id="selected-idea">-</div></div>
-      <div class="card"><div class="k">Execution Status</div><div class="v" id="execution-status">-</div></div>
-      <div class="card"><div class="k">Profit Generated</div><div class="v" id="profit-generated">-</div></div>
+    <div class="u-grid-4 reveal">
+      <div class="u-card"><div class="muted">Loop</div><h3 id="loop-running">-</h3></div>
+      <div class="u-card"><div class="muted">Selected Idea</div><h3 id="selected-idea">-</h3></div>
+      <div class="u-card"><div class="muted">Execution Status</div><h3 id="execution-status">-</h3></div>
+      <div class="u-card"><div class="muted">Profit Generated</div><h3 id="profit-generated">-</h3></div>
     </div>
 
-    <div class="grid">
-      <div class="card"><div class="k">Active Businesses</div><div class="v" id="p-active">0</div></div>
-      <div class="card"><div class="k">Scaled Businesses</div><div class="v" id="p-scaled">0</div></div>
-      <div class="card"><div class="k">Killed Businesses</div><div class="v" id="p-killed">0</div></div>
-      <div class="card"><div class="k">Capital Balance</div><div class="v" id="capital-balance">-</div></div>
+    <div class="u-grid-4 reveal">
+      <div class="u-card"><div class="muted">Active Businesses</div><h3 id="p-active">0</h3></div>
+      <div class="u-card"><div class="muted">Scaled Businesses</div><h3 id="p-scaled">0</h3></div>
+      <div class="u-card"><div class="muted">Killed Businesses</div><h3 id="p-killed">0</h3></div>
+      <div class="u-card"><div class="muted">Capital Balance</div><h3 id="capital-balance">-</h3></div>
     </div>
 
-    <div class="grid">
-      <div class="card"><div class="k">Deployment</div><div class="v" id="deployment-type">-</div></div>
-      <div class="card"><div class="k">Scaling Action</div><div class="v" id="scaling-action">-</div></div>
-      <div class="card"><div class="k">Best Channel</div><div class="v" id="best-channel">-</div></div>
-      <div class="card"><div class="k">Top Signal</div><div class="v" id="top-signal">-</div></div>
+    <div class="u-grid-4 reveal">
+      <div class="u-card"><div class="muted">Deployment</div><h3 id="deployment-type">-</h3></div>
+      <div class="u-card"><div class="muted">Scaling Action</div><h3 id="scaling-action">-</h3></div>
+      <div class="u-card"><div class="muted">Best Channel</div><h3 id="best-channel">-</h3></div>
+      <div class="u-card"><div class="muted">Top Signal</div><h3 id="top-signal">-</h3></div>
     </div>
 
-    <div class="controls">
-      <button id="start-loop">Start Continuous Loop</button>
-      <button id="stop-loop" class="secondary">Stop Continuous Loop</button>
-      <button id="refresh" class="secondary">Refresh</button>
+    <div class="u-card reveal">
+    <div class="u-grid-3">
+      <button class="u-btn u-btn-primary" id="start-loop">Start Continuous Loop</button>
+      <button class="u-btn u-btn-secondary" id="stop-loop">Stop Continuous Loop</button>
+      <button class="u-btn u-btn-secondary" id="refresh">Refresh</button>
     </div>
 
-    <div class="run">
+    <div class="u-grid-3 run-grid">
       <input id="capital-input" type="number" min="0" step="1" value="300" />
       <input id="seed-input" type="text" value="capital mode live run" />
-      <button id="run-once">Run Once</button>
+      <button class="u-btn u-btn-primary" id="run-once">Run Once</button>
+    </div>
     </div>
 
-    <div class="log">
-      <div class="k">Last API response</div>
-      <div id="api-log" class="mono">{}</div>
+    <div class="u-card reveal">
+      <div class="muted">Last API response</div>
+      <pre id="api-log">{}</pre>
     </div>
 
-    <div class="log">
-      <div class="k">Last 10 Cycles (profit / conversion / scaling)</div>
-      <div class="sparkline-wrap">
-        <div class="sparkline-row">
-          <div class="sparkline-label">Profit</div>
-          <div id="spark-profit" class="sparkline-track"></div>
-        </div>
-        <div class="sparkline-row">
-          <div class="sparkline-label">Conversion</div>
-          <div id="spark-conversion" class="sparkline-track"></div>
-        </div>
-        <div class="sparkline-row">
-          <div class="sparkline-label">Scaling</div>
-          <div id="spark-scaling" class="sparkline-track"></div>
-        </div>
-        <div class="legend">
-          <span class="legend-item"><span class="legend-dot bar-profit"></span>Profit</span>
-          <span class="legend-item"><span class="legend-dot bar-conversion"></span>Conversion</span>
-          <span class="legend-item"><span class="legend-dot bar-scaling-scale"></span>Scale</span>
-          <span class="legend-item"><span class="legend-dot bar-scaling-hold"></span>Hold</span>
-          <span class="legend-item"><span class="legend-dot bar-scaling-kill"></span>Kill/Reduce</span>
-        </div>
-      </div>
-      <div class="k" style="margin-top:8px;">Selected cycle detail</div>
-      <div id="selected-cycle-log" class="mono">{}</div>
-      <div id="trend-log" class="mono">[]</div>
+    <div class="u-card reveal">
+      <div class="muted">Last 10 Cycles (profit / conversion / scaling)</div>
+      <div id="spark-profit" class="sparkline-track"></div>
+      <div id="spark-conversion" class="sparkline-track"></div>
+      <div id="spark-scaling" class="sparkline-track"></div>
+      <div class="muted">Selected cycle detail</div>
+      <pre id="selected-cycle-log">{}</pre>
+      <pre id="trend-log">[]</pre>
     </div>
   </div>
+  </div>
+  <script src="/unified-system.js" defer></script>
   <script src="/aethra-capital-dashboard.js"></script>
 </body>
 </html>

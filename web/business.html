@@ -7,204 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
-  <style>
-    :root {
-      --page-blue: #e8edf1;
-      --page-blue-deep: #dde6ec;
-      --page-blue-soft: #f3f6f8;
-      --ink: #11181f;
-      --muted: #2f3d48;
-      --gold: #a87941;
-      --gold-soft: rgba(168, 121, 65, 0.14);
-      --accent-slate: #6f93a3;
-      --radius: 18px;
-      --card-border: rgba(47, 62, 70, 0.18);
-      --font-serif: "Playfair Display", Georgia, serif;
-      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      color: var(--ink);
-      background:
-        radial-gradient(ellipse 100% 80% at 0% 18%, rgba(198, 152, 157, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 90% 70% at 100% 0%, rgba(132, 180, 192, 0.14) 0%, transparent 52%),
-        linear-gradient(165deg, var(--page-blue-soft) 0%, var(--page-blue) 42%, var(--page-blue-deep) 100%);
-      line-height: 1.7;
-    }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
-    .masthead {
-      padding: 1.35rem 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    .masthead-nav {
-      display: flex;
-      gap: 1.15rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-    }
-    .masthead-nav::-webkit-scrollbar { display: none; }
-    .masthead-nav a {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .masthead-nav a:hover { color: var(--gold); }
-    .status-indicator {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-slate);
-      border: 1px solid rgba(111, 147, 163, 0.35);
-      padding: 0.42rem 0.7rem;
-      border-radius: 999px;
-    }
-    .editorial { padding: clamp(3.5rem, 5vw, 5rem) 0; }
-    .section-inner {
-      background: linear-gradient(150deg, rgba(255, 255, 255, 0.78) 0%, rgba(244, 248, 251, 0.86) 100%);
-      border: 1px solid rgba(168, 121, 65, 0.14);
-      border-radius: 14px;
-      padding: clamp(1.5rem, 3vw, 2rem);
-      box-shadow: 0 8px 28px rgba(47, 62, 70, 0.06);
-    }
-    .section-kicker {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #6f4a2e;
-      margin: 0 0 0.75rem;
-    }
-    .section-title {
-      margin: 0 0 1rem;
-      font-family: var(--font-serif);
-      font-size: clamp(1.9rem, 3.5vw, 2.45rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
-    .lede { margin: 0; color: var(--muted); max-width: 42rem; }
-    .pricing-grid {
-      margin-top: 1.35rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-    .price-card {
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 1.1rem 1rem 1rem;
-      background: rgba(255, 255, 255, 0.72);
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-    .price-card.featured {
-      border-color: rgba(168, 121, 65, 0.5);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 239, 230, 0.62) 100%);
-      box-shadow: 0 10px 28px rgba(168, 121, 65, 0.15);
-    }
-    .plan-name {
-      margin: 0;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #6f4a2e;
-      font-weight: 700;
-    }
-    .plan-price {
-      margin: 0.45rem 0 0.65rem;
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      color: var(--ink);
-      line-height: 1.2;
-    }
-    .plan-list {
-      margin: 0 0 1rem;
-      padding-left: 1.1rem;
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.6;
-      flex: 1;
-    }
-    .plan-list li { margin-bottom: 0.35rem; }
-    .badge {
-      display: inline-block;
-      margin-bottom: 0.65rem;
-      padding: 0.35rem 0.6rem;
-      font-size: 0.64rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      border: 1px solid rgba(168, 121, 65, 0.4);
-      color: #6f4a2e;
-      font-weight: 700;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.95rem 1.2rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--gold);
-      background: transparent;
-      color: var(--ink);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      width: 100%;
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, #9c6f3c 0%, var(--gold) 100%);
-      color: #fff;
-    }
-    .btn:hover { background: var(--gold-soft); }
-    .btn.primary:hover { background: linear-gradient(135deg, #8f6332 0%, #9f713e 100%); }
-    .trust-note {
-      margin: 1.25rem 0 0;
-      font-size: 0.88rem;
-      color: var(--accent-slate);
-      line-height: 1.65;
-      max-width: 42rem;
-    }
-    .site-footer {
-      padding: 2rem 0 3rem;
-      font-size: 0.82rem;
-      color: var(--accent-slate);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    @media (max-width: 980px) {
-      .pricing-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 860px) {
-      .masthead { flex-wrap: wrap; }
-      .status-indicator { display: none; }
-      .masthead-nav { width: 100%; }
-    }
-  </style>
+  <link rel="stylesheet" href="/unified-system.css" />
 </head>
-<body>
+<body class="organism-surface">
+  <div class="site-shell">
   <header class="wrap masthead">
     <a class="logo" href="/index.html">AETHRA</a>
     <nav class="masthead-nav" aria-label="Primary">
@@ -220,13 +26,13 @@
   </header>
 
   <section class="editorial">
-    <div class="wrap section-inner">
+    <div class="wrap section-inner reveal">
       <p class="section-kicker">Business</p>
       <h1 class="section-title">Unlock Hidden Profit in Your Business</h1>
       <p class="lede">AETHRA identifies revenue leaks and deploys measurable improvements.</p>
 
-      <div class="pricing-grid">
-        <article class="price-card">
+      <div class="u-grid-3">
+        <article class="u-card">
           <p class="plan-name">Audit</p>
           <p class="plan-price">£500</p>
           <ul class="plan-list">
@@ -234,10 +40,10 @@
             <li>positioning analysis</li>
             <li>conversion audit</li>
           </ul>
-          <button type="button" class="btn" data-plan="audit">Start Audit</button>
+          <button type="button" class="u-btn u-btn-secondary" data-plan="audit">Start Audit</button>
         </article>
 
-        <article class="price-card featured">
+        <article class="u-card">
           <span class="badge">Most Popular</span>
           <p class="plan-name">Audit + Plan</p>
           <p class="plan-price">£1,000</p>
@@ -246,10 +52,10 @@
             <li>execution roadmap</li>
             <li>offer optimisation</li>
           </ul>
-          <button type="button" class="btn primary" data-plan="audit-pro">Most Popular</button>
+          <button type="button" class="u-btn u-btn-primary" data-plan="audit-pro">Most Popular</button>
         </article>
 
-        <article class="price-card">
+        <article class="u-card">
           <p class="plan-name">Full Optimisation</p>
           <p class="plan-price">£2,000</p>
           <ul class="plan-list">
@@ -257,7 +63,7 @@
             <li>execution support</li>
             <li>optional revenue share</li>
           </ul>
-          <button type="button" class="btn" data-plan="full">Apply</button>
+          <button type="button" class="u-btn u-btn-secondary" data-plan="full">Apply</button>
         </article>
       </div>
 
@@ -268,5 +74,7 @@
   </section>
 
   <footer class="wrap site-footer">AETHRA does not sell software — it transforms input into revenue and evolves with every cycle.</footer>
+  </div>
+  <script src="/unified-system.js" defer></script>
 </body>
 </html>
