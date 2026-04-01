@@ -1,0 +1,30 @@
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.fade-in.in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes organismDrift {
+  from { transform: scale(1.1) translate3d(-1%, -0.6%, 0); }
+  to { transform: scale(1.14) translate3d(1%, 0.8%, 0); }
+}
+
+.organism-bg {
+  animation: organismDrift 36s ease-in-out infinite alternate;
+}

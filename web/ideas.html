@@ -7,68 +7,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/unified-system.css" />
+  <link rel="stylesheet" href="/core/tokens.css" />
+  <link rel="stylesheet" href="/core/system.css" />
+  <link rel="stylesheet" href="/core/narrative.css" />
+  <link rel="stylesheet" href="/core/organism.css" />
+  <link rel="stylesheet" href="/core/motion.css" />
 </head>
-<body class="organism-surface">
-  <div class="site-shell">
-  <header class="wrap masthead">
-    <a class="logo" href="/index.html">AETHRA</a>
-    <nav class="masthead-nav" aria-label="Primary">
-      <a href="/index.html#home">Home</a>
-      <a href="/index.html#three-pillars">Three pillars</a>
-      <a href="/index.html#acquisition-core">Acquisition</a>
-      <a href="/index.html#marketplace">Portfolio</a>
-      <a href="/index.html#about">About</a>
-      <a href="/ideas.html" aria-current="page">Ideas</a>
-      <a href="/business.html">Business</a>
-    </nav>
-    <span class="status-indicator">Ideas intake</span>
-  </header>
-
-  <section class="editorial">
-    <div class="wrap section-inner reveal">
-      <p class="section-kicker">Ideas</p>
-      <h1 class="section-title">Turn Your Idea Into Revenue</h1>
-      <p class="lede">AETHRA validates, builds, and deploys ideas into real revenue systems.</p>
-
-      <form class="form-wrap" method="post" action="#">
-        <label>
-          Idea description
-          <textarea name="ideaDescription" required placeholder="Describe the core idea, problem, and why now."></textarea>
-        </label>
-        <label>
-          Target audience
-          <input type="text" name="targetAudience" required placeholder="Who specifically is this for?" />
-        </label>
-        <label>
-          Desired outcome
-          <input type="text" name="desiredOutcome" required placeholder="What result should this system produce?" />
-        </label>
-        <label>
-          Brand name (optional)
-          <input type="text" name="brandName" placeholder="Optional proposed brand name" />
-        </label>
-        <label>
-          Social media handles
-          <input type="text" name="socialHandles" required placeholder="@handle, profile URL, or account list" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required placeholder="you@company.com" />
-        </label>
-        <div>
-          <button type="submit" class="u-btn u-btn-primary">Submit Idea</button>
-        </div>
-      </form>
-
-      <p class="trust-note">
-        AETHRA evaluates submissions and deploys high-potential ideas into live systems. Revenue share applies only when revenue is generated.
-      </p>
-    </div>
-  </section>
-
-  <footer class="wrap site-footer">AETHRA does not sell software — it transforms input into revenue and evolves with every cycle.</footer>
-  </div>
-  <script src="/unified-system.js" defer></script>
+<body>
+  <div class="organism-bg"></div>
+  <div class="organism-fallback"></div>
+  <nav id="navbar"></nav>
+  <main class="container">
+    <section class="section">
+      <div class="card">
+        <p class="kicker">Ideas</p>
+        <h1>Turn Your Idea Into Revenue</h1>
+        <p>AETHRA validates, builds, and deploys ideas into real revenue systems.</p>
+        <form method="post" action="#" class="form-grid">
+          <label>Idea description<textarea name="ideaDescription" required placeholder="Describe the core idea, problem, and why now."></textarea></label>
+          <label>Target audience<input type="text" name="targetAudience" required placeholder="Who specifically is this for?" /></label>
+          <label>Desired outcome<input type="text" name="desiredOutcome" required placeholder="What result should this system produce?" /></label>
+          <label>Brand name (optional)<input type="text" name="brandName" placeholder="Optional proposed brand name" /></label>
+          <label>Social media handles<input type="text" name="socialHandles" required placeholder="@handle, profile URL, or account list" /></label>
+          <label>Email<input type="email" name="email" required placeholder="you@company.com" /></label>
+          <div><button type="submit" class="btn btn-primary">Submit Idea</button></div>
+        </form>
+        <p>AETHRA evaluates submissions and deploys high-potential ideas into live systems. Revenue share applies only when revenue is generated.</p>
+      </div>
+    </section>
+  </main>
+  <script src="/components/navbar.js" defer></script>
+  <script src="/components/card.js" defer></script>
+  <script src="/components/button.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+:root {
+  --bg: #e6eef2;
+  --text: #0f172a;
+  --accent: #5fa8a4;
+  --cta: #a9743a;
+  --border: #c6a36b;
+
+  --muted: #334155;
+  --danger: #d97575;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --gold-soft: rgba(169, 116, 58, 0.14);
+  --card-surface: rgba(255, 255, 255, 0.86);
+  --card-border: rgba(47, 62, 70, 0.18);
+  --shadow-editorial: 0 12px 30px rgba(47, 62, 70, 0.1);
+  --shadow-hover: 0 16px 38px rgba(47, 62, 70, 0.14);
+
+  --accent-sky: #84b4c0;
+  --accent-slate: #6f93a3;
+  --accent-ochre: #9c6f3c;
+  --accent-clay: #6f4a2e;
+  --accent-pink: #c6989d;
+  --accent-mint: #8cb8b8;
+
+  --page-blue: #e8edf1;
+  --page-blue-deep: #dde6ec;
+  --page-blue-soft: #f3f6f8;
+
+  --max-width: 1100px;
+
+  --radius: 14px;
+  --radius-soft: 22px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  --transition: all 0.3s ease;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}

@@ -3,17 +3,13 @@
 
   function showGate() {
     var ov = document.getElementById("ageGateOverlay");
-    if (ov) {
-      ov.style.display = "flex";
-      ov.style.alignItems = "center";
-      ov.style.justifyContent = "center";
-    }
+    if (ov) ov.classList.add("age-gate-overlay--visible");
     document.documentElement.classList.add("age-gate-open");
   }
 
   function hideGate() {
     var ov = document.getElementById("ageGateOverlay");
-    if (ov) ov.style.display = "none";
+    if (ov) ov.classList.remove("age-gate-overlay--visible");
     document.documentElement.classList.remove("age-gate-open");
   }
 

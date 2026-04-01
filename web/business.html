@@ -7,74 +7,61 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/unified-system.css" />
+  <link rel="stylesheet" href="/core/tokens.css" />
+  <link rel="stylesheet" href="/core/system.css" />
+  <link rel="stylesheet" href="/core/narrative.css" />
+  <link rel="stylesheet" href="/core/organism.css" />
+  <link rel="stylesheet" href="/core/motion.css" />
 </head>
-<body class="organism-surface">
-  <div class="site-shell">
-  <header class="wrap masthead">
-    <a class="logo" href="/index.html">AETHRA</a>
-    <nav class="masthead-nav" aria-label="Primary">
-      <a href="/index.html#home">Home</a>
-      <a href="/index.html#three-pillars">Three pillars</a>
-      <a href="/index.html#acquisition-core">Acquisition</a>
-      <a href="/index.html#marketplace">Portfolio</a>
-      <a href="/index.html#about">About</a>
-      <a href="/ideas.html">Ideas</a>
-      <a href="/business.html" aria-current="page">Business</a>
-    </nav>
-    <span class="status-indicator">Business audits</span>
-  </header>
-
-  <section class="editorial">
-    <div class="wrap section-inner reveal">
-      <p class="section-kicker">Business</p>
-      <h1 class="section-title">Unlock Hidden Profit in Your Business</h1>
-      <p class="lede">AETHRA identifies revenue leaks and deploys measurable improvements.</p>
-
-      <div class="u-grid-3">
-        <article class="u-card">
-          <p class="plan-name">Audit</p>
-          <p class="plan-price">£500</p>
-          <ul class="plan-list">
-            <li>revenue leak detection</li>
-            <li>positioning analysis</li>
-            <li>conversion audit</li>
-          </ul>
-          <button type="button" class="u-btn u-btn-secondary" data-plan="audit">Start Audit</button>
-        </article>
-
-        <article class="u-card">
-          <span class="badge">Most Popular</span>
-          <p class="plan-name">Audit + Plan</p>
-          <p class="plan-price">£1,000</p>
-          <ul class="plan-list">
-            <li>full audit</li>
-            <li>execution roadmap</li>
-            <li>offer optimisation</li>
-          </ul>
-          <button type="button" class="u-btn u-btn-primary" data-plan="audit-pro">Most Popular</button>
-        </article>
-
-        <article class="u-card">
-          <p class="plan-name">Full Optimisation</p>
-          <p class="plan-price">£2,000</p>
-          <ul class="plan-list">
-            <li>system upgrade</li>
-            <li>execution support</li>
-            <li>optional revenue share</li>
-          </ul>
-          <button type="button" class="u-btn u-btn-secondary" data-plan="full">Apply</button>
-        </article>
+<body>
+  <div class="organism-bg"></div>
+  <div class="organism-fallback"></div>
+  <nav id="navbar"></nav>
+  <main class="container">
+    <section class="section">
+      <div class="card">
+        <p class="kicker">Business</p>
+        <h1>Unlock Hidden Profit in Your Business</h1>
+        <p>AETHRA identifies revenue leaks and deploys measurable improvements.</p>
+        <div class="cards-grid-3">
+          <article class="card">
+            <p class="plan-name">Audit</p>
+            <p class="plan-price">£500</p>
+            <ul class="plan-list">
+              <li>revenue leak detection</li>
+              <li>positioning analysis</li>
+              <li>conversion audit</li>
+            </ul>
+            <button type="button" class="btn btn-secondary" data-plan="audit">Start Audit</button>
+          </article>
+          <article class="card">
+            <span class="badge">Most Popular</span>
+            <p class="plan-name">Audit + Plan</p>
+            <p class="plan-price">£1,000</p>
+            <ul class="plan-list">
+              <li>full audit</li>
+              <li>execution roadmap</li>
+              <li>offer optimisation</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-plan="audit-pro">Most Popular</button>
+          </article>
+          <article class="card">
+            <p class="plan-name">Full Optimisation</p>
+            <p class="plan-price">£2,000</p>
+            <ul class="plan-list">
+              <li>system upgrade</li>
+              <li>execution support</li>
+              <li>optional revenue share</li>
+            </ul>
+            <button type="button" class="btn btn-secondary" data-plan="full">Apply</button>
+          </article>
+        </div>
+        <p>AETHRA improves execution and positioning. Results depend on implementation and market conditions.</p>
       </div>
-
-      <p class="trust-note">
-        AETHRA improves execution and positioning. Results depend on implementation and market conditions.
-      </p>
-    </div>
-  </section>
-
-  <footer class="wrap site-footer">AETHRA does not sell software — it transforms input into revenue and evolves with every cycle.</footer>
-  </div>
-  <script src="/unified-system.js" defer></script>
+    </section>
+  </main>
+  <script src="/components/navbar.js" defer></script>
+  <script src="/components/card.js" defer></script>
+  <script src="/components/button.js" defer></script>
 </body>
 </html>
