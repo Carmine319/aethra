@@ -1,0 +1,50 @@
+{
+  "agent": "capital",
+  "omegaFoundation": {
+    "capabilityIds": [
+      "allocate_capital",
+      "rebalance_portfolio",
+      "scale_winners",
+      "kill_losers",
+      "protect_downside"
+    ],
+    "inputs": ["opportunities", "capital", "performance_history"],
+    "outputs": ["allocation_plan", "decisions"],
+    "constraints": {
+      "min_reserve_ratio": 0.35,
+      "min_roi_threshold": 1.5,
+      "max_single_allocation": 0.4,
+      "require_validation": true
+    }
+  },
+  "capabilities": [
+    {
+      "id": "capital_cycle",
+      "mapsTo": "aethra-core/engine/capital.loop.runAethraCapital",
+      "requiredInputFields": ["capital", "options"]
+    }
+  ],
+  "decisionScope": [
+    "Select profit mode for a cycle when inputs permit",
+    "Request operational hold when governance directive constrains"
+  ],
+  "inputs": ["capital (number)", "options.profitMode", "options.userPreference", "upstream organism / live telemetry"],
+  "outputs": ["cyclePayload", "compounding", "organism", "economic", "domination telemetry"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "cycleROI",
+    "secondary": ["governanceCompliance", "latencyMs"]
+  },
+  "riskProfile": {
+    "tier": "system-critical",
+    "maxBlastRadius": "full_portfolio"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 3,
+    "timeoutMs": 120000
+  }
+}

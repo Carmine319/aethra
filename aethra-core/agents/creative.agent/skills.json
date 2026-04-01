@@ -1,0 +1,33 @@
+{
+  "agent": "creative",
+  "capabilities": [
+    {
+      "id": "creative_pipeline",
+      "mapsTo": "aethra-core/creative/orchestration/pipeline.runner.runCreativePipeline",
+      "requiredInputFields": ["opportunity"]
+    }
+  ],
+  "decisionScope": [
+    "Invoke pipeline for a single validated opportunity record",
+    "Refuse when opportunity object is empty"
+  ],
+  "inputs": ["opportunity (Record<string, unknown>)"],
+  "outputs": ["creative pipeline payload (content, landing signals)"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "contentVelocity",
+    "secondary": ["variantCount", "policyBlocks"]
+  },
+  "riskProfile": {
+    "tier": "production",
+    "maxBlastRadius": "brand_surface"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 4,
+    "timeoutMs": 90000
+  }
+}

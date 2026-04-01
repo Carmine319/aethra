@@ -1,0 +1,9 @@
+{
+  "evolution_kill_switch": false,
+  "require_economic_validation": true,
+  "require_invariant_guard": true,
+  "max_blast_radius": 0.35,
+  "canary_exposure_start": 0.1,
+  "simulation_worlds": ["baseline", "stress", "extreme"],
+  "structurally_persistent_log": true
+}

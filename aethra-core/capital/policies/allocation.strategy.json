@@ -1,0 +1,10 @@
+{
+  "priority": [
+    "high_roi",
+    "growth",
+    "stability"
+  ],
+  "kill_threshold": {
+    "loss_streak": 5
+  }
+}

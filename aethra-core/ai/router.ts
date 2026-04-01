@@ -1,0 +1,1 @@
+﻿export { routeModel } from "./router.js";

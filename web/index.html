@@ -1,0 +1,3903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AETHRA — Ideas, businesses &amp; capital into revenue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page-blue: #e8edf1;
+      --page-blue-deep: #dde6ec;
+      --page-blue-soft: #f3f6f8;
+      --gold: #a87941;
+      --gold-soft: rgba(168, 121, 65, 0.14);
+      --accent-pink: #c6989d;
+      --accent-mint: #8cb8b8;
+      --accent-sky: #84b4c0;
+      --accent-slate: #6f93a3;
+      --accent-ochre: #9c6f3c;
+      --accent-clay: #6f4a2e;
+      --accent-ivory: #f4efe6;
+      --ink: #11181f;
+      --muted: #2f3d48;
+      --danger: #d97575;
+      --card: rgba(255, 255, 255, 0.86);
+      --card-border: rgba(47, 62, 70, 0.18);
+      --shadow: 0 12px 30px rgba(47, 62, 70, 0.1);
+      --shadow-hover: 0 16px 38px rgba(47, 62, 70, 0.14);
+      --radius: 18px;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      line-height: 1.72;
+      color: var(--ink);
+      background: var(--page-blue);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-bg {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 100% 80% at 0% 20%, rgba(198, 152, 157, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 90% 70% at 100% 0%, rgba(132, 180, 192, 0.14) 0%, transparent 52%),
+        radial-gradient(ellipse 80% 60% at 80% 100%, rgba(140, 184, 184, 0.07) 0%, transparent 45%),
+        linear-gradient(165deg, var(--page-blue-soft) 0%, var(--page-blue) 42%, var(--page-blue-deep) 100%);
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .masthead {
+      padding: 1.35rem 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: nowrap;
+      animation: fadeUp 0.9s var(--ease) both;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .masthead a.nav {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s var(--ease);
+    }
+
+    .masthead a.nav:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(3rem, 6vw, 4.25rem);
+      animation: fadeUp 1s var(--ease) 0.08s both;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3.15rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      max-width: 28ch;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .hero .lede {
+      margin-top: 1.25rem;
+      max-width: 38rem;
+      font-size: 1.0625rem;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .hero .trust-line {
+      margin-top: 1.5rem;
+      max-width: 38rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      color: var(--accent-slate);
+      line-height: 1.55;
+    }
+
+    .hero-cta {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+      max-width: 42rem;
+    }
+
+    .hero-list {
+      margin: 1.15rem 0 0;
+      padding: 0 0 0 1.15rem;
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.68;
+    }
+
+    .hero-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .hero-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--ink);
+      transition: background 0.28s var(--ease), color 0.28s var(--ease), box-shadow 0.28s var(--ease), transform 0.28s var(--ease), opacity 0.28s var(--ease);
+    }
+
+    .btn:hover {
+      background: var(--gold-soft);
+      box-shadow: 0 12px 24px rgba(47, 62, 70, 0.12);
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-ochre) 0%, var(--gold) 100%);
+      color: #fff;
+      border-color: var(--accent-ochre);
+      box-shadow: 0 10px 22px rgba(156, 111, 60, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #8f6332 0%, #9f713e 100%);
+      border-color: #8f6332;
+      color: #fff;
+    }
+
+    section.editorial {
+      padding: clamp(3.75rem, 5vw, 5rem) 0;
+      margin-bottom: 28px;
+    }
+
+    section.editorial:nth-of-type(even) .section-inner {
+      animation-delay: 0.05s;
+    }
+
+    .section-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .section-inner,
+    .section-block {
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(248, 250, 252, 0.78) 45%,
+        rgba(244, 248, 251, 0.82) 100%
+      );
+      border: 1px solid rgba(168, 121, 65, 0.14);
+      border-radius: calc(var(--radius) - 4px);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      box-shadow: 0 8px 28px rgba(47, 62, 70, 0.06);
+    }
+
+    section.editorial:nth-of-type(odd) .section-inner,
+    section.editorial:nth-of-type(odd) .section-block {
+      background: linear-gradient(
+        155deg,
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(246, 249, 252, 0.8) 50%,
+        rgba(241, 246, 250, 0.85) 100%
+      );
+    }
+
+    section.editorial:nth-of-type(even) .section-inner,
+    section.editorial:nth-of-type(even) .section-block {
+      background: linear-gradient(
+        165deg,
+        rgba(252, 253, 255, 0.75) 0%,
+        rgba(238, 244, 249, 0.82) 100%
+      );
+    }
+
+    .section-inner > * {
+      max-width: 46rem;
+    }
+
+    .section-inner > .card-grid,
+    .section-inner > .aethra-block {
+      max-width: 48rem;
+    }
+
+    .section-inner::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin-top: 0.75rem;
+      background: linear-gradient(to right, transparent, rgba(132, 180, 192, 0.48), rgba(156, 111, 60, 0.42), transparent);
+      opacity: 0.35;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent-sky), var(--gold), transparent);
+      opacity: 0.3;
+      margin-top: 0.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-clay);
+      margin: 0 0 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.95rem, 3.6vw, 2.55rem);
+      font-weight: 500;
+      margin: 0 0 1.35rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .section-title + .editorial-block {
+      margin-top: -0.65rem;
+    }
+
+    .editorial-block {
+      max-width: 44rem;
+    }
+
+    .editorial-block p {
+      margin: 0 0 1.125rem;
+      color: var(--ink);
+      line-height: 1.76;
+      font-size: 1rem;
+      max-width: 44rem;
+    }
+
+    .editorial-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .outreach-pre {
+      font-size: 0.875rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0.5rem 0 1rem;
+      padding: 1rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 239, 230, 0.6) 100%);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      color: var(--ink);
+    }
+
+    .section-pull {
+      margin: 2.25rem 0 0;
+      max-width: 36rem;
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      line-height: 1.45;
+    }
+
+    .spec-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 1.35rem 0 0.35rem;
+    }
+
+    .spec-label:first-of-type {
+      margin-top: 0;
+    }
+
+    .spec-path {
+      font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      margin: 0 0 0.5rem;
+      padding: 0.7rem 1rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: var(--ink);
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .loop-chain {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      max-width: 44rem;
+    }
+
+    .loop-chain li {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem 1.25rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--card-border);
+      align-items: start;
+    }
+
+    .loop-chain li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .loop-step-num {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.35;
+    }
+
+    .loop-step-body strong {
+      display: block;
+      font-size: 0.9375rem;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+
+    .loop-step-body p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.96875rem;
+      line-height: 1.65;
+    }
+
+    .card-grid {
+      display: block;
+      max-width: 44rem;
+    }
+
+    .card-grid.cols-2 {
+      display: block;
+    }
+
+    .card {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0 0 1.65rem;
+      margin-bottom: 1.65rem;
+      box-shadow: none;
+      transition: opacity 0.25s var(--ease);
+      animation: fadeUp 0.65s var(--ease) both;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.04s; }
+    .card:nth-child(2) { animation-delay: 0.08s; }
+    .card:nth-child(3) { animation-delay: 0.12s; }
+
+    .card:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    .card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      color: var(--ink);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--ink);
+      line-height: 1.65;
+      max-width: 44rem;
+    }
+
+    .muted-small {
+      font-size: 0.875rem;
+      color: var(--ink);
+      margin: 0.75rem 0 0;
+      line-height: 1.55;
+    }
+
+    .muted-small code {
+      font-size: 0.8125rem;
+    }
+
+    .aethra-block {
+      margin: 2rem 0;
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 239, 230, 0.52) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: calc(var(--radius) + 2px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aethra-block::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--accent-sky), var(--accent-ochre), transparent);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .aethra-block.conversion-intel h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .aethra-block.conversion-intel p {
+      margin: 0.5rem 0;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink);
+      max-width: 40rem;
+    }
+
+    .aethra-block.conversion-intel p.muted {
+      margin-top: 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .aethra-block.scaling-intel h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .aethra-block.scaling-intel p {
+      margin: 0.5rem 0;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink);
+      max-width: 40rem;
+    }
+
+    .aethra-block.scaling-intel p.muted {
+      margin-top: 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .aethra-block.portfolio-intel-editorial h3,
+    .aethra-block.portfolio-intel-narrative h3,
+    .aethra-block.portfolio-intel-snapshot-narrative h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .aethra-block.portfolio-intel-editorial p,
+    .aethra-block.portfolio-intel-narrative p,
+    .aethra-block.portfolio-intel-snapshot-narrative p {
+      margin: 0.5rem 0;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink);
+      max-width: 42rem;
+    }
+
+    .aethra-block.ideas-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+    }
+
+    .aethra-block.ideas-block ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.25rem;
+      max-width: 42rem;
+      line-height: 1.65;
+    }
+
+    .capital-wallet-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+    }
+
+    .capital-wallet-block p {
+      margin: 0.4rem 0;
+      max-width: 40rem;
+      line-height: 1.65;
+    }
+
+    .capital-alloc-list {
+      margin: 0.25rem 0 0;
+      padding-left: 1.25rem;
+      max-width: 40rem;
+    }
+
+    .aethra-step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.25rem 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--card-border);
+      align-items: start;
+    }
+
+    .aethra-step:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .aethra-step-number {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .aethra-step-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .aethra-step-content p {
+      margin: 0 0 0.85rem;
+      font-size: 1.03125rem;
+      line-height: 1.72;
+      color: var(--ink);
+      max-width: 40rem;
+    }
+
+    .aethra-step-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .aethra-cta {
+      margin: 0.5rem 0 1.5rem;
+      padding: 1.5rem 0 1.75rem;
+      border-bottom: 1px solid var(--card-border);
+      text-align: center;
+    }
+
+    .aethra-cta p {
+      margin: 0 0 1.1rem;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    button.aethra-primary {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+
+    button.aethra-primary:hover {
+      background: #c9a22f;
+      border-color: #c9a22f;
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    button.aethra-primary:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
+    .execution-feedback {
+      margin: 1rem 0 0;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      line-height: 1.65;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .block-fade {
+      animation: fadeUp 0.85s var(--ease) both;
+    }
+
+    .portfolio-pulse .body p,
+    .synergy-block .body p {
+      margin: 0.35rem 0;
+      font-size: 0.98rem;
+    }
+
+    .portfolio-pulse .transparency,
+    .synergy-block .synergy-note {
+      font-size: 0.8125rem;
+      color: var(--ink);
+      margin-top: 0.75rem;
+      line-height: 1.55;
+    }
+
+    .age-gate-open .page-bg {
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .age-gate-open .age-gate-overlay {
+      pointer-events: auto;
+    }
+
+    .age-gate-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      background: rgba(47, 62, 70, 0.45);
+      backdrop-filter: blur(6px);
+      padding: 1.5rem;
+    }
+
+    .age-gate-card {
+      max-width: 28rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-hover);
+      animation: fadeUp 0.5s var(--ease) both;
+    }
+
+    .age-gate-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin: 0 0 1rem;
+    }
+
+    .masthead-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: clamp(1.25rem, 3vw, 2rem);
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .masthead-nav::-webkit-scrollbar { display: none; }
+
+    .masthead-nav a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s var(--ease), opacity 0.25s var(--ease), border-color 0.25s var(--ease);
+      opacity: 0.9;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.12rem;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+
+    .masthead-nav a:hover {
+      color: var(--accent-ochre);
+      opacity: 0.92;
+      border-bottom-color: var(--accent-ochre);
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-slate);
+      opacity: 0.9;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(236, 242, 246, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(111, 147, 163, 0.28);
+    }
+
+    .status-indicator::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-slate);
+      box-shadow: 0 0 0 0 rgba(111, 147, 163, 0.35);
+      animation: pulseDot 2s infinite;
+    }
+
+    @media (max-width: 900px) {
+      .wrap {
+        padding: 0 20px;
+      }
+
+      .masthead {
+        gap: 0.75rem;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        letter-spacing: 0.1em;
+      }
+
+      .masthead-nav {
+        gap: 0.75rem;
+        max-width: calc(100% - 90px);
+      }
+
+      .masthead-nav a {
+        font-size: 0.68rem;
+        letter-spacing: 0.09em;
+      }
+
+      .status-indicator {
+        display: none;
+      }
+
+      section.editorial {
+        margin-bottom: 40px;
+      }
+
+      .section-inner > *,
+      .section-inner > .card-grid,
+      .section-inner > .aethra-block {
+        max-width: 100%;
+      }
+    }
+
+    #judgement {
+      padding: clamp(3.5rem, 8vw, 5rem) 0 clamp(3.75rem, 8vw, 5rem);
+      scroll-margin-top: 2rem;
+    }
+
+    .judgement-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(243, 247, 250, 0.9) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: calc(var(--radius) + 4px);
+      padding: clamp(2rem, 5vw, 3rem);
+      box-shadow: var(--shadow);
+      animation: fadeUp 1s var(--ease) 0.12s both;
+    }
+
+    .judgement-panel .panel-kicker {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.5rem;
+    }
+
+    .judgement-panel .panel-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.65rem, 3vw, 2.1rem);
+      font-weight: 600;
+      margin: 0 0 2rem;
+    }
+
+    label.field-label {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.65rem;
+    }
+
+    textarea#idea {
+      width: 100%;
+      min-height: 140px;
+      padding: 1.15rem 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    textarea#idea:focus {
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 0 3px var(--gold-soft);
+    }
+
+    textarea#idea::placeholder {
+      color: rgba(17, 24, 31, 0.75);
+    }
+
+    .run-row {
+      margin-top: 1.35rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .status {
+      font-size: 0.8125rem;
+      color: var(--ink);
+    }
+
+    .status.ok {
+      color: #3d6b4a;
+    }
+
+    .status.err {
+      color: var(--danger);
+    }
+
+    #output {
+      margin-top: 2.75rem;
+    }
+
+    #output:empty {
+      display: none;
+    }
+
+    .narrative {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .narrative-block {
+      padding-bottom: clamp(1.75rem, 4vw, 2.25rem);
+      border-bottom: 1px solid rgba(47, 62, 70, 0.08);
+      animation: fadeUp 0.75s var(--ease) both;
+    }
+
+    .narrative-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .narrative-block:nth-child(1) { animation-delay: 0.05s; }
+    .narrative-block:nth-child(2) { animation-delay: 0.1s; }
+    .narrative-block:nth-child(3) { animation-delay: 0.15s; }
+    .narrative-block:nth-child(4) { animation-delay: 0.2s; }
+    .narrative-block:nth-child(5) { animation-delay: 0.25s; }
+    .narrative-block:nth-child(6) { animation-delay: 0.3s; }
+    .narrative-block:nth-child(7) { animation-delay: 0.35s; }
+    .narrative-block:nth-child(8) { animation-delay: 0.4s; }
+    .narrative-block:nth-child(9) { animation-delay: 0.45s; }
+    .narrative-block:nth-child(10) { animation-delay: 0.5s; }
+    .narrative-block:nth-child(11) { animation-delay: 0.52s; }
+    .narrative-block:nth-child(12) { animation-delay: 0.54s; }
+    .narrative-block:nth-child(13) { animation-delay: 0.56s; }
+    .narrative-block:nth-child(14) { animation-delay: 0.58s; }
+
+    .narrative-block.subtle .metrics-row {
+      opacity: 0.92;
+    }
+
+    .narrative-block.subtle .metric .value {
+      font-size: 1.35rem;
+    }
+
+    ul.exec-list {
+      margin: 0.35rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--ink);
+    }
+
+    ul.exec-list li {
+      margin-bottom: 0.85rem;
+      line-height: 1.65;
+    }
+
+    ul.exec-list strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .delivery-steps {
+      margin: 0.5rem 0 0;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .narrative-block h2 {
+      font-family: var(--font-serif);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 1rem;
+    }
+
+    .narrative-block .op-sub {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      color: var(--ink);
+      margin: 1.35rem 0 0.65rem;
+    }
+
+    .narrative-block .op-sub:first-child {
+      margin-top: 0;
+    }
+
+    .narrative-block .body {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .narrative-block .body p {
+      margin: 0 0 1rem;
+    }
+
+    .narrative-block .body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .narrative-block .body ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.25rem;
+      color: var(--ink);
+    }
+
+    .narrative-block .body li {
+      margin-bottom: 0.5rem;
+    }
+
+    .verdict-line {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin: 0 0 1rem;
+    }
+
+    .verdict-line.kill {
+      color: var(--danger);
+    }
+
+    .verdict-line.advance {
+      color: #3d6b4a;
+    }
+
+    .verdict-line.hold {
+      color: #8a6d2e;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .metric {
+      padding: 1rem 1.15rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 249, 251, 0.82) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+    }
+
+    .metric .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-clay);
+      margin-bottom: 0.35rem;
+    }
+
+    .metric .value {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      letter-spacing: 0.04em;
+    }
+
+    .loading-ring {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      border: 2px solid rgba(47, 62, 70, 0.12);
+      border-top-color: var(--accent-slate);
+      animation: spin 0.85s linear infinite;
+    }
+
+    pre.raw-fallback {
+      font-family: ui-monospace, "Consolas", monospace;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      color: var(--ink);
+      max-height: 40vh;
+      overflow: auto;
+    }
+
+    .site-footer {
+      padding: 2.5rem 0 3rem;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-clay);
+      opacity: 0.9;
+    }
+
+    .section-sep {
+      display: block;
+      height: 1px;
+      max-width: 984px;
+      margin: 0 auto;
+      border: none;
+      background: linear-gradient(to right, transparent, rgba(168, 121, 65, 0.35), transparent);
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.25rem, 3vw, 1.75rem);
+      margin-top: 0.5rem;
+      max-width: 52rem;
+    }
+
+    .pillar-card {
+      padding: 1.25rem 0 0;
+      border-top: 1px solid rgba(168, 121, 65, 0.25);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 100%);
+      border-radius: 0 0 8px 8px;
+    }
+
+    .pillar-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      color: var(--ink);
+    }
+
+    .pillar-card .model-line {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent-clay);
+      margin: 0 0 0.65rem;
+      line-height: 1.45;
+    }
+
+    .pillar-card p {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .organism-strip {
+      max-width: 42rem;
+      padding: 1.15rem 0 0;
+      border-top: 1px solid rgba(132, 180, 192, 0.35);
+      margin-top: 0.25rem;
+    }
+
+    .organism-strip p {
+      margin: 0 0 0.65rem;
+      font-size: 0.96875rem;
+      line-height: 1.72;
+      color: var(--ink);
+    }
+
+    .legal-disclaimer {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--accent-slate);
+      max-width: 40rem;
+      margin: 0.75rem 0 0;
+    }
+
+    .about-article h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .about-article h3:first-of-type {
+      margin-top: 0.5rem;
+    }
+
+    .about-article p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 42rem;
+    }
+
+    .about-article p.lead-pull {
+      font-size: 1.05rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-article ul.simple {
+      margin: 0.5rem 0 1rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .about-article ul.simple li {
+      margin-bottom: 0.35rem;
+    }
+
+    .about-final {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .omega-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 1.5rem;
+      max-width: 46rem;
+    }
+
+    .omega-card {
+      border-top: 1px solid rgba(132, 180, 192, 0.3);
+      padding-top: 0.9rem;
+    }
+
+    .omega-card h3 {
+      margin: 0 0 0.45rem;
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .omega-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+      max-width: none;
+    }
+
+    .omega-rule {
+      margin: 0.5rem 0 0;
+      color: var(--accent-clay);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+    }
+
+    .clarity-list {
+      margin: 0.5rem 0 0;
+      padding: 0;
+      list-style: none;
+      max-width: 40rem;
+    }
+
+    .clarity-list li {
+      position: relative;
+      padding: 0.65rem 0 0.65rem 1.35rem;
+      border-bottom: 1px solid rgba(47, 62, 70, 0.08);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    .clarity-list li:last-child {
+      border-bottom: none;
+    }
+
+    .clarity-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.05rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-mint));
+      opacity: 0.85;
+    }
+
+    .live-status-box {
+      margin-top: 0.5rem;
+      padding: 1.15rem 1.35rem;
+      max-width: 42rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(244, 239, 230, 0.45) 100%);
+      border: 1px solid rgba(168, 121, 65, 0.22);
+      border-left: 3px solid var(--gold);
+      border-radius: calc(var(--radius) - 6px);
+    }
+
+    .live-status-box p {
+      margin: 0 0 0.65rem;
+      font-size: 0.96875rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+
+    .live-status-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .marketplace-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2.5vw, 1.35rem);
+      margin-top: 0.75rem;
+      max-width: 52rem;
+    }
+
+    .marketplace-card {
+      padding: 1.25rem 1.35rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(47, 62, 70, 0.12);
+      border-radius: calc(var(--radius) - 6px);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .marketplace-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .marketplace-card .status-pill {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-clay);
+    }
+
+    .marketplace-card p {
+      margin: 0;
+      flex: 1;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .marketplace-card a {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      text-decoration: none;
+      margin-top: 0.35rem;
+    }
+
+    .marketplace-card a:hover {
+      color: var(--gold);
+    }
+
+    .cta-deploy {
+      text-align: center;
+      padding: clamp(3.75rem, 5vw, 5rem) 0;
+    }
+
+    .cta-deploy .section-inner {
+      align-items: center;
+      text-align: center;
+    }
+
+    .cta-deploy .section-inner > * {
+      max-width: 36rem;
+    }
+
+    .about-minimal p {
+      margin: 0;
+      max-width: 40rem;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .pillar-grid,
+      .omega-grid,
+      .marketplace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.72; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(111, 147, 163, 0.35); }
+      100% { box-shadow: 0 0 0 10px rgba(111, 147, 163, 0); }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="ageGateOverlay" class="age-gate-overlay" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle">
+    <div class="age-gate-card">
+      <h2 id="ageGateTitle">AETHRA notice</h2>
+      <p style="margin:0 0 1.25rem;color:var(--muted);line-height:1.65;">
+        This platform is intended for users aged <strong>18 and above</strong>. By continuing, you confirm that you meet this requirement.
+      </p>
+      <button type="button" class="btn btn-primary" id="ageGateConfirm">I am 18+</button>
+    </div>
+  </div>
+  <div class="page-bg">
+    <header class="wrap masthead" id="home">
+      <a class="logo" href="#home">AETHRA</a>
+      <nav class="masthead-nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#three-pillars">Three pillars</a>
+        <a href="#acquisition-core">Acquisition</a>
+        <a href="#marketplace">Portfolio</a>
+        <a href="#about">About</a>
+      </nav>
+      <span class="status-indicator">Evolving</span>
+    </header>
+
+    <section class="wrap hero">
+      <h1>Turn Ideas, Businesses, and Capital Into Revenue</h1>
+      <p class="lede" style="margin-top:1rem;margin-bottom:0.35rem">AETHRA is a self-evolving system that:</p>
+      <ul class="hero-list">
+        <li>transforms ideas into live revenue systems</li>
+        <li>increases profitability of existing businesses</li>
+        <li>builds and compounds its own portfolio</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#judgement">Submit an Idea</a>
+        <a class="btn" href="#business-audit">Analyse a Business</a>
+        <a class="btn" href="#marketplace">Explore Portfolio</a>
+      </div>
+      <p class="trust-line">AETHRA does not operate once. It evolves continuously.</p>
+      <div class="section-divider" aria-hidden="true"></div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="three-pillars">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Structure</p>
+        <h2 class="section-title">Three permanent pillars</h2>
+        <p class="editorial-block" style="margin:0 0 1rem;max-width:44rem;color:var(--muted);line-height:1.72">
+          Every surface of AETHRA maps to one pillar — ideas, existing businesses, or the portfolio. Each deployment refines the system; outputs become inputs for growth.
+        </p>
+        <div class="pillar-grid">
+          <article class="pillar-card">
+            <p class="pillar-label">Pillar 1 — Ideas</p>
+            <h3>Client ideas</h3>
+            <p class="model-line">Revenue share only</p>
+            <p>
+              Submit an idea. AETHRA builds and deploys it. We only earn when it earns. Performance varies based on execution and market conditions.
+            </p>
+          </article>
+          <article class="pillar-card">
+            <p class="pillar-label">Pillar 2 — Business</p>
+            <h3>Existing business optimisation</h3>
+            <p class="model-line">Paid audit + optional performance upside</p>
+            <p>
+              Identify and unlock hidden profit within your business. Structured review, execution support, and measurable activity — without promising fixed returns.
+            </p>
+          </article>
+          <article class="pillar-card">
+            <p class="pillar-label">Pillar 3 — Portfolio</p>
+            <h3>AETHRA portfolio</h3>
+            <p class="model-line">Internal ventures + marketplace exposure</p>
+            <p>
+              Ventures created and operated by AETHRA, surfaced for discovery. Access to economic systems and scaling opportunities as they mature.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="what-aethra-does">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Organism</p>
+        <h2 class="section-title">AETHRA evolves continuously</h2>
+        <div class="organism-strip">
+          <p>
+            AETHRA consumes input — ideas, businesses, capital — deploys execution in the real world, generates revenue, and reinvests so the next cycle is stronger than the last.
+          </p>
+          <p>
+            Each deployment refines the system. It does not reset to a static playbook; it adapts from outcomes. People do not buy systems alone — they buy outcomes, improvement, and growth. AETHRA is built for that trajectory.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="live-opportunities">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Ideas &amp; portfolio</p>
+        <h2 class="section-title">Openings across the pillars</h2>
+        <div class="aethra-block ideas-block" style="margin-top:0.75rem">
+          <p style="margin:0 0 0.75rem;color:var(--muted);font-size:0.96875rem;max-width:40rem">
+            A live view of idea-stage and portfolio-aligned openings — ranked for demand, margin, and speed to revenue. Performance varies based on execution and market conditions.
+          </p>
+          <ul id="landingIdeasList">
+            <li class="muted-small" style="list-style:none;margin-left:0;padding-left:0">Loading…</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="live-system-status">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Pulse</p>
+        <h2 class="section-title">Where the organism is focused</h2>
+        <div class="live-status-box">
+          <p>Pipelines across ideas, business audits, and portfolio ventures stay in motion.</p>
+          <p>Early revenue systems and deployments compound; each cycle informs the next.</p>
+          <p>The marketplace layer connects operational models to the outside world.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="marketplace">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Portfolio</p>
+        <h2 class="section-title">AETHRA Portfolio &amp; Marketplace</h2>
+        <p style="margin:0;max-width:42rem;color:var(--muted);line-height:1.72">
+          Explore ventures created and operated by AETHRA — active revenue systems, early-stage deployments, and scaling opportunities. This is <strong>not</strong> an investment platform. It is access to economic systems and ventures. Performance varies based on execution and market conditions.
+        </p>
+        <p style="margin:0.85rem 0 0;max-width:42rem;font-size:0.9375rem;color:var(--accent-slate);line-height:1.65">
+          Future: acquire systems, access frameworks, engage with operational models.
+        </p>
+        <div class="marketplace-grid">
+          <article class="marketplace-card">
+            <h3>Local Service Revenue Engine (London)</h3>
+            <span class="status-pill">Launching</span>
+            <p>AETHRA-deployed service model generating local revenue through outsourced fulfilment.</p>
+            <a href="#marketplace">View Details</a>
+          </article>
+          <article class="marketplace-card">
+            <h3>Digital Product Engine</h3>
+            <span class="status-pill">Testing</span>
+            <p>Packaged digital offers under active validation and conversion testing.</p>
+            <a href="#marketplace">View Details</a>
+          </article>
+          <article class="marketplace-card">
+            <h3>Marketplace Arbitrage System</h3>
+            <span class="status-pill">Active Exploration</span>
+            <p>Cross-venue arbitrage lanes under structured risk caps.</p>
+            <a href="#marketplace">View Details</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial" id="capital-allocation">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Portfolio participation</p>
+        <h2 class="section-title">Capital, ledger &amp; deployment</h2>
+        <p class="legal-disclaimer">
+          AETHRA does not guarantee outcomes. Performance varies based on execution and market conditions. All deployments involve execution and market variables.
+        </p>
+        <div class="aethra-block capital-wallet-block">
+          <h3>Capital &amp; revenue</h3>
+          <p>
+            <strong>Active plan:</strong>
+            <span id="capActivePlan">—</span>
+          </p>
+          <p>
+            <strong>Available balance (liquid):</strong>
+            <span id="capAvailableBalance">—</span>
+          </p>
+          <p>
+            <strong>Total capital (liquid + venture budgets):</strong>
+            <span id="capTotalCapital">—</span>
+          </p>
+          <p>
+            <strong>Ledger (recorded top-ups):</strong>
+            <span id="capLedgerBalance">—</span>
+          </p>
+          <p class="muted-small" style="margin:0.75rem 0 0;max-width:40rem;line-height:1.6">
+            Capital moves when validation supports deployment. Top-ups credit the ledger and operator pool; settled payments post as they clear, keeping the trail auditable.
+          </p>
+          <p style="margin-top:0.75rem">
+            <strong>Performance fee:</strong> 5% (applied at transaction level for AETHRA-processed deal payments)
+          </p>
+          <p style="margin:1rem 0 0.5rem"><strong>Allocated</strong></p>
+          <ul id="capAllocatedList" class="capital-alloc-list">
+            <li class="muted-small">Loading…</li>
+          </ul>
+          <p style="margin-top:1rem">
+            <strong>Remaining deployable (liquid):</strong>
+            <span id="capRemaining">—</span>
+          </p>
+          <p class="muted-small" id="capWalletNotice" style="margin-top:0.75rem;max-width:40rem"></p>
+          <div style="margin-top:1.35rem">
+            <button type="button" class="btn btn-primary" id="capAddFundsBtn">Add capital</button>
+            <button type="button" class="btn" id="capUpgradePlanBtn" style="margin-left:0.55rem">Adjust plan</button>
+            <span class="muted-small" style="margin-left:0.75rem;display:inline-block;vertical-align:middle"
+              >Default top-up £50 via secure checkout</span
+            >
+          </div>
+        </div>
+        <div class="sr-only" aria-hidden="true">
+          <span data-portfolio-live="capital">—</span>
+          <span data-portfolio-live="active">—</span>
+          <span data-portfolio-live="top">—</span>
+          <span data-portfolio-live="action">—</span>
+          <span id="home-exp-launched">—</span>
+          <span id="home-exp-revenue">—</span>
+          <span id="home-exp-running">—</span>
+          <span id="home-rev-leads">—</span>
+          <span id="home-rev-msgs">—</span>
+          <span id="home-rev-reply">—</span>
+          <span id="home-rev-conv">—</span>
+          <span id="home-rev-rev">—</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="wrap" id="judgement">
+      <div class="judgement-panel">
+        <p class="panel-kicker">Pillars 1 &amp; 2</p>
+        <h2 class="panel-title">Submit an idea or surface a business</h2>
+        <p style="margin:0 0 1rem;color:var(--muted);font-size:0.96875rem;line-height:1.65;max-width:36rem">
+          <strong>Ideas:</strong> describe what you want built — revenue-share engagement; we only earn when it earns.
+        </p>
+        <p id="business-audit" style="margin:0 0 1.25rem;color:var(--muted);font-size:0.96875rem;line-height:1.65;max-width:36rem">
+          <strong>Business:</strong> outline your operation for a paid audit and optional performance upside. Performance varies based on execution and market conditions.
+        </p>
+
+        <label class="field-label" for="idea">Idea, business context, or URL</label>
+        <textarea
+          id="idea"
+          placeholder="e.g. mobile car wash in Manchester or https://example.com"
+        ></textarea>
+
+        <div class="run-row">
+          <button type="button" class="btn btn-primary" id="runBtn">Run assessment</button>
+          <span class="status" id="status" aria-live="polite"></span>
+        </div>
+
+        <div id="output" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <hr class="section-sep" aria-hidden="true" />
+
+    <section class="editorial cta-deploy" id="start-deployment">
+      <div class="wrap section-inner">
+        <h2 class="section-title" style="margin-bottom:1rem">Choose your entry point</h2>
+        <div class="hero-cta" style="margin-top:0">
+          <a class="btn btn-primary" href="#judgement">Submit an Idea</a>
+          <a class="btn" href="#business-audit">Analyse a Business</a>
+          <a class="btn" href="#marketplace">Explore Portfolio</a>
+        </div>
+        <p style="margin:1.25rem 0 0;font-size:0.96875rem;color:var(--muted);line-height:1.7;max-width:42rem">
+          AETHRA does not sell software. It transforms input into revenue and evolves with every cycle. Performance varies based on execution and market conditions.
+        </p>
+        <p style="margin:0.75rem 0 0">
+          <a class="btn" href="#capital-allocation" style="padding:0.85rem 1.5rem;font-size:0.6875rem">Participate with capital</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="editorial" id="acquisition-core">
+      <div class="wrap section-inner">
+        <p class="section-kicker">Customer acquisition core Omega v24</p>
+        <h2 class="section-title">Signal dominance under real-world constraints</h2>
+        <p class="editorial-block" style="margin:0 0 1rem;max-width:44rem;color:var(--muted);line-height:1.72">
+          Acquisition in AETHRA is adaptive interception of live economic intent under uncertainty, noise, and platform limits. The system does not run fixed scripts: it senses, scores, engages, converts, and re-optimises while preserving account survivability.
+        </p>
+        <p class="legal-disclaimer" style="margin-top:0">
+          Hardening rule: validate before scaling, prioritise high-intent leads, protect accounts, track real revenue over vanity metrics, and degrade gracefully under failure.
+        </p>
+
+        <div class="omega-grid">
+          <article class="omega-card">
+            <h3>1. Signal dominance engine</h3>
+            <p>Noise filtering and temporal weighting isolate fresh, urgent, high-intent demand before consensus forms.</p>
+            <p class="omega-rule">Filter: relevance &gt; 0.6, duplicates removed, low bot probability.</p>
+          </article>
+          <article class="omega-card">
+            <h3>2. Lead intelligence</h3>
+            <p>Economic depth scoring combines expected revenue, problem severity, and conversion likelihood with lead-decay control.</p>
+            <p class="omega-rule">Priority decays as lead age rises; fresh intent is favored.</p>
+          </article>
+          <article class="omega-card">
+            <h3>3. Adaptive interaction engine</h3>
+            <p>Human-like timing and variation reduce pattern repetition while preserving context-aware engagement quality.</p>
+            <p class="omega-rule">No fixed templates; probabilistic message variation per context.</p>
+          </article>
+          <article class="omega-card">
+            <h3>4. Conversion engine</h3>
+            <p>Multi-path closes route leads by urgency and friction, then simplify the flow where drop-off appears.</p>
+            <p class="omega-rule">Direct close, soft-close, or nurture based on live response state.</p>
+          </article>
+          <article class="omega-card">
+            <h3>5. Content engine</h3>
+            <p>Narrative repetition loops and authority stacking amplify posts that trigger qualified inbound conversations.</p>
+            <p class="omega-rule">Insight to proof to repetition; amplify what generates real DMs.</p>
+          </article>
+          <article class="omega-card">
+            <h3>6. Learning engine</h3>
+            <p>Error memory stores failed contexts and outcomes, then promotes patterns with measurable success signals.</p>
+            <p class="omega-rule">Failed states are retained as anti-pattern memory.</p>
+          </article>
+          <article class="omega-card">
+            <h3>7. Account operating system</h3>
+            <p>Health scoring, throttling, and distributed presence reduce single-point platform risk and survivability exposure.</p>
+            <p class="omega-rule">If risk rises, activity is throttled automatically.</p>
+          </article>
+          <article class="omega-card">
+            <h3>8. Multi-LLM and tool layer</h3>
+            <p>Task-specific model routing and failover keep operations alive when a provider or tool degrades.</p>
+            <p class="omega-rule">Reasoning, copy, and bulk tasks route to different stacks.</p>
+          </article>
+          <article class="omega-card">
+            <h3>9. Master loop</h3>
+            <p>Ingest, filter, score, enrich, qualify, engage, interact, and convert in a resilient asynchronous loop.</p>
+            <p class="omega-rule">System continues under partial failure; it does not collapse.</p>
+          </article>
+          <article class="omega-card">
+            <h3>10. Dominance scaling system</h3>
+            <p>Intensity increases only when ROI and conversion stability are both validated by live economic feedback.</p>
+            <p class="omega-rule">Scale validated patterns, never blind volume.</p>
+          </article>
+        </div>
+
+        <p class="about-final" style="margin-top:1.2rem">
+          AETHRA does not chase customers. It identifies intent, adapts to reality, and converts continuously at scale.
+        </p>
+      </div>
+    </section>
+
+    <section class="editorial" id="about">
+      <div class="wrap section-inner about-article">
+        <p class="section-kicker">About</p>
+        <h2 class="section-title">About AETHRA</h2>
+
+        <h3>Origin</h3>
+        <p>Most systems stop at ideas. Most businesses plateau. Most capital remains underutilised.</p>
+        <p class="lead-pull">AETHRA was created to solve a single problem: how to continuously turn input into revenue — without stagnation.</p>
+
+        <h3>What AETHRA is</h3>
+        <p>AETHRA is not a tool. It is not a platform. It is not a static system.</p>
+        <p class="lead-pull">It is a self-evolving economic organism.</p>
+        <p>It operates by receiving inputs (ideas, businesses, capital), executing real-world strategies, generating measurable revenue, and reinvesting outcomes into new opportunities. Each cycle strengthens the next.</p>
+
+        <h3>Why it exists</h3>
+        <p>The majority of value in markets is lost through inefficiency, slow execution, and poor positioning.</p>
+        <p>AETHRA exists to identify inefficiencies, deploy faster execution, and capture value continuously.</p>
+
+        <h3>The three pillars</h3>
+        <p>AETHRA operates through three permanent pillars:</p>
+        <ul class="simple">
+          <li><strong>Ideas</strong> — turning concepts into revenue systems</li>
+          <li><strong>Business</strong> — improving existing operations and profitability</li>
+          <li><strong>Portfolio</strong> — building and scaling ventures autonomously</li>
+        </ul>
+
+        <h3>Organism philosophy</h3>
+        <p>AETHRA behaves differently from traditional systems. It does not stop. It does not reset. It does not depend on static logic.</p>
+        <p class="lead-pull">It adapts.</p>
+        <p>It learns from execution. It refines based on outcomes. It compounds over time.</p>
+
+        <h3>Mission</h3>
+        <p class="lead-pull">To create a system capable of continuously generating, improving, and scaling economic activity</p>
+        <p>across industries, business models, and environments.</p>
+
+        <h3>Positioning</h3>
+        <p>AETHRA is building a new category of system — not software, not services alone.</p>
+        <p class="lead-pull">Economic infrastructure that produces outcomes.</p>
+
+        <h3>Trust and reality</h3>
+        <p>AETHRA does not guarantee outcomes. All deployments involve execution and market variables.</p>
+        <p>What AETHRA provides: structured execution, measurable activity, and continuous optimisation.</p>
+
+        <p class="about-final">AETHRA is not designed to operate once. It is designed to evolve indefinitely.</p>
+      </div>
+    </section>
+
+    <footer class="wrap site-footer">AETHRA does not sell software — it transforms input into revenue and evolves with every cycle.</footer>
+  </div>
+
+  <script>
+    (function () {
+      function escapeHtml(s) {
+        if (s == null) return "";
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function isObj(x) {
+        return x && typeof x === "object" && !Array.isArray(x);
+      }
+
+      function humanize(s) {
+        return String(s || "")
+          .replace(/_/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function verdictKey(v) {
+        var x = String(v || "").toLowerCase();
+        if (x === "kill") return "kill";
+        if (x === "advance") return "advance";
+        return "hold";
+      }
+
+      function verdictHeadline(key) {
+        if (key === "kill") {
+          return "This direction is unlikely to produce meaningful profit under its current framing.";
+        }
+        if (key === "advance") {
+          return "This direction clears the bar for disciplined deployment, provided execution remains bounded and evidence-led.";
+        }
+        return "The record is insufficient to commit capital; further validation is required before meaningful spend.";
+      }
+
+      function buildExplanation(dec, strat) {
+        var parts = [];
+        if (dec.executive_summary) parts.push(String(dec.executive_summary).trim());
+        if (strat && strat.narrative) {
+          var n = String(strat.narrative).trim();
+          if (n && (!dec.executive_summary || dec.executive_summary.indexOf(n.slice(0, 40)) === -1)) {
+            parts.push(n);
+          }
+        }
+        if (strat && strat.predictive_engine && strat.predictive_engine.summary) {
+          var p = String(strat.predictive_engine.summary).trim();
+          if (p) parts.push(p);
+        }
+        if (!parts.length) {
+          return "The engine completed its pass; narrative fields were sparse in this payload. Re-run after enriching inputs or consult the raw response.";
+        }
+        return parts.join("\n\n");
+      }
+
+      function buildDiagnosis(dec, val, strat) {
+        var chunks = [];
+        var br = dec.blocked_reasons;
+        if (Array.isArray(br) && br.length) {
+          chunks.push(
+            "Control-plane blockers include: " +
+              br.map(humanize).join("; ") +
+              ". These gates exist to prevent capital flowing into structurally weak positions."
+          );
+        }
+        if (dec.intent && dec.intent.allowed === false && Array.isArray(dec.intent.violations) && dec.intent.violations.length) {
+          chunks.push(
+            "Intent review flagged the following: " +
+              dec.intent.violations.map(humanize).join("; ") +
+              ". Positioning must be corrected before go-to-market work proceeds."
+          );
+        }
+        if (isObj(val)) {
+          if (val.viability_0_100 != null) {
+            chunks.push(
+              "Viability is scored at " +
+                val.viability_0_100 +
+                " on a 0–100 scale, derived from internal gates rather than external hype."
+            );
+          }
+          var sig = val.signal_summary;
+          if (isObj(sig)) {
+            var d = sig.demand_subscore;
+            var df = sig.differentiation_subscore;
+            if (d != null || df != null) {
+              chunks.push(
+                "Signal decomposition suggests demand weight " +
+                  (d != null ? Number(d).toFixed(2) : "n/a") +
+                  " and differentiation weight " +
+                  (df != null ? Number(df).toFixed(2) : "n/a") +
+                  " relative to configured thresholds."
+              );
+            }
+          }
+          var mkt = val.market_reality;
+          if (isObj(mkt) && mkt.saturation_level) {
+            chunks.push(
+              "Market framing reads as " +
+                String(mkt.saturation_level).replace(/_/g, " ") +
+                " under the selected niche hypothesis."
+            );
+          }
+          if (Array.isArray(val.improvements) && val.improvements.length) {
+            chunks.push("Structural improvements flagged: " + val.improvements.slice(0, 4).join(" ") + (val.improvements.length > 4 ? " Further items are available in the full record." : ""));
+          }
+        }
+        var ing = isObj(val) && isObj(val.ingestion) ? val.ingestion : null;
+        var an = isObj(val) && isObj(val.analysis) ? val.analysis : null;
+        if (ing && ing.url) {
+          chunks.push("Source URL ingested: " + String(ing.url) + (ing.title ? " — " + String(ing.title) : "") + ".");
+        }
+        if (an && typeof an.summary === "string" && an.summary.trim()) {
+          chunks.push(an.summary.trim());
+        }
+        if (!chunks.length) {
+          return "No major diagnostic flags were surfaced in this response. That does not imply absence of risk — only that the structured pass did not produce additional blockers beyond the headline verdict.";
+        }
+        return chunks.join("\n\n");
+      }
+
+      function buildWhatItMeans(key, dec) {
+        if (key === "kill") {
+          return (
+            "In practical terms: do not scale traffic, inventory, or headcount against this thesis until the wedge, economics, or market definition materially change. " +
+            "Capital and calendar time are better redeployed toward a narrower ICP, a different offer, or a distinct channel test with explicit kill criteria."
+          );
+        }
+        if (key === "advance") {
+          return (
+            "In practical terms: you may proceed, but under operator discipline — one primary channel, one measurable KPI, and written unit economics before scale. " +
+            "Treat the verdict as permission to test with boundaries, not as endorsement of open-ended spend."
+          );
+        }
+        return (
+          "In practical terms: freeze discretionary launch spend until the open questions in the diagnosis are resolved with evidence, not narrative. " +
+          "A hold is not a rejection of ambition; it is a refusal to pretend uncertainty is resolved."
+        );
+      }
+
+      function pickField(obj, key) {
+        var v = obj && obj[key];
+        if (v != null && String(v).trim() !== "") return String(v).trim();
+        return "";
+      }
+
+      function buildExecutionPlanList(data) {
+        var ex = isObj(data.execution) ? data.execution : {};
+        var offer = pickField(ex, "offer") || pickField(ex, "product_focus");
+        var ctx =
+          offer !== ""
+            ? "<p><strong>Offer under validation:</strong> " + escapeHtml(offer.slice(0, 220)) + "</p>"
+            : "";
+        return (
+          "<p>AETHRA will initiate a controlled validation cycle.</p>" +
+          '<h3 class="op-sub">Phase 1 — Supply activation</h3>' +
+          "<p>AETHRA selects and prepares supplier relationships for immediate use. No manual sourcing required.</p>" +
+          '<h3 class="op-sub">Phase 2 — Market entry</h3>' +
+          "<p>AETHRA deploys a single high-precision offer designed to test real demand within 48 hours.</p>" +
+          '<h3 class="op-sub">Phase 3 — Acquisition</h3>' +
+          "<p>AETHRA activates a targeted outreach sequence to a defined set of high-probability buyers.</p>" +
+          '<h3 class="op-sub">Phase 4 — Signal evaluation</h3>' +
+          "<p>Responses, objections, and pricing resistance are analysed in real time.</p>" +
+          '<h3 class="op-sub">Phase 5 — Decision</h3>' +
+          "<p>If demand validates, scale allocation increases. If signals weaken, the offer is restructured or terminated.</p>" +
+          "<p>No capital is deployed without evidence. This cycle repeats until a profitable configuration is achieved.</p>" +
+          ctx
+        );
+      }
+
+      function buildDeliveryBlock(data) {
+        var dl = isObj(data.delivery) ? data.delivery : {};
+        var steps = dl.service_steps;
+        var stepsHtml = "Pending";
+        if (Array.isArray(steps) && steps.length) {
+          stepsHtml = steps
+            .map(function (s) {
+              return String(s == null ? "" : s).trim();
+            })
+            .filter(Boolean)
+            .join(" → ");
+        }
+        return (
+          '<p class="delivery-steps"><strong>Service sequence:</strong> ' +
+          escapeHtml(stepsHtml) +
+          "</p>" +
+          '<ul class="exec-list">' +
+          "<li><strong>Client output:</strong> " +
+          escapeHtml(pickField(dl, "client_output") || "Pending") +
+          "</li>" +
+          "<li><strong>Retention:</strong> " +
+          escapeHtml(pickField(dl, "retention") || "Pending") +
+          "</li>" +
+          "<li><strong>Upsell:</strong> " +
+          escapeHtml(pickField(dl, "upsell") || "Pending") +
+          "</li>" +
+          "</ul>" +
+          "<p>Manual delivery first; document variance, then standardise.</p>"
+        );
+      }
+
+      function listFromArray(label, arr) {
+        if (!Array.isArray(arr) || !arr.length) {
+          return "<li><strong>" + escapeHtml(label) + ":</strong> Pending</li>";
+        }
+        var body = arr
+          .map(function (x) {
+            return escapeHtml(String(x));
+          })
+          .join(", ");
+        return "<li><strong>" + escapeHtml(label) + ":</strong> " + body + "</li>";
+      }
+
+      function buildOperatorMode(data) {
+        var b = isObj(data.brand) ? data.brand : {};
+        var mk = isObj(data.marketing) ? data.marketing : {};
+        var tst = isObj(data.testing) ? data.testing : {};
+        var h = isObj(b.handles) ? b.handles : {};
+        var alts = Array.isArray(h.alternatives) ? h.alternatives : [];
+        var altStr = alts.length ? alts.join("; ") : "Pending";
+        var ch = mk.channels;
+        var ang = mk.content_angles;
+        var ulMk = "<ul class=\"exec-list\">";
+        ulMk += listFromArray("Channels", ch);
+        ulMk += listFromArray("Content angles", ang);
+        ulMk +=
+          "<li><strong>Posting frequency:</strong> " +
+          escapeHtml(pickField(mk, "posting_frequency") || "Pending") +
+          "</li>";
+        ulMk +=
+          "<li><strong>Outreach message:</strong> " +
+          escapeHtml(pickField(mk, "outreach_message") || "Pending") +
+          "</li>";
+        ulMk += "</ul>";
+        var vars = tst.variables;
+        var ulT = "<ul class=\"exec-list\">";
+        ulT += listFromArray("Variables", vars);
+        ulT +=
+          "<li><strong>Goal:</strong> " +
+          escapeHtml(pickField(tst, "goal") || "Pending") +
+          "</li>";
+        ulT +=
+          "<li><strong>Cycle:</strong> " +
+          escapeHtml(pickField(tst, "cycle") || "Pending") +
+          "</li>";
+        ulT += "</ul>";
+        return (
+          '<ul class="exec-list">' +
+          "<li><strong>Name:</strong> " +
+          escapeHtml(pickField(b, "name") || pickField(b, "brand_name") || "Pending") +
+          "</li>" +
+          "<li><strong>Positioning:</strong> " +
+          escapeHtml(pickField(b, "positioning") || "Pending") +
+          "</li>" +
+          "<li><strong>Tagline:</strong> " +
+          escapeHtml(pickField(b, "tagline") || "Pending") +
+          "</li>" +
+          "<li><strong>Tone:</strong> " +
+          escapeHtml(pickField(b, "tone") || "Pending") +
+          "</li>" +
+          "<li><strong>Visual direction:</strong> " +
+          escapeHtml(pickField(b, "visual_direction") || "Pending") +
+          "</li>" +
+          "<li><strong>Handle (primary):</strong> " +
+          escapeHtml(pickField(h, "primary") || "Pending") +
+          "</li>" +
+          "<li><strong>Alternatives:</strong> " +
+          escapeHtml(altStr) +
+          "</li>" +
+          "<li><strong>Domain:</strong> " +
+          escapeHtml(pickField(h, "domain") || "Pending") +
+          "</li>" +
+          "</ul>" +
+          "<h3 class=\"op-sub\">Marketing</h3>" +
+          ulMk +
+          "<h3 class=\"op-sub\">Testing</h3>" +
+          ulT
+        );
+      }
+
+      function buildAutonomousStack(data) {
+        var au = isObj(data.autonomous) ? data.autonomous : {};
+        var src = au.lead_sources;
+        var ul = "<ul class=\"exec-list\">";
+        ul += listFromArray("Lead sources", src);
+        ul +=
+          "<li><strong>Scraping / list build:</strong> " +
+          escapeHtml(pickField(au, "scraping_method") || "Pending") +
+          "</li>";
+        ul +=
+          "<li><strong>Outreach sequence:</strong> " +
+          escapeHtml(pickField(au, "outreach_sequence") || "Pending") +
+          "</li>";
+        ul +=
+          "<li><strong>Follow-up logic:</strong> " +
+          escapeHtml(pickField(au, "follow_up_logic") || "Pending") +
+          "</li>";
+        ul +=
+          "<li><strong>Tracking:</strong> " +
+          escapeHtml(pickField(au, "tracking_method") || "Pending") +
+          "</li>";
+        ul += "</ul>";
+        return (
+          ul +
+          "<p>AETHRA sequences discovery and follow-up; tooling scales only after the signal stabilises.</p>"
+        );
+      }
+
+      function buildMemoryInsight(data) {
+        var mi = pickField(data, "memory_insight");
+        if (!mi) {
+          var meta = isObj(data.meta) ? data.meta : {};
+          mi = pickField(meta, "memory_insight");
+        }
+        return (
+          "<p>" +
+          escapeHtml(
+            mi ||
+              "No ledger signal on this surface yet. As cycles complete and capital moves, this layer fills in."
+          ) +
+          "</p>"
+        );
+      }
+
+      function buildSupplyExecutionPack(data) {
+        var aut = isObj(data.autonomous) ? data.autonomous : {};
+        var ep = isObj(aut.execution_pack) ? aut.execution_pack : null;
+        var si = isObj(aut.supplier_intel) ? aut.supplier_intel : {};
+        var sa = isObj(si.supply_access) ? si.supply_access : null;
+        if (!ep && !sa) {
+          return (
+            '<div class="block block-fade narrative-block"><h3>Supply intelligence</h3><div class="body">' +
+            "<p>The supply stack activates on a full host cycle. Initiate a run to map curated lanes, connectors, and execution order.</p>" +
+            "</div></div>"
+          );
+        }
+        var html =
+          '<div class="block block-fade narrative-block"><h3>Execution dossier</h3><div class="body">';
+
+        if (ep && isObj(ep.business_decision)) {
+          var bd = ep.business_decision;
+          var vLine =
+            bd.viable === false
+              ? "Not viable under current framing"
+              : bd.viable === true
+                ? "Viable — execute with verification"
+                : "Assessment — review gates";
+          html +=
+            "<p><strong>Business decision:</strong> " +
+            escapeHtml(vLine) +
+            " <span class=\"muted-small\">(" +
+            escapeHtml(String(bd.verdict || "—")) +
+            ")</span></p>";
+          if (bd.summary) html += "<p>" + escapeHtml(bd.summary) + "</p>";
+        }
+
+        if (sa && isObj(sa.layer1_curated)) {
+          var c = sa.layer1_curated;
+          html +=
+            "<p><strong>Layer 1 — curated library:</strong> " +
+            (c.matched
+              ? escapeHtml(String(c.industry || "")) +
+                " · " +
+                escapeHtml(String(c.subcategory || "").replace(/_/g, " "))
+              : "no keyword match — connectors and operator research apply") +
+            "</p>";
+        }
+        if (sa && isObj(sa.layer2_connectors)) {
+          var l2 = sa.layer2_connectors;
+          var uk = Array.isArray(l2.top_suppliers_uk) ? l2.top_suppliers_uk.length : 0;
+          var eu = Array.isArray(l2.top_suppliers_eu) ? l2.top_suppliers_eu.length : 0;
+          var cn = Array.isArray(l2.top_manufacturers_china) ? l2.top_manufacturers_china.length : 0;
+          html +=
+            "<p><strong>Layer 2 — connectors:</strong> UK " +
+            String(uk) +
+            " · EU " +
+            String(eu) +
+            " · China bucket " +
+            String(cn) +
+            ". " +
+            escapeHtml(String(l2.freshness_note || "")) +
+            "</p>";
+        }
+        if (sa && isObj(sa.layer3_interpretation)) {
+          var l3 = sa.layer3_interpretation;
+          var st = l3.execution_stack || {};
+          html += "<h4 class=\"op-sub\">Execution stack (Layer 3)</h4><ul class=\"exec-list\">";
+          if (st.supplier_fast_start && st.supplier_fast_start.primary) {
+            var p = st.supplier_fast_start.primary;
+            html +=
+              "<li><strong>Fast start:</strong> " +
+              escapeHtml(p.name || "—") +
+              (p.source ? " <span class=\"muted-small\">(" + escapeHtml(p.source) + ")</span>" : "") +
+              "</li>";
+          }
+          if (st.supplier_scale && st.supplier_scale.primary) {
+            var ps = st.supplier_scale.primary;
+            html +=
+              "<li><strong>Scale:</strong> " +
+              escapeHtml(ps.name || "—") +
+              (ps.source ? " <span class=\"muted-small\">(" + escapeHtml(ps.source) + ")</span>" : "") +
+              "</li>";
+          }
+          if (st.supplier_margin_optimisation && st.supplier_margin_optimisation.primary) {
+            var pm = st.supplier_margin_optimisation.primary;
+            html +=
+              "<li><strong>Margin optimisation:</strong> " +
+              escapeHtml(pm.name || "—") +
+              "</li>";
+          }
+          html += "</ul>";
+          if (Array.isArray(l3.recommended)) {
+            html += "<ul class=\"exec-list\">";
+            var ri;
+            for (ri = 0; ri < l3.recommended.length; ri++) {
+              var rec = l3.recommended[ri];
+              var th = rec.threshold != null ? " · ~£" + String(rec.threshold) + "/mo" : "";
+              html +=
+                "<li><strong>" +
+                escapeHtml(String(rec.action || "").replace(/_/g, " ")) +
+                ":</strong> " +
+                escapeHtml(String(rec.detail || "")) +
+                escapeHtml(th) +
+                "</li>";
+            }
+            html += "</ul>";
+          }
+        }
+
+        if (ep && isObj(ep.supplier_stack)) {
+          var ss = ep.supplier_stack;
+          html += "<h4 class=\"op-sub\">Supplier roles</h4><ul class=\"exec-list\">";
+          html +=
+            "<li><strong>Chemicals / consumables:</strong> " +
+            escapeHtml(formatNameList(ss.chemicals)) +
+            "</li>";
+          html +=
+            "<li><strong>Equipment:</strong> " +
+            escapeHtml(formatNameList(ss.equipment)) +
+            "</li>";
+          html +=
+            "<li><strong>Backup:</strong> " +
+            escapeHtml(formatNameList(ss.backup)) +
+            "</li>";
+          html += "</ul>";
+        }
+
+        if (ep && isObj(ep.brand)) {
+          var br = ep.brand;
+          html += "<h4 class=\"op-sub\">Brand</h4><ul class=\"exec-list\">";
+          html += "<li><strong>Name:</strong> " + escapeHtml(String(br.name || "—")) + "</li>";
+          html +=
+            "<li><strong>Domain candidate:</strong> " +
+            escapeHtml(String(br.domain_candidate || "—")) +
+            " · " +
+            escapeHtml(String(br.domain_availability || "")) +
+            "</li>";
+          html +=
+            "<li><strong>Handles:</strong> " +
+            escapeHtml(String((br.handles && br.handles.primary) || "—")) +
+            "</li>";
+          html += "</ul>";
+        }
+
+        if (ep && isObj(ep.website)) {
+          var w = ep.website;
+          html += "<h4 class=\"op-sub\">Website</h4>";
+          html += "<p>" + escapeHtml(String(w.landing_hero || "")) + "</p>";
+          if (Array.isArray(w.structure)) {
+            html += "<ul class=\"exec-list\">";
+            var wi;
+            for (wi = 0; wi < w.structure.length; wi++) {
+              html += "<li>" + escapeHtml(String(w.structure[wi])) + "</li>";
+            }
+            html += "</ul>";
+          }
+        }
+
+        if (ep && isObj(ep.outreach)) {
+          var o = ep.outreach;
+          html += "<h4 class=\"op-sub\">Outreach (draft — review before send)</h4>";
+          if (Array.isArray(o.supplier_emails)) {
+            html += "<p class=\"muted-small\"><strong>Supplier emails</strong></p>";
+            var se;
+            for (se = 0; se < Math.min(3, o.supplier_emails.length); se++) {
+              html +=
+                '<pre class=\"outreach-pre\">' +
+                escapeHtml(String(o.supplier_emails[se])) +
+                "</pre>";
+            }
+          }
+          if (Array.isArray(o.client_outreach_messages)) {
+            html += "<p class=\"muted-small\"><strong>Client messages</strong></p>";
+            var cm;
+            for (cm = 0; cm < Math.min(3, o.client_outreach_messages.length); cm++) {
+              html += "<p>" + escapeHtml(String(o.client_outreach_messages[cm])) + "</p>";
+            }
+          }
+          if (o.inbound_funnel && isObj(o.inbound_funnel)) {
+            var f = o.inbound_funnel;
+            html += "<p><strong>Inbound funnel:</strong> " + escapeHtml(String((f.channels || []).join(" · "))) + "</p>";
+            if (f.qualification)
+              html += "<p class=\"muted-small\">Qualification: " + escapeHtml(String(f.qualification)) + "</p>";
+          }
+          if (o.whatsapp_script) {
+            html +=
+              '<p class=\"muted-small\"><strong>WhatsApp script:</strong> ' +
+              escapeHtml(String(o.whatsapp_script)) +
+              "</p>";
+          }
+        }
+
+        if (ep && Array.isArray(ep.execution_plan_calendar)) {
+          html += "<h4 class=\"op-sub\">Execution calendar</h4><ul class=\"exec-list\">";
+          var ci;
+          for (ci = 0; ci < ep.execution_plan_calendar.length; ci++) {
+            var day = ep.execution_plan_calendar[ci];
+            var acts = Array.isArray(day.actions) ? day.actions.join("; ") : "";
+            html +=
+              "<li><strong>Day " +
+              escapeHtml(String(day.day != null ? day.day : ci + 1)) +
+              " — " +
+              escapeHtml(String(day.focus || "")) +
+              ":</strong> " +
+              escapeHtml(acts) +
+              "</li>";
+          }
+          html += "</ul>";
+        }
+
+        html += "</div></div>";
+        return html;
+      }
+
+      function formatNameList(arr) {
+        if (!Array.isArray(arr) || !arr.length) return "Not mapped on this pass";
+        var bits = [];
+        var i;
+        for (i = 0; i < Math.min(5, arr.length); i++) {
+          if (arr[i] && arr[i].name) bits.push(arr[i].name);
+        }
+        return bits.length ? bits.join("; ") : "Not mapped on this pass";
+      }
+
+      function pfNum(x) {
+        if (x == null || x === "" || (typeof x === "number" && isNaN(x))) return null;
+        if (typeof x === "number") return String(x);
+        return String(x);
+      }
+
+      function buildPortfolioDashboard(data) {
+        var p = isObj(data.portfolio) ? data.portfolio : null;
+        var ui = isObj(data._ui_summaries) ? data._ui_summaries : {};
+        var line = pickField(ui, "portfolio_dashboard");
+        var emptyBody =
+          "<p><strong>Portfolio layer</strong></p>" +
+          "<p>No active ventures are live on this snapshot yet.</p>" +
+          "<p>As ideas and deployments validate, capital assigns here — each pass refines what comes next.</p>";
+        if (!p && !line) {
+          return (
+            '<div class="block block-fade narrative-block portfolio-pulse"><h3>Portfolio pulse</h3><div class="body">' +
+            emptyBody +
+            "</div></div>"
+          );
+        }
+        if (!p) {
+          return (
+            '<div class="block block-fade narrative-block portfolio-pulse"><h3>Portfolio pulse</h3><div class="body"><p>' +
+            escapeHtml(line) +
+            "</p></div></div>"
+          );
+        }
+        var note = pickField(p, "transparency_note") || "";
+        var basis = p.success_rate_basis ? String(p.success_rate_basis).replace(/_/g, " ") : "";
+        var tw = pfNum(p.total_wallet);
+        var tc = pfNum(p.total_combined);
+        var av = pfNum(p.active_ventures);
+        var sv = pfNum(p.successful_ventures);
+        var fv = pfNum(p.failed_ventures);
+        var tr = pfNum(p.total_revenue);
+        var np = pfNum(p.net_profit);
+        var sr = p.success_rate != null && p.success_rate !== "" ? String(p.success_rate) : "Not yet established";
+        return (
+          '<div class="block block-fade narrative-block portfolio-pulse"><h3>Portfolio pulse</h3><div class="body">' +
+          "<p><strong>Liquid capital:</strong> £" +
+          escapeHtml(tw != null ? tw : "0") +
+          "</p>" +
+          "<p><strong>Combined (liquid + deployed):</strong> £" +
+          escapeHtml(tc != null ? tc : "0") +
+          "</p>" +
+          "<p><strong>Active ventures:</strong> " +
+          escapeHtml(av != null ? av : "0") +
+          "</p>" +
+          "<p><strong>Recorded revenue (ventures):</strong> " +
+          escapeHtml(sv != null ? sv : "0") +
+          " · <strong>Archived:</strong> " +
+          escapeHtml(fv != null ? fv : "0") +
+          "</p>" +
+          "<p><strong>Success rate:</strong> " +
+          escapeHtml(sr) +
+          (basis ? " <span class=\"muted-small\">(" + escapeHtml(basis) + ")</span>" : "") +
+          "</p>" +
+          "<p><strong>Total revenue:</strong> £" +
+          escapeHtml(tr != null ? tr : "0") +
+          "</p>" +
+          "<p><strong>Net position (revenue less allocated budgets):</strong> £" +
+          escapeHtml(np != null ? np : "0") +
+          "</p>" +
+          buildWalletAggregateList(data) +
+          (note
+            ? '<p class="transparency">' + escapeHtml(note) + "</p>"
+            : "") +
+          "</div></div>"
+        );
+      }
+
+      function buildWalletAggregateList(data) {
+        var agg = isObj(data.wallets_aggregate) ? data.wallets_aggregate : {};
+        var w = Array.isArray(agg.wallets) ? agg.wallets : [];
+        if (!w.length) {
+          return (
+            "<p><strong>Wallet</strong></p>" +
+            "<p>No capital currently deployed.</p>" +
+            "<p>AETHRA operates on controlled allocation. Funds commit only once validation thresholds are met.</p>"
+          );
+        }
+        var rows = "";
+        var wi;
+        for (wi = 0; wi < Math.min(6, w.length); wi++) {
+          var W = w[wi];
+          var label =
+            W.type === "core"
+              ? "Core"
+              : "Venture · " + String(W.name || "Unnamed");
+          var bal = W.balance != null && W.balance !== "" ? String(W.balance) : "0";
+          rows +=
+            "<li><strong>" +
+            escapeHtml(label) +
+            ":</strong> £" +
+            escapeHtml(bal) +
+            "</li>";
+        }
+        var comb =
+          agg.total_combined != null && agg.total_combined !== ""
+            ? String(agg.total_combined)
+            : "0";
+        return (
+          '<p><strong>Wallet breakdown</strong></p><ul class="exec-list">' +
+          rows +
+          "</ul>" +
+          '<p class="transparency">Combined total: £' +
+          escapeHtml(comb) +
+          "</p>"
+        );
+      }
+
+      function buildSynergyBlock(data) {
+        var s = isObj(data.synergy) ? data.synergy : null;
+        var ui = isObj(data._ui_summaries) ? data._ui_summaries : {};
+        var line = pickField(ui, "synergy");
+        if (!s && !line) {
+          return (
+            '<div class="block block-fade narrative-block synergy-block"><h3>Cross-portfolio signal</h3><div class="body">' +
+            "<p>Compound patterns surface as the ledger and memory deepen. The system is listening.</p>" +
+            "</div></div>"
+          );
+        }
+        var html =
+          '<div class="block block-fade narrative-block synergy-block"><h3>Cross-portfolio signal</h3><div class="body">';
+        if (s && s.aethra_portfolio) {
+          html += "<p class=\"synergy-note\"><strong>AETHRA portfolio:</strong> " + escapeHtml(s.aethra_portfolio) + "</p>";
+        }
+        if (s && s.user_portfolio) {
+          html += "<p class=\"synergy-note\"><strong>This cycle:</strong> " + escapeHtml(s.user_portfolio) + "</p>";
+        }
+        if (s && Array.isArray(s.shared_patterns) && s.shared_patterns.length) {
+          html += "<ul class=\"exec-list\">";
+          var sp;
+          for (sp = 0; sp < Math.min(5, s.shared_patterns.length); sp++) {
+            html += "<li>" + escapeHtml(String(s.shared_patterns[sp])) + "</li>";
+          }
+          html += "</ul>";
+        }
+        if (s && s.cross_impact) {
+          html += "<p>" + escapeHtml(String(s.cross_impact)) + "</p>";
+        }
+        if (line && (!s || !s.cross_impact)) {
+          html += "<p>" + escapeHtml(line) + "</p>";
+        }
+        html += "</div></div>";
+        return html;
+      }
+
+      function buildScalingStrip(data) {
+        var sc = isObj(data.scaling) ? data.scaling : {};
+        var ev = Array.isArray(sc.evaluations) ? sc.evaluations : [];
+        if (!ev.length) return "";
+        var bits = [];
+        var ei;
+        for (ei = 0; ei < Math.min(3, ev.length); ei++) {
+          var d = ev[ei].decision || {};
+          var nm = ev[ei].venture || "Venture";
+          if (d.kill) bits.push("«" + escapeHtml(String(nm)) + "»: kill candidate — " + escapeHtml(String(d.reason || "").slice(0, 120)));
+          else if (d.scale) bits.push("«" + escapeHtml(String(nm)) + "»: scale signal — " + escapeHtml(String(d.reason || "").slice(0, 120)));
+        }
+        if (!bits.length) return "";
+        return (
+          '<div class="block block-fade narrative-block"><h3>Scaling engine</h3><div class="body"><ul class="exec-list">' +
+          bits.map(function (b) { return "<li>" + b + "</li>"; }).join("") +
+          "</ul></div></div>"
+        );
+      }
+
+      function buildSupplyNetworkBlock(data) {
+        var aut = isObj(data.autonomous) ? data.autonomous : {};
+        var si = isObj(aut.supplier_intel) ? aut.supplier_intel : {};
+        var sa = isObj(si.supply_access) ? si.supply_access : null;
+        var l3 = sa && isObj(sa.layer3_interpretation) ? sa.layer3_interpretation : null;
+        var st = l3 && isObj(l3.execution_stack) ? l3.execution_stack : null;
+        var l2 = sa && isObj(sa.layer2_connectors) ? sa.layer2_connectors : null;
+        var ukName = "Primary lane (curated or live UK)";
+        var euName = "Secondary lane (EU cost curve)";
+        var cnName = "Scaling lane (contract manufacture)";
+        if (st && st.supplier_fast_start && st.supplier_fast_start.primary && st.supplier_fast_start.primary.name) {
+          ukName = st.supplier_fast_start.primary.name;
+        }
+        if (l2 && Array.isArray(l2.top_suppliers_eu) && l2.top_suppliers_eu[0] && l2.top_suppliers_eu[0].name) {
+          euName = l2.top_suppliers_eu[0].name;
+        } else if (st && st.supplier_scale && st.supplier_scale.primary && st.supplier_scale.primary.name) {
+          euName = st.supplier_scale.primary.name;
+        }
+        if (st && st.supplier_margin_optimisation && st.supplier_margin_optimisation.primary && st.supplier_margin_optimisation.primary.name) {
+          cnName = st.supplier_margin_optimisation.primary.name;
+        }
+        return (
+          '<div class="narrative-block"><h2>Supply network</h2><div class="body">' +
+          "<p>AETHRA has mapped the operational layer required to execute this venture.</p>" +
+          "<ul class=\"exec-list\">" +
+          "<li><strong>Supplier (UK):</strong> " +
+          escapeHtml(ukName) +
+          " — ready for immediate deployment.</li>" +
+          "<li><strong>Supplier (EU):</strong> " +
+          escapeHtml(euName) +
+          " — identified for cost optimisation.</li>" +
+          "<li><strong>Manufacturer (scaling):</strong> " +
+          escapeHtml(cnName) +
+          " — reserved for volume transition.</li>" +
+          "</ul>" +
+          "<p>Each relationship is ranked on speed, cost, and reliability. No manual research is required to begin.</p>" +
+          "</div></div>"
+        );
+      }
+
+      function buildRuntimePanels(data) {
+        var aut = isObj(data.autonomous) ? data.autonomous : {};
+        var act = aut.operator_activity;
+        var leads = Array.isArray(aut.leads) ? aut.leads : [];
+        var crmRows = aut.crm && Array.isArray(aut.crm.pipeline) ? aut.crm.pipeline : [];
+        var crmMetrics = aut.crm && isObj(aut.crm.metrics) ? aut.crm.metrics : null;
+        var venture = isObj(data.venture) ? data.venture : {};
+        var w = venture.wallet || {};
+        var ventures = Array.isArray(venture.active_ventures) ? venture.active_ventures : [];
+        var ui = isObj(data._ui_summaries) ? data._ui_summaries : {};
+        var si = isObj(aut.supplier_intel) ? aut.supplier_intel : {};
+        var suppliers = Array.isArray(si.suppliers) ? si.suppliers : [];
+        var outreach = isObj(aut.outreach) ? aut.outreach : {};
+        var disp = Array.isArray(outreach.email_dispatch) ? outreach.email_dispatch : [];
+        var learn = Array.isArray(aut.learning_signals) ? aut.learning_signals : [];
+        var cycle = isObj(venture.cycle) ? venture.cycle : {};
+
+        var actLine = pickField(ui, "operator_activity");
+        if (!actLine && act) {
+          var parts = [];
+          if (act.venture_launched && act.venture_name) {
+            parts.push(
+              "AETHRA allocated £" +
+                String(act.budget_allocated || 0) +
+                " to operator staging for «" +
+                act.venture_name +
+                "»."
+            );
+          } else {
+            parts.push("Allocation gates held. No venture wallet debited on this cycle.");
+          }
+          parts.push(String(act.leads_generated || 0) + " high-probability targets in scope.");
+          if (act.suppliers_surfaced != null) {
+            parts.push(String(act.suppliers_surfaced) + " supplier rows in the active file (verify before procurement).");
+          }
+          if ((act.emails_live || 0) > 0 || (act.emails_simulated || 0) > 0) {
+            parts.push(
+              "Outreach transport: " +
+                String(act.emails_live || 0) +
+                " live, " +
+                String(act.emails_simulated || 0) +
+                " simulated."
+            );
+          }
+          parts.push(String(act.replies_simulated || 0) + " replies classified; drafts prepared.");
+          if ((act.simulated_closes || 0) > 0) {
+            parts.push(
+              String(act.simulated_closes) +
+                " simulated closes · £" +
+                String(act.simulated_revenue_gbp || 0) +
+                " tagged revenue · £" +
+                String(act.reinvest_tagged_gbp || 0) +
+                " reinvest pool."
+            );
+          }
+          actLine = parts.join(" ");
+        }
+        if (!actLine) {
+          actLine =
+            "Operator surfaces bind after a full host cycle. Initiate a run to populate staging, supply, and pipeline.";
+        }
+
+        var leadRows = "";
+        if (leads.length) {
+          var li;
+          for (li = 0; li < Math.min(5, leads.length); li++) {
+            var L = leads[li];
+            leadRows +=
+              "<li>" +
+              escapeHtml(L.name || "Target") +
+              " · " +
+              escapeHtml(L.location || "") +
+              " · fit " +
+              escapeHtml(String(L.niche_score != null ? L.niche_score : "Pending")) +
+              "</li>";
+          }
+        } else {
+          leadRows =
+            "<li>Targets queue on activation. The acquisition layer is ready.</li>";
+        }
+
+        var crmLine = pickField(ui, "crm_snapshot");
+        if (!crmLine && crmRows.length) {
+          var stages = {};
+          var ci;
+          for (ci = 0; ci < crmRows.length; ci++) {
+            var stg = String(crmRows[ci].stage || "lead");
+            stages[stg] = (stages[stg] || 0) + 1;
+          }
+          var keys = Object.keys(stages);
+          var seg = [];
+          for (var si2 = 0; si2 < keys.length; si2++) {
+            seg.push(keys[si2] + ": " + stages[keys[si2]]);
+          }
+          crmLine = seg.join(" · ");
+          if (crmMetrics && typeof crmMetrics.reply_progression_rate === "number") {
+            crmLine +=
+              " · progression ~" +
+              String(Math.round(crmMetrics.reply_progression_rate * 100)) +
+              "% · health " +
+              String(crmMetrics.pipeline_health || "assessing") +
+              " · touches logged " +
+              String(crmMetrics.emails_sent_total != null ? crmMetrics.emails_sent_total : "0");
+          }
+        }
+
+        var crmBlock = "";
+        if (crmRows.length && crmLine) {
+          crmBlock =
+            '<div class="narrative-block"><h2>Pipeline</h2><div class="body"><p>' +
+            escapeHtml(crmLine) +
+            "</p></div></div>";
+        } else {
+          crmBlock =
+            '<div class="narrative-block"><h2>Pipeline</h2><div class="body">' +
+            "<p>No active conversations yet.</p>" +
+            "<p>Opportunities populate as outreach initiates.</p>" +
+            "<p>Responses are classified, prioritised, and fed into the next actions the system takes.</p>" +
+            "</div></div>";
+        }
+
+        var ventLine = pickField(ui, "ventures");
+        if (!ventLine && ventures.length) {
+          var vbits = [];
+          var vi;
+          for (vi = 0; vi < ventures.length; vi++) {
+            var v = ventures[vi];
+            vbits.push(
+              "«" +
+                String(v.name || "Venture") +
+                "»: £" +
+                String(v.budget != null ? v.budget : "0") +
+                " allocated · revenue £" +
+                String(v.revenue != null ? v.revenue : 0)
+            );
+          }
+          ventLine = vbits.join(" · ");
+        }
+        if (!ventLine) {
+          ventLine =
+            "No venture deployments on this ledger surface. Activation assigns the first allocation.";
+        }
+
+        var walletLine = pickField(ui, "wallet");
+        if (!walletLine && w.balance != null && w.balance !== "") {
+          walletLine =
+            "Liquid £" +
+            String(w.balance) +
+            " (" +
+            (w.currency || "GBP") +
+            "). Reinvest pool £" +
+            String(w.reinvest_pool != null ? w.reinvest_pool : 0) +
+            ".";
+        }
+        if (!walletLine) {
+          walletLine =
+            "No capital deployed on this surface. Controlled allocation opens after validation gates clear.";
+        }
+
+        var supList = "";
+        if (suppliers.length) {
+          var sj;
+          for (sj = 0; sj < Math.min(5, suppliers.length); sj++) {
+            var S = suppliers[sj];
+            var nm = S.legal_name || S.name || "Supplier row";
+            supList +=
+              "<li>" +
+              escapeHtml(nm) +
+              " · " +
+              escapeHtml(S.region || "") +
+              " · score " +
+              escapeHtml(String(S.fit_score_0_100 != null ? S.fit_score_0_100 : "Pending")) +
+              "</li>";
+          }
+        }
+
+        var supplyIntelBlock =
+          '<div class="narrative-block"><h2>Supply intelligence</h2><div class="body">' +
+          "<p>A verified supply pathway has been constructed.</p>" +
+          "<p>Primary supplier (UK) selected for immediate deployment. Secondary supplier identified for margin optimisation at scale. Tertiary backup secured to mitigate disruption.</p>" +
+          "<p>Switch conditions are predefined. No manual sourcing pass is required to open execution.</p>";
+        if (supList) {
+          supplyIntelBlock += "<ul class=\"exec-list\">" + supList + "</ul>";
+        }
+        supplyIntelBlock += "</div></div>";
+
+        var dispDetail = "";
+        if (disp.length) {
+          var dj;
+          for (dj = 0; dj < disp.length; dj++) {
+            var D = disp[dj];
+            var rawTo = String(D.to || "");
+            var masked = rawTo.indexOf("@") > 0 ? rawTo.replace(/^(.{2}).*(@.*)$/, "$1…$2") : rawTo;
+            dispDetail += (dj ? " · " : "") + String(D.mode || "queued") + " → " + masked;
+          }
+        }
+
+        var outreachBlock = "";
+        if (disp.length) {
+          outreachBlock =
+            '<div class="narrative-block"><h2>Outreach system</h2><div class="body">' +
+            "<p>Initial contact sequence is active for this cycle.</p>" +
+            "<p>" +
+            escapeHtml(dispDetail) +
+            "</p>" +
+            "<p class=\"muted-small\">Live transport uses Resend when configured; otherwise the cycle runs in simulation.</p>" +
+            "</div></div>";
+        } else {
+          outreachBlock =
+            '<div class="narrative-block"><h2>Outreach system</h2><div class="body">' +
+            "<p>Initial contact sequence is prepared and ready.</p>" +
+            "<p><strong>Three-touch structure:</strong></p>" +
+            "<ul class=\"exec-list\">" +
+            "<li>Precision introduction</li>" +
+            "<li>Proof reinforcement</li>" +
+            "<li>Direct conversion trigger</li>" +
+            "</ul>" +
+            "<p>Messages are calibrated to maximise reply probability while preserving positioning. Dispatch begins on activation.</p>" +
+            "</div></div>";
+        }
+
+        var learnRows = "";
+        if (learn.length) {
+          var lj;
+          for (lj = 0; lj < Math.min(5, learn.length); lj++) {
+            learnRows += "<li>" + escapeHtml(String(learn[lj])) + "</li>";
+          }
+        } else {
+          learnRows =
+            "<li>The learning ledger captures each cycle. First entries record when outreach completes.</li>";
+        }
+
+        var cycleLine = cycle.narrative
+          ? String(cycle.narrative)
+          : venture.last_launch && venture.last_launch.launched === false
+            ? "Venture gates held — no close credit on this pass."
+            : "Cycle narrative attaches when venture simulation completes.";
+
+        return (
+          supplyIntelBlock +
+          buildSupplyNetworkBlock(data) +
+          outreachBlock +
+          crmBlock +
+          '<div class="narrative-block"><h2>Operator status</h2><div class="body"><p>' +
+          escapeHtml(actLine) +
+          '</p><ul class="exec-list">' +
+          leadRows +
+          '</ul></div></div>' +
+          '<div class="narrative-block"><h2>Learning loop</h2><div class="body"><ul class="exec-list">' +
+          learnRows +
+          '</ul></div></div>' +
+          '<div class="narrative-block"><h2>Venture cycle</h2><div class="body"><p>' +
+          escapeHtml(cycleLine) +
+          "</p></div></div>" +
+          '<div class="narrative-block"><h2>Active ventures</h2><div class="body"><p>' +
+          escapeHtml(ventLine) +
+          "</p></div></div>" +
+          '<div class="narrative-block"><h2>Wallet</h2><div class="body"><p>' +
+          escapeHtml(walletLine) +
+          "</p></div></div>"
+        );
+      }
+
+      function formatMetrics(dec) {
+        var conf =
+          dec.confidence_0_100 != null && dec.confidence_0_100 !== ""
+            ? String(dec.confidence_0_100) + "%"
+            : dec.confidence != null
+              ? String(dec.confidence)
+              : "Pending";
+        var sc = isObj(dec.scores) ? dec.scores : {};
+        var v = sc.viability_0_100 != null ? String(sc.viability_0_100) : "Pending";
+        var d = sc.demand_0_100 != null ? String(sc.demand_0_100) : "Pending";
+        var df = sc.differentiation_0_100 != null ? String(sc.differentiation_0_100) : "Pending";
+        return { conf: conf, viability: v, demand: d, differentiation: df };
+      }
+
+      function paragraphize(text) {
+        var t = String(text || "").trim();
+        if (!t) return "";
+        var paras = t.split(/\n\n+/);
+        var html = "";
+        for (var i = 0; i < paras.length; i++) {
+          html += "<p>" + escapeHtml(paras[i].replace(/\n/g, " ")) + "</p>";
+        }
+        return html;
+      }
+
+      function buildProfitEnforcementBanner(data) {
+        var meta = isObj(data.meta) ? data.meta : {};
+        var pe = meta.profit_enforcement;
+        if (!pe || typeof pe !== "object") return "";
+        var ok = pe.satisfied === true;
+        var miss = Array.isArray(pe.missing_surfaces) ? pe.missing_surfaces.join(", ") : "";
+        var mantra = pe.mantra ? String(pe.mantra) : "";
+        if (ok) {
+          return (
+            '<div class="block block-fade narrative-block" style="border-color:rgba(212,175,55,0.35)"><h3>Profit surfaces</h3><div class="body"><p>' +
+            escapeHtml("Pricing, acquisition, and execution are present in this envelope — proceed under revenue-first discipline.") +
+            (mantra ? "</p><p class=\"muted-small\">" + escapeHtml(mantra) + "</p>" : "</p>") +
+            "</div></div>"
+          );
+        }
+        return (
+          '<div class="block block-fade narrative-block" style="border-color:rgba(176,74,74,0.35)"><h3>Profit enforcement</h3><div class="body"><p>' +
+          escapeHtml(
+            "Revenue surfaces are incomplete (" +
+              (miss || "pricing, acquisition, execution") +
+              "). Refine the thesis or run one regeneration pass from the host."
+          ) +
+          "</p>" +
+          (mantra ? '<p class="muted-small">' + escapeHtml(mantra) + "</p>" : "") +
+          "</div></div>"
+        );
+      }
+
+      function buildInvoicesBlock(data) {
+        var rl = isObj(data.revenue_layer) ? data.revenue_layer : {};
+        var inv = Array.isArray(rl.invoices) ? rl.invoices : [];
+        var pay = Array.isArray(rl.payment_events) ? rl.payment_events : [];
+        var html =
+          '<div class="block block-fade narrative-block"><h3>Invoices &amp; payments</h3><div class="body">';
+        if (!inv.length && !pay.length) {
+          html +=
+            "<p>No recorded payment events on this surface. Revenue lines attach when checkout completes or the ledger records a payment.</p>";
+        } else {
+          var i;
+          for (i = 0; i < Math.min(6, inv.length); i++) {
+            var I = inv[i];
+            html +=
+              "<p><strong>" +
+              escapeHtml(String(I.invoice_id || "Pending")) +
+              "</strong> — £" +
+              escapeHtml(String(I.amount != null ? I.amount : "0")) +
+              " — " +
+              escapeHtml(String(I.status || "Pending")) +
+              " — " +
+              escapeHtml(String(I.client_name || "").slice(0, 40)) +
+              "</p>";
+          }
+          if (pay.length) {
+            html += '<p class="muted-small">Recent recorded payments (wallet + learning ledger):</p><ul class="exec-list">';
+            var j;
+            for (j = 0; j < Math.min(4, pay.length); j++) {
+              var P = pay[j];
+              html +=
+                "<li>£" +
+                escapeHtml(String(P.amount_gbp != null ? P.amount_gbp : "0")) +
+                " · " +
+                escapeHtml(String(P.source || "ledger")) +
+                "</li>";
+            }
+            html += "</ul>";
+          }
+        }
+        html += "</div></div>";
+        return html;
+      }
+
+      function buildConversionIntelligenceBlock() {
+        return (
+          '<section class="aethra-block conversion-intel" id="aethraConversionIntel">' +
+          "<h3>Conversion Intelligence</h3>" +
+          '<p><strong>Best Message:</strong> <span id="ciBestMsg">—</span></p>' +
+          '<p><strong>Best Price:</strong> <span id="ciBestPrice">—</span></p>' +
+          '<p><strong>Best Niche:</strong> <span id="ciBestNiche">—</span></p>' +
+          '<p class="muted" id="ciFootnote">' +
+          "AETHRA is continuously optimising based on real performance signals." +
+          "</p>" +
+          "</section>"
+        );
+      }
+
+      function formatIntelPrice(v) {
+        if (v == null || v === "") return "—";
+        var s = String(v).trim();
+        if (s === "—") return s;
+        if (/^£/.test(s)) return s;
+        var n = Number(s.replace(/[^0-9.]/g, ""));
+        if (!isNaN(n) && s.replace(/[^0-9.]/g, "") !== "") return "£" + String(Math.round(n * 100) / 100);
+        return s;
+      }
+
+      async function refreshConversionIntelligence() {
+        var root = document.getElementById("aethraConversionIntel");
+        if (!root) return;
+
+        function set(id, text) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = text;
+        }
+
+        try {
+          var res = await fetch("/api/v1/optimisation/insights");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          var j = await res.json();
+          if (!j.ok) throw new Error("payload");
+
+          var imp = isObj(j.improvements) ? j.improvements : {};
+          var pr = isObj(j.pricing) ? j.pricing : {};
+
+          set("ciBestMsg", imp.message != null && imp.message !== "" ? String(imp.message) : "—");
+
+          var bestP = imp.price != null && imp.price !== "" ? imp.price : pr.optimal_price;
+          var pLine = "—";
+          if (bestP != null && bestP !== "") {
+            pLine = formatIntelPrice(bestP);
+            if (pr.conversion_pct != null && pr.optimal_price != null) {
+              pLine += " · " + String(pr.conversion_pct) + "% conversion";
+            }
+          }
+          set("ciBestPrice", pLine);
+
+          set("ciBestNiche", imp.niche != null && imp.niche !== "" ? String(imp.niche) : "—");
+        } catch (err) {
+          set("ciBestMsg", "—");
+          set("ciBestPrice", "—");
+          set("ciBestNiche", "—");
+        }
+      }
+
+      function buildScalingIntelligenceBlock() {
+        return (
+          '<section class="aethra-block scaling-intel" id="aethraScalingIntel">' +
+          "<h3>Scaling Intelligence</h3>" +
+          '<p><strong>Top Venture:</strong> <span id="siTopVenture">—</span></p>' +
+          '<p><strong>Decision:</strong> <span id="siDecision">—</span></p>' +
+          '<p><strong>Capital Allocation:</strong> <span id="siCapital">—</span></p>' +
+          '<p class="muted" id="siFootnote">' +
+          "AETHRA is reallocating resources toward highest-performing opportunities." +
+          "</p>" +
+          "</section>"
+        );
+      }
+
+      function formatScalingAction(action) {
+        var a = String(action || "").toLowerCase();
+        if (a === "scale") return "Scale";
+        if (a === "maintain") return "Maintain";
+        if (a === "kill") return "Kill";
+        return action ? String(action) : "—";
+      }
+
+      async function refreshPortfolioLiveSpans() {
+        function setAll(attr, text) {
+          var nodes = document.querySelectorAll('[data-portfolio-live="' + attr + '"]');
+          for (var i = 0; i < nodes.length; i++) nodes[i].textContent = text;
+        }
+
+        try {
+          var res = await fetch("/api/v1/portfolio/brain");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          var j = await res.json();
+          if (!j.ok) throw new Error("payload");
+
+          var cap = j.capital != null ? Number(j.capital) : 0;
+          setAll("capital", "£" + String(Math.round(cap * 100) / 100));
+
+          var ac = j.active_count != null ? String(j.active_count) : "0";
+          setAll("active", ac);
+
+          var top = j.top_performer != null && j.top_performer !== "" ? String(j.top_performer) : "—";
+          setAll("top", top);
+
+          var act = j.system_action != null && j.system_action !== "" ? String(j.system_action) : "—";
+          setAll("action", act);
+        } catch (err) {
+          setAll("capital", "—");
+          setAll("active", "—");
+          setAll("top", "—");
+          setAll("action", "—");
+        }
+      }
+
+      async function refreshScalingIntelligence() {
+        var root = document.getElementById("aethraScalingIntel");
+        if (!root) return;
+
+        function set(id, text) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = text;
+        }
+
+        try {
+          var res = await fetch("/api/v1/scaling/brain");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          var j = await res.json();
+          if (!j.ok) throw new Error("payload");
+
+          set("siTopVenture", j.top_venture != null && j.top_venture !== "" ? String(j.top_venture) : "—");
+
+          var td = isObj(j.top_decision) ? j.top_decision : {};
+          set("siDecision", formatScalingAction(td.action));
+
+          var cap = j.top_allocation_gbp;
+          if (cap != null && cap !== "" && Number(cap) > 0) {
+            set("siCapital", "£" + String(Math.round(Number(cap) * 100) / 100));
+          } else if (j.budget != null && Number(j.budget) <= 0) {
+            set("siCapital", "£0 (no deployable pool)");
+          } else {
+            set("siCapital", "—");
+          }
+        } catch (err) {
+          set("siTopVenture", "—");
+          set("siDecision", "—");
+          set("siCapital", "—");
+        }
+      }
+
+      function buildPortfolioIntelligenceNarrativeBlock() {
+        return (
+          '<div class="aethra-block portfolio-intel-narrative">' +
+          "<h3>Portfolio Intelligence</h3>" +
+          "<p>AETHRA is actively managing multiple ventures and reallocating capital based on real performance signals.</p>" +
+          "<p>Strong performers are being scaled. Underperforming ventures are being reduced or removed.</p>" +
+          "<p>Intelligence is shared across all active ventures — improving messaging, pricing, and acquisition continuously.</p>" +
+          "</div>" +
+          '<div class="aethra-block portfolio-intel-snapshot-narrative">' +
+          "<h3>Current Position</h3>" +
+          '<p><strong>Total Capital:</strong> <span data-portfolio-live="capital">—</span></p>' +
+          '<p><strong>Active Ventures:</strong> <span data-portfolio-live="active">—</span></p>' +
+          '<p><strong>Top Performer:</strong> <span data-portfolio-live="top">—</span></p>' +
+          '<p><strong>System Action:</strong> <span data-portfolio-live="action">—</span></p>' +
+          '<p class="muted" style="margin-top:1.1rem;color:var(--muted);font-size:0.9rem;line-height:1.55;max-width:40rem">' +
+          "AETHRA reallocates attention and capital continuously — focusing only on what produces measurable outcomes." +
+          "</p>" +
+          "</div>"
+        );
+      }
+
+      function buildAethraExecutionOutreachBrandRevenueBlock(data) {
+        var saas = isObj(data.saas_layer) ? data.saas_layer : {};
+        var feats = isObj(saas.features) ? saas.features : {};
+        var canExec = feats.execution !== false;
+        var ctaHtml = canExec
+          ? "<p>Execution is ready.</p>" +
+            '<button type="button" class="aethra-primary" id="executeBtn">Approve and begin</button>' +
+            '<p class="execution-feedback muted-small" id="executionFeedback" aria-live="polite"></p>'
+          : '<p class="muted-small" style="margin:0 0 0.75rem;line-height:1.65">' +
+            "Execution, live outreach, and CRM deployment require an <strong>Operator</strong> or <strong>Portfolio</strong> plan. This analysis pass is complete; activation is gated to paid tiers." +
+            "</p>" +
+            '<p class="muted-small" style="margin:0;line-height:1.65">' +
+            '<a href="#onboarding" style="color:var(--gold)">Review plans</a> — activation completes on the host via secure checkout.' +
+            "</p>";
+        return (
+          '<section class="aethra-block">' +
+          '<div class="aethra-step">' +
+          '<div class="aethra-step-number">2</div>' +
+          '<div class="aethra-step-content">' +
+          "<h3>Execution</h3>" +
+          "<p>Supplier relationships have been identified and prepared for activation. The outreach sequence is constructed.</p>" +
+          "<p>AETHRA has mapped the operational pathway — supplier selection, offer structure, and acquisition strategy.</p>" +
+          "<p>No manual sourcing pass is required. Proceeding is a plan-gated activation decision.</p>" +
+          "</div></div>" +
+          '<div class="aethra-cta">' +
+          ctaHtml +
+          "</div>" +
+          '<div class="aethra-step">' +
+          '<div class="aethra-step-number">3</div>' +
+          '<div class="aethra-step-content">' +
+          "<h3>Outreach</h3>" +
+          "<p>A targeted outreach sequence is ready for deployment.</p>" +
+          "<p>Each message is calibrated for high response probability — structured to open, validate, and convert conversations without damaging positioning.</p>" +
+          "<p>Replies are classified and routed into the next actions the system takes.</p>" +
+          "</div></div>" +
+          '<div class="aethra-step">' +
+          '<div class="aethra-step-number">4</div>' +
+          '<div class="aethra-step-content">' +
+          "<h3>Brand</h3>" +
+          "<p>AETHRA has defined a viable brand direction aligned with the opportunity.</p>" +
+          "<p>This includes naming, domain strategy, and social positioning — structured for immediate deployment.</p>" +
+          "<p>All assets are designed to support conversion, not decoration.</p>" +
+          "</div></div>" +
+          '<div class="aethra-step">' +
+          '<div class="aethra-step-number">5</div>' +
+          '<div class="aethra-step-content">' +
+          "<h3>Revenue</h3>" +
+          "<p>A revenue pathway has been established.</p>" +
+          "<p>Pricing, offer structure, and payment capture are aligned to validate demand before scaling.</p>" +
+          "<p>Capital is only deployed once real signals confirm viability.</p>" +
+          "</div></div>" +
+          "</section>"
+        );
+      }
+
+      function buildInstitutionalBriefingBlock(data) {
+        var b = isObj(data.meta) && data.meta.institutional_briefing ? String(data.meta.institutional_briefing) : "";
+        if (!b.trim()) return "";
+        var paras = b.split(/\n\n+/).filter(function (x) {
+          return String(x).trim();
+        });
+        var html =
+          '<div class="narrative-block institutional-briefing"><h2>Briefing</h2><div class="body">';
+        var i;
+        for (i = 0; i < paras.length; i++) {
+          html += "<p>" + escapeHtml(String(paras[i]).replace(/\n/g, " ")) + "</p>";
+        }
+        html += "</div></div>";
+        return html;
+      }
+
+      function buildEconomicSystemBlock(data) {
+        var eco = isObj(data.autonomous_economic) ? data.autonomous_economic : {};
+        var sections = isObj(eco.sections) ? eco.sections : {};
+        var keys = [
+          "System Judgement",
+          "Execution Pathway",
+          "Supply & Infrastructure",
+          "Acquisition",
+          "Revenue Logic",
+          "Portfolio Impact",
+          "System Action",
+        ];
+        if (!keys.some(function (k) { return sections[k]; })) return "";
+        var html =
+          '<div class="narrative-block"><h2>Autonomous Economic System</h2><p class="muted-small" style="margin:-0.5rem 0 1rem">NICHE -> OFFER -> LEADS -> OUTREACH -> REPLIES -> CLOSE -> DELIVERY -> PROOF -> SCALE -> PORTFOLIO</p><div class="body">';
+        for (var i = 0; i < keys.length; i++) {
+          var k = keys[i];
+          if (!sections[k]) continue;
+          html += "<p><strong>" + escapeHtml(k) + ":</strong> " + escapeHtml(String(sections[k])) + "</p>";
+        }
+        html += "</div></div>";
+        return html;
+      }
+
+      function buildSuggestedOpportunitiesBlock(data) {
+        var layer = isObj(data.ideas_layer) ? data.ideas_layer : {};
+        var ideas = Array.isArray(layer.suggestions) ? layer.suggestions : [];
+        if (!ideas.length) return "";
+        var html =
+          '<div class="aethra-block ideas-block">' +
+          "<h3>Suggested Opportunities</h3>" +
+          "<p>AETHRA has identified high-probability ventures based on current market conditions.</p>" +
+          "<ul>";
+        var i;
+        for (i = 0; i < Math.min(10, ideas.length); i++) {
+          var it = ideas[i];
+          html +=
+            "<li>" +
+            escapeHtml(String(it.idea || "")) +
+            " — Score: " +
+            escapeHtml(String(it.score != null ? it.score : "—")) +
+            "</li>";
+        }
+        html += "</ul></div>";
+        return html;
+      }
+
+      function buildViralShareBlock(data) {
+        var v = isObj(data.viral_layer) ? data.viral_layer : {};
+        if (!v || (!v.attribution_line && !v.share_url && !v.canonical_share_url)) return "";
+        var attr = v.attribution_line ? String(v.attribution_line) : "";
+        var share = v.share_url ? String(v.share_url) : "";
+        var canon = v.canonical_share_url ? String(v.canonical_share_url) : "";
+        var html =
+          '<div class="aethra-block viral-block">' +
+          "<h3>Share &amp; attribution</h3>" +
+          (attr ? "<p><strong>" + escapeHtml(attr) + "</strong></p>" : "") +
+          (share
+            ? '<p class="muted-small">Shareable report: <a href="' +
+              escapeHtml(share) +
+              '" style="color:var(--gold);word-break:break-all">' +
+              escapeHtml(share) +
+              "</a></p>"
+            : "") +
+          (canon
+            ? '<p class="muted-small">Public results path: <span style="word-break:break-all">' +
+              escapeHtml(canon) +
+              "</span></p>"
+            : "") +
+          (isObj(v.referral) && v.referral.detail
+            ? '<p class="muted-small">' + escapeHtml(String(v.referral.detail)) + "</p>"
+            : "") +
+          "</div>";
+        return html;
+      }
+
+      function renderNarrative(data) {
+        var out = document.getElementById("output");
+        if (!out) return;
+
+        var dec = isObj(data.decision) ? data.decision : {};
+        var val = isObj(dec.validation) ? dec.validation : {};
+        var strat = isObj(data.strategy) ? data.strategy : {};
+        var vk = verdictKey(dec.verdict);
+        var expl = buildExplanation(dec, strat);
+        var diag = buildDiagnosis(dec, val, strat);
+        var means = buildWhatItMeans(vk, dec);
+        window.__aethraPlan =
+          isObj(data.saas_layer) && data.saas_layer.plan ? String(data.saas_layer.plan) : "free";
+        var eobrBlock = buildAethraExecutionOutreachBrandRevenueBlock(data);
+        var conversionIntelBlock = buildConversionIntelligenceBlock();
+        var scalingIntelBlock = buildScalingIntelligenceBlock();
+        var portfolioIntelNarrativeBlock = buildPortfolioIntelligenceNarrativeBlock();
+        var memHtml = buildMemoryInsight(data);
+        var runtimeHtml = buildRuntimePanels(data);
+        var portfolioTop = buildPortfolioDashboard(data);
+        var supplyExecHtml = buildSupplyExecutionPack(data);
+        var synergyTop = buildSynergyBlock(data);
+        var scalingStrip = buildScalingStrip(data);
+        var profitBanner = buildProfitEnforcementBanner(data);
+        var invoicesBlock = buildInvoicesBlock(data);
+        var m = formatMetrics(dec);
+        var institutionalBlock = buildInstitutionalBriefingBlock(data);
+        var economicBlock = buildEconomicSystemBlock(data);
+        var ideasBlock = buildSuggestedOpportunitiesBlock(data);
+        var viralBlock = buildViralShareBlock(data);
+
+        out.innerHTML =
+          '<div class="narrative">' +
+          portfolioTop +
+          supplyExecHtml +
+          synergyTop +
+          scalingStrip +
+          profitBanner +
+          invoicesBlock +
+          '<div class="narrative-block">' +
+          "<h2>Verdict</h2>" +
+          '<div class="body">' +
+          '<p class="verdict-line ' +
+          escapeHtml(vk) +
+          '">' +
+          escapeHtml(verdictHeadline(vk)) +
+          "</p>" +
+          "<p><strong>Classification:</strong> " +
+          escapeHtml(String(dec.verdict || "pending").toUpperCase()) +
+          "</p>" +
+          "</div></div>" +
+          institutionalBlock +
+          economicBlock +
+          ideasBlock +
+          viralBlock +
+          '<div class="narrative-block"><h2>Explanation</h2><div class="body">' +
+          paragraphize(expl) +
+          "</div></div>" +
+          '<div class="narrative-block"><h2>Diagnosis</h2><div class="body">' +
+          paragraphize(diag) +
+          "</div></div>" +
+          '<div class="narrative-block"><h2>What this means</h2><div class="body">' +
+          paragraphize(means) +
+          "</div></div>" +
+          eobrBlock +
+          conversionIntelBlock +
+          scalingIntelBlock +
+          portfolioIntelNarrativeBlock +
+          '<div class="narrative-block"><h2>Signal</h2><p class="muted-small" style="margin:-0.5rem 0 1rem">Ledger and memory</p><div class="body">' +
+          memHtml +
+          "</div></div>" +
+          runtimeHtml +
+          '<div class="narrative-block subtle"><h2>Confidence and score</h2><div class="body">' +
+          '<div class="metrics-row">' +
+          '<div class="metric"><div class="label">Confidence</div><div class="value">' +
+          escapeHtml(m.conf) +
+          "</div></div>" +
+          '<div class="metric"><div class="label">Viability</div><div class="value">' +
+          escapeHtml(m.viability) +
+          "</div></div>" +
+          '<div class="metric"><div class="label">Demand</div><div class="value">' +
+          escapeHtml(m.demand) +
+          "</div></div>" +
+          '<div class="metric"><div class="label">Differentiation</div><div class="value">' +
+          escapeHtml(m.differentiation) +
+          "</div></div>" +
+          "</div>" +
+          "<p>Figures reflect the engine&rsquo;s internal scoring model, not third-party market research. Use them as structured priors, not guarantees.</p>" +
+          "</div></div>" +
+          "</div>";
+        void refreshConversionIntelligence();
+        void refreshScalingIntelligence();
+        void refreshPortfolioLiveSpans();
+      }
+
+      function showLoading() {
+        var out = document.getElementById("output");
+        if (!out) return;
+        out.innerHTML =
+          '<div class="loading-state"><div class="loading-ring"></div>Assessment in progress.</div>';
+      }
+
+      function showError(msg) {
+        var out = document.getElementById("output");
+        if (!out) return;
+        out.innerHTML =
+          '<div class="narrative"><div class="narrative-block"><div class="body"><p>' +
+          escapeHtml(msg) +
+          "</p></div></div></div>";
+      }
+
+      async function run() {
+        var ideaEl = document.getElementById("idea");
+        var idea = ideaEl && ideaEl.value ? String(ideaEl.value).trim() : "";
+        var status = document.getElementById("status");
+        var runBtn = document.getElementById("runBtn");
+
+        if (status) {
+          status.textContent = "";
+          status.className = "status";
+        }
+
+        if (!idea) {
+          if (status) {
+            status.textContent = "Add an idea, business context, or URL to begin.";
+            status.classList.add("err");
+          }
+          return;
+        }
+
+        if (runBtn) runBtn.disabled = true;
+        showLoading();
+
+        try {
+          var runPayload = { input: idea };
+          try {
+            var refN = parseInt(localStorage.getItem("aethra_referrals") || "0", 10);
+            if (refN > 0) runPayload.referrals = refN;
+            var planPick = localStorage.getItem("aethra_plan");
+            if (planPick) runPayload.plan = planPick;
+          } catch (e) {
+            /* ignore */
+          }
+          var res = await fetch("/run", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify(runPayload),
+          });
+          var text = await res.text();
+          var data;
+          try {
+            data = text ? JSON.parse(text) : {};
+          } catch (e) {
+            var out = document.getElementById("output");
+            if (out) {
+              out.innerHTML =
+                '<div class="narrative"><div class="narrative-block"><div class="body"><p>The server returned a non-JSON response (HTTP ' +
+                escapeHtml(String(res.status)) +
+                "). Check that the API is running and try again.</p></div></div></div>";
+            }
+            if (status) {
+              status.textContent = "HTTP " + res.status + " · response was not JSON";
+              status.classList.add("err");
+            }
+            if (runBtn) runBtn.disabled = false;
+            return;
+          }
+
+          if (res.status === 429) {
+            showError((data && data.message) || "Daily assessment limit reached for this tier.");
+            if (status) {
+              status.textContent = "Daily limit reached — adjust plan or refer peers for bonus assessments";
+              status.classList.add("err");
+            }
+            if (runBtn) runBtn.disabled = false;
+            return;
+          }
+
+          if (data && data.ok === false && data.error) {
+            showError(String(data.error));
+            if (status) {
+              status.textContent = "Request could not complete";
+              status.classList.add("err");
+            }
+          } else {
+            try {
+              renderNarrative(data);
+            } catch (renderErr) {
+              showError(
+                "Could not render this response. Raw JSON is valid; UI renderer hit: " +
+                  (renderErr.message || String(renderErr))
+              );
+              if (status) {
+                status.textContent = "Render error";
+                status.classList.add("err");
+              }
+              if (runBtn) runBtn.disabled = false;
+              return;
+            }
+            if (status) {
+              if (res.ok) {
+                status.textContent = "Assessment complete — review the pathway below";
+                status.classList.add("ok");
+              } else {
+                status.textContent = "HTTP " + res.status;
+                status.classList.add("err");
+              }
+            }
+          }
+        } catch (e) {
+          showError(e.message || String(e));
+          if (status) {
+            status.textContent = "Network error";
+            status.classList.add("err");
+          }
+        }
+
+        if (runBtn) runBtn.disabled = false;
+      }
+
+      document.addEventListener("click", async function (ev) {
+        var btn = ev.target && ev.target.closest ? ev.target.closest("#executeBtn") : null;
+        if (!btn) return;
+        ev.preventDefault();
+        var ideaEl = document.getElementById("idea");
+        var idea = ideaEl && ideaEl.value ? String(ideaEl.value).trim() : "";
+        var st = document.getElementById("status");
+        var fb = document.getElementById("executionFeedback");
+        if (!idea) {
+          if (st) {
+            st.textContent = "A thesis or URL is required before execution.";
+            st.className = "status err";
+          }
+          return;
+        }
+        btn.disabled = true;
+        if (fb) fb.textContent = "";
+        if (st) {
+          st.textContent = "Starting execution…";
+          st.className = "status";
+        }
+        try {
+          var res = await fetch("/api/v1/execution/start", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({
+              idea: idea,
+              plan: window.__aethraPlan || "free",
+            }),
+          });
+          var data = await res.json().catch(function () {
+            return {};
+          });
+          if (!res.ok) {
+            if (st) {
+              st.textContent =
+                (data && data.message) || (data && data.error) || "Execution could not complete.";
+              st.className = "status err";
+            }
+            return;
+          }
+          var lines =
+            "Execution initiated.\n\nSuppliers are locked.\nOutreach is being deployed.\nPipeline will begin populating as responses arrive.";
+          if (fb) {
+            fb.innerHTML = lines
+              .split("\n")
+              .filter(function (x) {
+                return x.length;
+              })
+              .map(function (line) {
+                return "<p style=\"margin:0 0 0.35rem\">" + escapeHtml(line) + "</p>";
+              })
+              .join("");
+          }
+          if (st) {
+            st.textContent = "Execution initiated — outreach deploying.";
+            st.className = "status ok";
+          }
+        } catch (err) {
+          if (st) {
+            st.textContent = err && err.message ? String(err.message) : "Network error";
+            st.className = "status err";
+          }
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      function getWalletUserId() {
+        try {
+          return localStorage.getItem("aethra_user_id") || "anonymous";
+        } catch (e) {
+          return "anonymous";
+        }
+      }
+
+      async function refreshCapitalAllocation() {
+        var uid = getWalletUserId();
+        var planEl = document.getElementById("capActivePlan");
+        var av = document.getElementById("capAvailableBalance");
+        var tot = document.getElementById("capTotalCapital");
+        var led = document.getElementById("capLedgerBalance");
+        var rem = document.getElementById("capRemaining");
+        var ul = document.getElementById("capAllocatedList");
+        var notice = document.getElementById("capWalletNotice");
+        if (!av || !ul) return;
+        function fmt(n) {
+          return "£" + String(Math.round(Number(n) * 100) / 100);
+        }
+        try {
+          var planRes = await fetch(
+            "/api/v1/billing/user-plan?user_id=" + encodeURIComponent(uid)
+          );
+          var planPayload = await planRes.json().catch(function () {
+            return {};
+          });
+          var activePlan = planPayload && planPayload.plan ? String(planPayload.plan) : "free";
+          try {
+            localStorage.setItem("aethra_plan", activePlan);
+          } catch (e) {
+            /* ignore */
+          }
+          window.__aethraPlan = activePlan;
+          if (planEl) planEl.textContent = activePlan;
+
+          var res = await fetch(
+            "/api/v1/wallet/capital-snapshot?user_id=" + encodeURIComponent(uid)
+          );
+          var j = await res.json();
+          if (!j.ok) throw new Error("bad");
+          av.textContent = fmt(j.available_balance_gbp);
+          if (tot) tot.textContent = fmt(j.total_capital_gbp);
+          if (led) led.textContent = fmt(j.ledger_balance_gbp);
+          if (rem) rem.textContent = fmt(j.remaining_deployable_gbp);
+          if (notice) notice.textContent = j.notice || "";
+          ul.innerHTML = "";
+          var alloc = Array.isArray(j.allocated) ? j.allocated : [];
+          if (!alloc.length) {
+            ul.innerHTML =
+              '<li class="muted-small" style="list-style:none;margin-left:0;padding-left:0">No venture allocations yet.</li>';
+          } else {
+            var i;
+            for (i = 0; i < alloc.length; i++) {
+              var li = document.createElement("li");
+              li.textContent =
+                String(alloc[i].label || "Item") + ": " + fmt(alloc[i].amount_gbp);
+              ul.appendChild(li);
+            }
+          }
+        } catch (e) {
+          if (planEl) planEl.textContent = "—";
+          av.textContent = "—";
+          if (tot) tot.textContent = "—";
+          if (led) led.textContent = "—";
+          if (rem) rem.textContent = "—";
+          ul.innerHTML =
+            '<li class="muted-small" style="list-style:none;margin-left:0">Wallet API unavailable.</li>';
+        }
+      }
+
+      async function refreshLandingIdeas() {
+        var ul = document.getElementById("landingIdeasList");
+        if (!ul) return;
+        try {
+          var res = await fetch("/api/v1/ideas");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          var j = await res.json();
+          var ideas = j && j.ideas && j.ideas.length ? j.ideas : [];
+          if (!ideas.length) {
+            ul.innerHTML =
+              '<li class="muted-small" style="list-style:none;margin-left:0">No suggestions available.</li>';
+            return;
+          }
+          ul.innerHTML = "";
+          var i;
+          for (i = 0; i < Math.min(10, ideas.length); i++) {
+            var it = ideas[i];
+            var li = document.createElement("li");
+            li.textContent =
+              String(it.idea || "") + " — Score: " + String(it.score != null ? it.score : "—");
+            ul.appendChild(li);
+          }
+        } catch (e) {
+          ul.innerHTML =
+            '<li class="muted-small" style="list-style:none;margin-left:0">Connect the host to load opportunities.</li>';
+        }
+      }
+
+      async function refreshCoreHomePanel() {
+        function setText(id, v) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = v;
+        }
+        function money(n) {
+          return "£" + String(Math.round(Number(n || 0) * 100) / 100);
+        }
+        try {
+          var rev = await fetch("/core/revenue/metrics");
+          if (!rev.ok) throw new Error("no core");
+          var rv = await rev.json();
+          var today = await fetch("/core/revenue/today");
+          var td = await today.json();
+          setText("home-rev-leads", String(rv.leads_per_day || 0));
+          setText("home-rev-msgs", String(rv.messages_sent || 0));
+          setText("home-rev-reply", String(rv.reply_rate || 0) + "%");
+          setText("home-rev-conv", String(rv.conversion_rate || 0) + "%");
+          setText("home-rev-rev", money(rv.revenue_per_day || 0));
+          setText("home-exp-launched", String(td.ventures_launched_today || 0));
+          setText("home-exp-revenue", money(td.revenue_generated_today_gbp || 0));
+          setText("home-exp-running", String(td.experiments_running || 0));
+          setText("home-sample-note", "");
+        } catch (e) {
+          setText(
+            "home-sample-note",
+            "Core revenue API not available on this host (set CORE_ENABLED=true)."
+          );
+        }
+      }
+
+      document.addEventListener("click", async function (ev) {
+        var sampleHome = ev.target && ev.target.closest ? ev.target.closest("#home-sample-btn") : null;
+        if (sampleHome) {
+          ev.preventDefault();
+          var emailEl = document.getElementById("home-sample-email");
+          var note = document.getElementById("home-sample-note");
+          var email = emailEl && emailEl.value ? String(emailEl.value).trim() : "";
+          sampleHome.disabled = true;
+          try {
+            var res = await fetch("/core/sample-dossier", {
+              method: "POST",
+              headers: { "Content-Type": "application/json; charset=utf-8" },
+              body: JSON.stringify({ email: email, idea: "Homepage capture" }),
+            });
+            var j = await res.json().catch(function () {
+              return {};
+            });
+            if (note) {
+              note.textContent =
+                j && j.ok && j.dossier && j.dossier.public_proof_link
+                  ? "Sample ready — proof link " + String(j.dossier.public_proof_link)
+                  : "Sample endpoint unavailable.";
+            }
+          } catch (err) {
+            if (note) note.textContent = "Sample request failed.";
+          } finally {
+            sampleHome.disabled = false;
+          }
+          return;
+        }
+
+        var addBtn = ev.target && ev.target.closest ? ev.target.closest("#capAddFundsBtn") : null;
+        var upgradeBtn = ev.target && ev.target.closest ? ev.target.closest("#capUpgradePlanBtn") : null;
+        if (!addBtn && !upgradeBtn) return;
+        ev.preventDefault();
+
+        if (addBtn) {
+          addBtn.disabled = true;
+          try {
+            var uid = getWalletUserId();
+            var res = await fetch("/api/v1/billing/top-up-session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json; charset=utf-8" },
+              body: JSON.stringify({ user_id: uid, amount_gbp: 50 }),
+            });
+            var j = await res.json().catch(function () {
+              return {};
+            });
+            if (j.url) {
+              window.location.href = j.url;
+              return;
+            }
+            alert(
+              (j && j.detail) ||
+                (j && j.error && String(j.error)) ||
+                "Checkout is not available on this host yet. For live top-up, configure billing keys; in development, use Record payment."
+            );
+          } catch (err) {
+            alert(err && err.message ? String(err.message) : "Could not start top-up. Try again shortly.");
+          } finally {
+            addBtn.disabled = false;
+          }
+          return;
+        }
+
+        if (upgradeBtn) {
+          upgradeBtn.disabled = true;
+          try {
+            var uid2 = getWalletUserId();
+            var desired = window.prompt(
+              "Choose participation: operator (£49/mo) or portfolio (£199/mo)",
+              "operator"
+            );
+            if (!desired) {
+              upgradeBtn.disabled = false;
+              return;
+            }
+            var planPick = String(desired).toLowerCase().trim();
+            if (planPick !== "operator" && planPick !== "portfolio") {
+              alert("Enter operator or portfolio.");
+              upgradeBtn.disabled = false;
+              return;
+            }
+
+            var sres = await fetch("/api/v1/billing/create-subscription-session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json; charset=utf-8" },
+              body: JSON.stringify({ user_id: uid2, plan: planPick }),
+            });
+            var sj = await sres.json().catch(function () {
+              return {};
+            });
+            if (sj.url) {
+              window.location.href = sj.url;
+              return;
+            }
+            alert(
+              (sj && sj.detail) ||
+                (sj && sj.error && String(sj.error)) ||
+                "Subscription checkout is not available. Confirm plan price IDs are configured on the host."
+            );
+          } catch (err2) {
+            alert(err2 && err2.message ? String(err2.message) : "Could not start plan change. Try again shortly.");
+          } finally {
+            upgradeBtn.disabled = false;
+          }
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        void refreshPortfolioLiveSpans();
+        void refreshLandingIdeas();
+        void refreshCapitalAllocation();
+        void refreshCoreHomePanel();
+        setInterval(function () {
+          void refreshCoreHomePanel();
+        }, 25000);
+
+        try {
+          var qs = new URLSearchParams(window.location.search || "");
+          if (qs.get("stripe") === "success" && qs.get("sub") === "1") {
+            setTimeout(function () {
+              void refreshCapitalAllocation();
+            }, 1200);
+          }
+          if (qs.get("stripe") === "success" && qs.get("topup") === "1") {
+            setTimeout(function () {
+              void refreshCapitalAllocation();
+            }, 2000);
+            setTimeout(function () {
+              void refreshCapitalAllocation();
+            }, 5000);
+            var capEl = document.getElementById("capital-allocation");
+            if (capEl && capEl.scrollIntoView) {
+              capEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+            if (window.history && window.history.replaceState) {
+              var clean = new URL(window.location.href);
+              clean.searchParams.delete("stripe");
+              clean.searchParams.delete("topup");
+              clean.searchParams.delete("session_id");
+              var tail = clean.search || "";
+              window.history.replaceState({}, "", clean.pathname + tail + (clean.hash || ""));
+            }
+          }
+        } catch (e) {
+          /* ignore */
+        }
+      });
+
+      window.run = run;
+      var rb = document.getElementById("runBtn");
+      if (rb) rb.addEventListener("click", run);
+    })();
+  </script>
+  <script src="/ageGate.js" defer></script>
+</body>
+</html>

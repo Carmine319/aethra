@@ -1,0 +1,33 @@
+{
+  "agent": "outreach",
+  "capabilities": [
+    {
+      "id": "outreach_dispatch",
+      "mapsTo": "aethra-core/live/channels/outreach.engine.runOutreach",
+      "requiredInputFields": ["targets"]
+    }
+  ],
+  "decisionScope": [
+    "Select which targets enter a batch within max parallel policy",
+    "Short-circuit on empty target list"
+  ],
+  "inputs": ["targets (array of { id, intent })"],
+  "outputs": ["contacted / responded telemetry per target"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "replyRate",
+    "secondary": ["messagesSent", "policyViolations"]
+  },
+  "riskProfile": {
+    "tier": "channel",
+    "maxBlastRadius": "single_channel"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 5,
+    "timeoutMs": 30000
+  }
+}

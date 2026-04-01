@@ -1,0 +1,33 @@
+{
+  "agent": "execution",
+  "capabilities": [
+    {
+      "id": "browser_task",
+      "mapsTo": "aethra-core/execution/browser/bridge.executeBrowserTask",
+      "requiredInputFields": ["task"]
+    }
+  ],
+  "decisionScope": [
+    "Submit validated BrowserTask payloads only",
+    "No action outside declared task.actions when provided"
+  ],
+  "inputs": ["task.idea", "task.actions?", "task.context?"],
+  "outputs": ["execution receipt (ok, status, executedAt)"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "successRate",
+    "secondary": ["latencyMs", "retries"]
+  },
+  "riskProfile": {
+    "tier": "operational",
+    "maxBlastRadius": "single_session"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 5,
+    "timeoutMs": 60000
+  }
+}

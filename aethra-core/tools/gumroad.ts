@@ -1,0 +1,1 @@
+﻿export { createGumroadOffer } from "./gumroad.js";

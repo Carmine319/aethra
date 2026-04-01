@@ -1,0 +1,10 @@
+{
+  "global_kill_switch": false,
+  "max_active_agents": 500,
+  "max_agents_spawned_per_cycle": 12,
+  "max_capital_share_per_agent": 0.35,
+  "min_system_capital": 1,
+  "elimination_performance_floor": -50,
+  "lifecycle_termination_floor": -100,
+  "lifecycle_scale_threshold": 1000
+}

@@ -1,0 +1,7 @@
+{
+  "legal_entity_default": "Oriagen AI Ltd",
+  "require_attribution_on_all_actions": true,
+  "require_https_connectors": true,
+  "max_channel_fanout_per_cycle": 24,
+  "global_kill_switch": false
+}

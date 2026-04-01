@@ -1,0 +1,7 @@
+{
+  "global_kill_switch": false,
+  "max_risk_score": 0.7,
+  "require_reversible_strategies": true,
+  "max_mutations_per_cycle": 10,
+  "min_fitness_to_register_genome": 0
+}

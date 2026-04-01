@@ -1,0 +1,19 @@
+{
+  "legal": {
+    "jurisdictions": ["UK", "EU", "US"],
+    "fairCompetition": true
+  },
+  "economic": {
+    "minROI": 1.5,
+    "mustHaveMonetisation": true,
+    "maxLossPerTest": 300
+  },
+  "execution": {
+    "maxRetries": 2,
+    "cooldownMs": 5000
+  },
+  "reputation": {
+    "no_spam": true,
+    "no_deception": true
+  }
+}

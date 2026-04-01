@@ -1,0 +1,22 @@
+[
+  {
+    "id": "intent",
+    "title": "What do you want to do?",
+    "subtitle": "Choose one path — both use the same capital and profit rules.",
+    "choices": [
+      { "id": "new_business", "label": "Build new business", "hint": "AETHRA surfaces opportunities, offers, suppliers, and outreach." },
+      { "id": "existing_business", "label": "Improve existing business", "hint": "Describe what you run or paste a URL for diagnosis and revenue pathways." }
+    ]
+  },
+  {
+    "id": "input",
+    "title": "Describe your idea or paste your URL",
+    "subtitle": "One clear paragraph or a single https:// link.",
+    "placeholder": "e.g. B2B cleaning for dental clinics in Leeds, or https://yoursite.com"
+  },
+  {
+    "id": "analyse",
+    "title": "AETHRA is analysing…",
+    "subtitle": "Judgement, execution surfaces, operator loop, portfolio — one connected pass."
+  }
+]

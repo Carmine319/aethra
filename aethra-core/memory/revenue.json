@@ -1,0 +1,112 @@
+﻿{"id":"seed","amount":0}
+{"ts":1774899457412,"kind":"revenue","amount":49,"currency":"GBP","source":"conversion_entry","lead":"public_linkedin_1"}
+{"ts":1774899457413,"kind":"revenue","amount":49,"currency":"GBP","source":"conversion_entry","lead":"reddit_startups"}
+{"ts":1774899457413,"kind":"revenue","amount":49,"currency":"GBP","source":"conversion_entry","lead":"x_thread"}
+{"ts":1774899457423,"kind":"revenue","amount":147,"currency":"GBP","source":"revenue_loop_aggregate"}
+{"ts":1774945053763,"kind":"revenue","venture_id":"manual capital test conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945120100,"kind":"revenue","venture_id":"continuous runtime opportunity scan conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945190400,"kind":"revenue","venture_id":"continuous runtime opportunity scan conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945190921,"kind":"revenue","venture_id":"endpoint test conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945190936,"kind":"revenue","venture_id":"continuous runtime opportunity scan conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945228713,"kind":"revenue","venture_id":"continuous runtime opportunity scan conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774945312616,"kind":"revenue","venture_id":"continuous runtime opportunity scan conversion optimisation audit","amount":243,"currency":"GBP"}
+{"ts":1774946672776,"kind":"revenue","venture_id":"Local Service Offer Sprint","amount":283.5,"currency":"GBP","source":"capital_loop"}
+{"ts":1774946776920,"kind":"revenue","venture_id":"Local Service Offer Sprint","amount":283.5,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948087974,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948136718,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948243446,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948249674,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948612368,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948703932,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948752627,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774948806358,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949330940,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949330968,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949330984,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949331002,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949331021,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949331041,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949331059,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949331087,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344825,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344848,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344868,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344882,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344894,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344914,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344926,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344944,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344955,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344971,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344982,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949344989,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345002,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345007,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345016,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345022,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345038,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345050,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345061,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345080,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345093,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345114,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345134,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345149,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949345158,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949353283,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363026,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363056,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363076,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363101,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363127,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363154,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363178,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363205,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363218,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949363240,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":420,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549215,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549237,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549257,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549269,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549284,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549296,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549320,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549338,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549358,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549372,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549384,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549401,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549408,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549421,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549431,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549452,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549466,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549479,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549490,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549501,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549519,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549530,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549539,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549553,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949549566,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949656900,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949656940,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774949828830,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774950202948,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774950717622,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774950717640,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1774954769955,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775032738129,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775033038173,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775033338147,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775033638144,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775033938146,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775034238166,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775034538145,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775034838298,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775035138205,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775035438187,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775035738192,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775036038174,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775036878330,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}
+{"ts":1775037178332,"kind":"revenue","venture_id":"Local Service Arbitrage","amount":498,"currency":"GBP","source":"capital_loop"}

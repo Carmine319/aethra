@@ -1,0 +1,12 @@
+{
+  "balance": 70,
+  "ventures": [
+    {
+      "name": "Frostera",
+      "budget": 30,
+      "allocated_at": 1774782063196,
+      "revenue": 0,
+      "roi": 0
+    }
+  ]
+}

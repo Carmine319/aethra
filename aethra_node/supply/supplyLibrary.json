@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "policy": "Curated starting intelligence only. Operator must verify contacts, certifications, and commercial terms before any purchase order.",
+  "keywords": {
+    "ice_machine_cleaning": [
+      "ice machine",
+      "ice-machine",
+      "ice maker",
+      "slush machine",
+      "flaker",
+      "commercial ice"
+    ],
+    "general_cleaning": [
+      "cleaning service",
+      "janitorial",
+      "facility cleaning",
+      "commercial cleaning"
+    ]
+  },
+  "industries": {
+    "cleaning": {
+      "ice_machine_cleaning": {
+        "label": "Ice machine cleaning & food-contact hygiene",
+        "suppliers": [
+          {
+            "name": "UK Food Safe Chemicals Ltd",
+            "location": "UK",
+            "type": "chemical_supplier",
+            "moq": "low",
+            "lead_time": "2–3 days",
+            "price_signal": "£5–£10/L concentrate typical (verify quote)",
+            "contact": "Procurement / technical sales (email)",
+            "score": 8.4,
+            "notes": "Request NSF / food-contact data sheets before first order."
+          },
+          {
+            "name": "HygieneChem Distributors (example lane)",
+            "location": "UK — Midlands",
+            "type": "chemical_supplier",
+            "moq": "medium",
+            "lead_time": "3–5 days",
+            "price_signal": "Volume breaks from cases (verify)",
+            "contact": "B2B account desk",
+            "score": 7.9,
+            "notes": "Use for backup pricing and alternative formulation."
+          }
+        ],
+        "equipment_suppliers": [
+          {
+            "name": "ProClean Equipment Supply (example lane)",
+            "location": "UK",
+            "type": "equipment_dealer",
+            "moq": "low",
+            "lead_time": "5–7 days",
+            "price_signal": "Brushes, foamers, PPE kits — quote bundle",
+            "contact": "Equipment sales",
+            "score": 8.1,
+            "notes": "Starter execution: physical kit + SDS folder for technicians."
+          }
+        ],
+        "backup_suppliers": [
+          {
+            "name": "EuroSan Bulk Chemicals (example lane)",
+            "location": "EU — NL hub",
+            "type": "chemical_supplier",
+            "moq": "high",
+            "lead_time": "7–14 days",
+            "price_signal": "Pallet economics — use when UK stock tight",
+            "contact": "Export / Incoterms desk",
+            "score": 7.6,
+            "notes": "Scale lane once monthly chemical spend stabilises."
+          }
+        ],
+        "china_manufacturers": [
+          {
+            "name": "Huangshan OEM Concentrate Works (example lane)",
+            "location": "CN — Anhui",
+            "type": "contract_manufacturer",
+            "moq": "high",
+            "lead_time": "35–50 days sea",
+            "price_signal": "FOB benchmark only — audit before commitment",
+            "contact": "Export manager (Alibaba / 1688 inquiry)",
+            "score": 7.8,
+            "notes": "Margin optimisation lane after repeatable UK/EU demand."
+          }
+        ]
+      },
+      "general_cleaning": {
+        "label": "Commercial cleaning supply",
+        "suppliers": [
+          {
+            "name": "FacilityChem Wholesale (example lane)",
+            "location": "UK",
+            "type": "chemical_supplier",
+            "moq": "low",
+            "lead_time": "3–5 days",
+            "price_signal": "£8–£15/L mixed cart (verify)",
+            "contact": "B2B sales",
+            "score": 7.7,
+            "notes": "Generalist lane — swap to niche SDS set when ICP tightens."
+          }
+        ],
+        "equipment_suppliers": [],
+        "backup_suppliers": [],
+        "china_manufacturers": []
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "agent": "conversion",
+  "capabilities": [
+    {
+      "id": "conversion_loop",
+      "mapsTo": "aethra-core/conversion/orchestration/conversion.loop.runConversionLoop",
+      "requiredInputFields": ["landing", "data"]
+    }
+  ],
+  "decisionScope": [
+    "Run optimisation loop on supplied landing + event stream",
+    "Reject when landing object is missing"
+  ],
+  "inputs": ["landing", "data (event array)"],
+  "outputs": ["optimised landing path, experiment winners, metrics"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "conversionRate",
+    "secondary": ["experimentLift", "dropoffReduction"]
+  },
+  "riskProfile": {
+    "tier": "revenue",
+    "maxBlastRadius": "funnel"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 3,
+    "timeoutMs": 90000
+  }
+}

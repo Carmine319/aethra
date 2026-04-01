@@ -1,0 +1,8 @@
+{
+  "federation_kill_switch": false,
+  "max_partner_dependency_share": 0.35,
+  "correlation_block_threshold": 0.8,
+  "contract_price_adjustment_bounds": { "up": 1.15, "down": 0.85 },
+  "require_contract_for_exchange": true,
+  "compression_window": 5
+}

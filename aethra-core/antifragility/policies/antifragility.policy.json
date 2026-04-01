@@ -1,0 +1,10 @@
+{
+  "global_kill_switch": false,
+  "protected_capital_fraction": 0.6,
+  "optional_capital_fraction": 0.4,
+  "max_optional_multiplier": 2.5,
+  "cascade_isolation_threshold": 0.3,
+  "circuit_failure_threshold": 5,
+  "max_leverage_cap": 1.5,
+  "redundancy_min_paths": 2
+}

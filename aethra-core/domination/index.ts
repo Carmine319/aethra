@@ -1,0 +1,13 @@
+export { runDominationLoop } from "./orchestration/domination.loop";
+export { lockCategory } from "./category/category.lock";
+export { lockNarrative } from "./narrative/narrative.lock";
+export { createAsymmetry } from "./speed/asymmetry.engine";
+export { neutraliseCompetitors } from "./competitive/irrelevance.engine";
+export { ensureUbiquity } from "./distribution/ubiquity.engine";
+export { calculateDominanceScore } from "./feedback/dominance.score";
+export { appendDominanceHistory, getRecentDominanceHistory, readRecentDominanceHistory } from "./feedback/dominance.memory";
+export { getDominanceTrend, buildCompoundingPolicy } from "./feedback/dominance.trend.engine";
+export { buildReinforcementPlan } from "./feedback/reinforcement.engine";
+export { enforceDominanceGuardrails } from "./feedback/governance.guard";
+export { appendGovernanceAudit, getRecentGovernanceAudit, readRecentGovernanceAudit } from "./feedback/governance.audit.memory";
+export { reviewGovernanceState } from "./feedback/governance.reviewer";

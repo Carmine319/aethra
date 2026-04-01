@@ -1,0 +1,1358 @@
+{
+  "cycles": [
+    {
+      "ts": 1775032998243,
+      "leads": 6,
+      "suppliers_found": 1,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1775032763902,
+      "leads": 6,
+      "suppliers_found": 1,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1775032719697,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774899304997,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774899119243,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774881279062,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774880450129,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774824303789,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774823265215,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774822840284,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774821730855,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774820682046,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774820119805,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774819461080,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774819135409,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774819079663,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774818876095,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774813429625,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774806457915,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774806389894,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774804853001,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774802931841,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774802771676,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786768510,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786621956,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786541766,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786541762,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786541746,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    },
+    {
+      "ts": 1774786309524,
+      "leads": 6,
+      "suppliers_found": 5,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 3,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 0,
+      "wallet_after": 70
+    }
+  ],
+  "aggregates": {
+    "total_runs": 29,
+    "total_emails": 29,
+    "total_leads": 174,
+    "total_simulated_revenue_gbp": 0
+  },
+  "payments": [],
+  "portfolio_brain_memory": [
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032998300
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032998281
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032763929
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032763921
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032719743
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1775032719727
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 0
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774944838007
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 0
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774944220758
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774899305021
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774899305011
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774899119260
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774899119254
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774881279104
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774881279087
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774880450147
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774824303823
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774823265236
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774822840316
+    },
+    {
+      "active_count": 1,
+      "capital": 70,
+      "top_performer": "Frostera",
+      "system_action": "Risk reduction",
+      "decisions": [
+        {
+          "name": "Frostera",
+          "decision": "kill",
+          "score": 6.67
+        }
+      ],
+      "allocation_total": 0,
+      "recorded_at": 1774821730887
+    }
+  ],
+  "micro_memory": [
+    {
+      "ts": 1775032998247,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «vertical slice mid market» wedge with budget authority and a recurring pain tied to the o",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1775032998220,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «vertical slice mid market» wedge with budget authority and a recurring pain tied to the o",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1775032998217,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «vertical slice mid market» wedge with budget authority and a recurring pain tied to the o",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1775032998213,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «vertical slice mid market» wedge with budget authority and a recurring pain tied to the o",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1775032998211,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «vertical slice mid market» wedge with budget authority and a recurring pain tied to the o",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1775032763905,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1775032763891,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1775032763890,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1775032763887,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1775032763879,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1775032719701,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1775032719685,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1775032719683,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1775032719682,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1775032719678,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774899305000,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774899304987,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774899304986,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774899304985,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774899304983,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774899119245,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774899119233,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774899119232,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774899119231,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774899119229,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774881279067,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774881279047,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774881279043,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774881279040,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774881279035,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774880450130,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774880450123,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774880450122,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774880450119,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774880450114,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774824303791,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774824303780,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774824303779,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774824303777,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774824303774,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774823265217,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774823265206,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774823265205,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774823265204,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774823265201,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774822840287,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774822840274,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774822840272,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774822840269,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774822840265,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774821730860,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774821730845,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774821730841,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774821730839,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774821730836,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774820682047,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774820682037,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774820682036,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774820682035,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774820682032,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774820119806,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774820119800,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774820119799,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774820119797,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774820119794,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819461082,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819461074,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774819461073,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774819461072,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774819461070,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819135416,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819135395,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774819135393,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774819135391,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774819135388,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819079665,
+      "action": "outreach_recovery",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    },
+    {
+      "ts": 1774819079658,
+      "action": "simulated_reply",
+      "result": "follow_up",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Information-seeking — answer with one price band and one scope boundary, not a deck."
+    },
+    {
+      "ts": 1774819079657,
+      "action": "simulated_reply",
+      "result": "objection",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Objection-class reply — use capped pilot and single KPI to derisk price pushback."
+    },
+    {
+      "ts": 1774819079657,
+      "action": "simulated_reply",
+      "result": "interested",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Positive reply signal — anchor next message on calendar slot + written pilot cap."
+    },
+    {
+      "ts": 1774819079654,
+      "action": "outreach_email",
+      "result": "simulated",
+      "context": "Primary ICP: operators in the «uk eu compliance first wedge» wedge with budget authority and a recurring pain tied to th",
+      "lesson": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone."
+    }
+  ],
+  "strategic_memory": [
+    {
+      "pattern": "Information-seeking — answer with one price band and one scope boundary, not a deck.",
+      "confidence": 0.92,
+      "hits": 20,
+      "last_ts": 1775032998220
+    },
+    {
+      "pattern": "Objection-class reply — use capped pilot and single KPI to derisk price pushback.",
+      "confidence": 0.92,
+      "hits": 20,
+      "last_ts": 1775032998217
+    },
+    {
+      "pattern": "Positive reply signal — anchor next message on calendar slot + written pilot cap.",
+      "confidence": 0.92,
+      "hits": 20,
+      "last_ts": 1775032998213
+    },
+    {
+      "pattern": "Simulated send — wire Resend for real reply signal; do not scale on mock IDs alone.",
+      "confidence": 0.92,
+      "hits": 40,
+      "last_ts": 1775032998247
+    }
+  ],
+  "market_memory": [
+    {
+      "ts": 1775032998247,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032998220,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032998217,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032998213,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032998211,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032763905,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032763891,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032763890,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032763887,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032763879,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032719701,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032719685,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032719683,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032719682,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1775032719678,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899305000,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899304987,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899304986,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899304985,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899304983,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899119245,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899119233,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899119232,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899119231,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    },
+    {
+      "ts": 1774899119229,
+      "signal": "Price or cost pressure language in context",
+      "effect": "More price-sensitive evaluation in this niche",
+      "adjustment": "Lower entry offer or shorter pilot with written cap"
+    }
+  ],
+  "capital_memory": []
+}

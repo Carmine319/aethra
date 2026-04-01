@@ -1,0 +1,22 @@
+{
+  "name": "aethra-qppp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AETHRA Q+++ — Node host + Python intelligence core",
+  "scripts": {
+    "start": "node index.js",
+    "host": "node index.js",
+    "server": "node server.js",
+    "express": "node server.js",
+    "idea": "node index.js cli idea",
+    "test:py": "python -m aethra schema",
+    "smoke": "node scripts/smoke.js",
+    "selftest:stress": "node scripts/stress-selftest.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

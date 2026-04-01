@@ -1,0 +1,1 @@
+﻿export { getAutonomyConfig } from "./config.js";

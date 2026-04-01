@@ -1,0 +1,6 @@
+{
+  "low": ["post", "like"],
+  "medium": ["comment", "dm"],
+  "high": ["scrape", "bulk_actions"],
+  "critical": ["payment", "account_change"]
+}

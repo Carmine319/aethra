@@ -1,0 +1,19 @@
+{
+  "legal": {
+    "jurisdictions": ["UK", "EU", "US"],
+    "copyrightRespect": true
+  },
+  "economic": {
+    "minROI": 1.0,
+    "mustHaveMonetisation": false,
+    "maxLossPerTest": 150
+  },
+  "execution": {
+    "maxRetries": 2,
+    "cooldownMs": 4000
+  },
+  "reputation": {
+    "no_spam": true,
+    "no_deception": true
+  }
+}

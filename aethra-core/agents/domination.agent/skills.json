@@ -1,0 +1,33 @@
+{
+  "agent": "domination",
+  "capabilities": [
+    {
+      "id": "domination_loop",
+      "mapsTo": "aethra-core/domination/orchestration/domination.loop.runDominationLoop",
+      "requiredInputFields": ["opportunity"]
+    }
+  ],
+  "decisionScope": [
+    "Evaluate dominance posture from supplied opportunity telemetry",
+    "Apply compounding policy only when present in payload"
+  ],
+  "inputs": ["opportunity (domination loop input)"],
+  "outputs": ["dominance score, reinforcement, category/narrative locks"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "dominanceScore",
+    "secondary": ["stability", "revenueAttribution"]
+  },
+  "riskProfile": {
+    "tier": "strategic",
+    "maxBlastRadius": "market_positioning"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 2,
+    "timeoutMs": 60000
+  }
+}

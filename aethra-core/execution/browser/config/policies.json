@@ -1,0 +1,8 @@
+{
+  "kill_switch": true,
+  "require_structured_steps": true,
+  "allow_raw_llm_dom_execution": false,
+  "default_rate_limit_per_minute": 30,
+  "max_actions_per_task": 50,
+  "session_reuse_max_idle_ms": 900000
+}

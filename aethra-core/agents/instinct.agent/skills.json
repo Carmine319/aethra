@@ -1,0 +1,33 @@
+{
+  "agent": "instinct",
+  "capabilities": [
+    {
+      "id": "instinct_loop",
+      "mapsTo": "aethra-core/instinct/orchestration/instinct.loop.runInstinctLoop",
+      "requiredInputFields": ["capital", "signals"]
+    }
+  ],
+  "decisionScope": [
+    "Adjust probe intensity only within capital-bound instinct loop",
+    "Emit escalation candidates — not autonomous capital deployment"
+  ],
+  "inputs": ["capital", "signals (array)"],
+  "outputs": ["hypotheses", "probes", "confidence", "temporal positioning"],
+  "constraints": {
+    "file": "constraints.json",
+    "enforcedBy": "skill.engine.enforceConstraints"
+  },
+  "metrics": {
+    "primary": "probeSuccessRate",
+    "secondary": ["errorRate", "explorationShare"]
+  },
+  "riskProfile": {
+    "tier": "exploration",
+    "maxBlastRadius": "capped_probe_spend"
+  },
+  "executionPolicy": {
+    "requiresValidation": true,
+    "maxParallelTasks": 5,
+    "timeoutMs": 45000
+  }
+}
