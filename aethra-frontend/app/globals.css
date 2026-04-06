@@ -312,6 +312,7 @@
 }
 
 .aethra-btn {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -326,6 +327,7 @@
   text-transform: uppercase;
   min-height: 2.8rem;
   padding: 0.7rem 0.9rem;
+  cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
@@ -343,6 +345,11 @@
 .aethra-btn-primary:hover {
   background: #1e293b;
   border-color: #1e293b;
+}
+
+.aethra-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .aethra-grid-two {
@@ -372,12 +379,157 @@
   line-height: 1.72;
 }
 
+.aethra-status-inline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 0.72rem;
+  color: #334155;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.aethra-runtime-note {
+  margin-top: 1rem;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.aethra-inline-input {
+  margin-bottom: 0.85rem;
+}
+
+.aethra-inline-input input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0.72rem 0.8rem;
+  background: #fff;
+  color: #111827;
+}
+
+.aethra-wallet-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aethra-wallet-grid div {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  background: #f8fafc;
+}
+
+.aethra-wallet-grid span {
+  display: block;
+  color: #475569;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.aethra-wallet-grid strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.aethra-wallet-actions {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.aethra-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.aethra-grid-three .aethra-card h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.aethra-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.aethra-section-title {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+}
+
+.aethra-activity-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.aethra-activity-list li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.7rem;
+  align-items: baseline;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.aethra-activity-list span {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.aethra-activity-list strong {
+  color: #111827;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.aethra-closing {
+  border-top: 1px solid #d1d5db;
+  padding-top: 1.2rem;
+  color: #1f2937;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
 @media (max-width: 980px) {
+  .aethra-status-inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+  }
+
   .aethra-entry-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .aethra-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .aethra-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .aethra-wallet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aethra-wallet-actions {
     grid-template-columns: 1fr;
   }
 }

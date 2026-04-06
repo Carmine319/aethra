@@ -23,3 +23,7 @@ export async function apiPost(path: string, body: unknown) {
   }
   return res.json();
 }
+
+export async function createCheckout(productId: string) {
+  return apiPost("/api/checkout", { productId });
+}
