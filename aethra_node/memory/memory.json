@@ -1,6 +1,168 @@
 {
   "entries": [
     {
+      "ts": 1775406330115,
+      "idea": "B2B equipment sanitisation contracts",
+      "decision": {
+        "verdict": "advance",
+        "build_recommended": true,
+        "scores": {
+          "viability_0_100": 82
+        }
+      },
+      "execution": {
+        "product_focus": "B2B equipment sanitisation contracts — reframed pilot",
+        "landing": "/portfolio-artifacts/b2b-equipment-sanitisation-contracts-reframed-pi-2a82/index.html"
+      },
+      "results": {
+        "revenue": 1342.6,
+        "conversion_rate": 0.05,
+        "signal_strength": "strong",
+        "traffic": 204,
+        "engagement": 0.37472941176470587,
+        "measured_at": 1775406330064
+      },
+      "conversion_signals": {
+        "engagement": 0.37472941176470587,
+        "traffic": 204
+      }
+    },
+    {
+      "ts": 1775405429593,
+      "idea": "B2B equipment sanitisation contracts",
+      "decision": {
+        "verdict": "advance",
+        "build_recommended": true,
+        "scores": {
+          "viability_0_100": 82
+        }
+      },
+      "execution": {
+        "product_focus": "B2B equipment sanitisation contracts — reframed pilot",
+        "landing": "/portfolio-artifacts/b2b-equipment-sanitisation-contracts-reframed-pi-9a41/index.html"
+      },
+      "results": {
+        "revenue": 1453.92,
+        "conversion_rate": 0.0481,
+        "signal_strength": "strong",
+        "traffic": 269,
+        "engagement": 0.7809264705882354,
+        "measured_at": 1775405429569
+      },
+      "conversion_signals": {
+        "engagement": 0.7809264705882354,
+        "traffic": 269
+      }
+    },
+    {
+      "ts": 1775325535491,
+      "idea": "B2B equipment sanitisation contracts",
+      "decision": {
+        "verdict": "kill",
+        "build_recommended": false,
+        "scores": {
+          "viability_0_100": 44
+        }
+      },
+      "execution": {
+        "product_focus": "B2B equipment sanitisation contracts",
+        "landing": "/portfolio-artifacts/b2b-equipment-sanitisation-contracts-bc0d/index.html"
+      },
+      "results": {
+        "revenue": 542.35,
+        "conversion_rate": 0.015,
+        "signal_strength": "weak",
+        "traffic": 370,
+        "engagement": 0.5436897058823529,
+        "measured_at": 1775325535470
+      },
+      "conversion_signals": {
+        "engagement": 0.5436897058823529,
+        "traffic": 370
+      }
+    },
+    {
+      "ts": 1775324838003,
+      "idea": "Last-mile refill / consumables for clinics",
+      "decision": {
+        "verdict": "advance",
+        "build_recommended": true,
+        "scores": {
+          "viability_0_100": 64
+        }
+      },
+      "execution": {
+        "product_focus": "Last-mile refill / consumables for clinics",
+        "landing": "/portfolio-artifacts/last-mile-refill-consumables-for-clinics-c552/index.html"
+      },
+      "results": {
+        "revenue": 498.75,
+        "conversion_rate": 0.0276,
+        "signal_strength": "moderate",
+        "traffic": 210,
+        "engagement": 0.545528431372549,
+        "measured_at": 1775324837978
+      },
+      "conversion_signals": {
+        "engagement": 0.545528431372549,
+        "traffic": 210
+      }
+    },
+    {
+      "ts": 1775324837943,
+      "idea": "B2B equipment sanitisation contracts",
+      "decision": {
+        "verdict": "advance",
+        "build_recommended": true,
+        "scores": {
+          "viability_0_100": 64
+        }
+      },
+      "execution": {
+        "product_focus": "B2B equipment sanitisation contracts",
+        "landing": "/portfolio-artifacts/b2b-equipment-sanitisation-contracts-455f/index.html"
+      },
+      "results": {
+        "revenue": 1856.49,
+        "conversion_rate": 0.0285,
+        "signal_strength": "moderate",
+        "traffic": 479,
+        "engagement": 0.8089838235294118,
+        "measured_at": 1775324837910
+      },
+      "conversion_signals": {
+        "engagement": 0.8089838235294118,
+        "traffic": 479
+      }
+    },
+    {
+      "ts": 1775254950159,
+      "idea": "B2B equipment sanitisation contracts",
+      "decision": {
+        "verdict": "advance",
+        "build_recommended": true,
+        "scores": {
+          "viability_0_100": 82
+        }
+      },
+      "execution": {
+        "product_focus": "B2B equipment sanitisation contracts",
+        "landing": "/portfolio-artifacts/b2b-equipment-sanitisation-contracts-aa9b/index.html"
+      },
+      "results": {
+        "revenue": 2022.98,
+        "conversion_rate": 0.0506,
+        "signal_strength": "strong",
+        "traffic": 428,
+        "engagement": 0.7730240196078432,
+        "measured_at": 1775254950100
+      },
+      "conversion_signals": {
+        "engagement": 0.7730240196078432,
+        "traffic": 428
+      }
+    },
+    {
       "ts": 1775041276878,
       "idea": "Stress self-test 30: B2B HVAC service callout acquisition for London facilities",
       "decision": {

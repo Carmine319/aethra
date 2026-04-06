@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020", "DOM"],
+    "outDir": "./dist-cjs",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "declaration": false,
+    "ignoreDeprecations": "6.0",
+    "types": ["node"]
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["./dist-cjs", "./**/*.json", "./memory/organism_memory.json"]
+}

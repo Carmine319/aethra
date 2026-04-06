@@ -222,6 +222,9 @@ function recordPaymentEvent(row) {
     source: String(row.source || "unknown"),
     stripe_session_id: row.stripe_session_id || null,
     product_type: String(row.product_type || "service_booking"),
+    campaign_id: row.campaign_id || null,
+    test_group: row.test_group || null,
+    price_tier: row.price_tier || null,
   });
   while (st.payments.length > 200) st.payments.pop();
   const agg = st.aggregates;

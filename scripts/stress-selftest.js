@@ -6,7 +6,7 @@
  * Additive validation layer for real-world survivability checks.
  */
 
-const BASE = process.env.AETHRA_BASE_URL || "http://127.0.0.1:3847";
+const BASE = process.env.AETHRA_BASE_URL || "http://localhost:4000";
 const RUNS = Number(process.env.AETHRA_STRESS_RUNS || 30);
 const CONCURRENCY = Number(process.env.AETHRA_STRESS_CONCURRENCY || 4);
 const TIMEOUT_MS = Number(process.env.AETHRA_STRESS_TIMEOUT_MS || 12000);

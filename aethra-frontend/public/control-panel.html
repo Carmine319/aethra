@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AETHRA Ω — Capital Deployment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --sandstone: #c4b8a8;
+      --parchment: #e8dfd0;
+      --parchment-deep: #ddd2bf;
+      --olive: #5c6348;
+      --olive-muted: #6f7658;
+      --terracotta: #a86b52;
+      --terracotta-deep: #8f5844;
+      --charcoal: #2a2622;
+      --charcoal-soft: #3d3833;
+      --sky-dust: #8b9aab;
+      --sky-muted: #7a8a9a;
+      --line: rgba(42, 38, 34, 0.18);
+      --shadow: rgba(42, 38, 34, 0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Newsreader", Georgia, "Times New Roman", serif;
+      background: var(--parchment);
+      color: var(--charcoal);
+      font-weight: 400;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+    .shell {
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+    .hero {
+      position: relative;
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+    }
+    .profit-counter {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(2.75rem, 8vw, 4.25rem);
+      letter-spacing: 0.02em;
+      color: var(--charcoal-soft);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.05;
+    }
+    .profit-sub {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: var(--olive-muted);
+    }
+    .profit-sub span.sep { color: var(--line); }
+    .mode-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .mode-bar button {
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--line);
+      background: var(--parchment-deep);
+      color: var(--charcoal-soft);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .mode-bar button[data-active="true"] {
+      background: var(--olive);
+      color: var(--parchment);
+      border-color: var(--olive);
+    }
+    .mode-bar button:hover { background: var(--sandstone); color: var(--charcoal); }
+    .mode-bar button[data-active="true"]:hover { background: var(--olive-muted); color: var(--parchment); }
+    .seed-row {
+      max-width: 28rem;
+      margin: 0 auto 1.25rem;
+    }
+    .seed-row label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sky-muted);
+      margin-bottom: 0.35rem;
+    }
+    .seed-row input {
+      width: 100%;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line);
+      background: rgba(232, 223, 208, 0.65);
+      color: var(--charcoal);
+      font: inherit;
+      font-size: 0.95rem;
+    }
+    .seed-row input::placeholder { color: var(--sky-muted); opacity: 0.85; }
+    .seed-row input:disabled { opacity: 0.55; cursor: not-allowed; }
+    .actions-four {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .actions-four { grid-template-columns: repeat(4, 1fr); }
+    }
+    .action-block {
+      border: 1px solid var(--line);
+      background: linear-gradient(165deg, var(--sandstone) 0%, var(--parchment-deep) 100%);
+      padding: 1rem 0.85rem 0.9rem;
+      box-shadow: 0 3px 0 var(--shadow);
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      color: var(--charcoal-soft);
+      transition: filter 0.2s ease, transform 0.15s ease;
+    }
+    .action-block:hover { filter: brightness(1.04); transform: translateY(-1px); }
+    .action-block:active { transform: translateY(0); }
+    .action-block:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .action-block h3 {
+      margin: 0 0 0.35rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .action-block p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--charcoal-soft);
+      opacity: 0.88;
+      line-height: 1.35;
+    }
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line);
+      background: rgba(196, 184, 168, 0.25);
+    }
+    @media (max-width: 520px) {
+      .metrics-strip { grid-template-columns: 1fr; }
+    }
+    .metrics-strip div label {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--olive-muted);
+      margin-bottom: 0.2rem;
+    }
+    .metrics-strip div strong {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+    }
+    section.panel {
+      margin-bottom: 2rem;
+    }
+    section.panel h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--charcoal-soft);
+    }
+    .grid-2 {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(232, 223, 208, 0.5);
+      padding: 1rem 1rem 0.85rem;
+      box-shadow: 0 2px 0 var(--shadow);
+    }
+    .card h4 {
+      margin: 0 0 0.5rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .card .meta {
+      font-size: 0.82rem;
+      color: var(--charcoal-soft);
+      margin-bottom: 0.35rem;
+    }
+    .card .meta span { color: var(--olive-muted); }
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .btn-money, .btn-ghost {
+      font-family: inherit;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.65rem;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .btn-money {
+      background: var(--terracotta);
+      color: var(--parchment);
+      border-color: var(--terracotta-deep);
+    }
+    .btn-money:hover { background: var(--terracotta-deep); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--charcoal-soft);
+    }
+    .btn-ghost:hover { background: var(--sandstone); }
+    .marketplace-list { display: grid; gap: 0.5rem; }
+    .market-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--line);
+      background: rgba(139, 154, 171, 0.12);
+    }
+    .market-row span.title { font-weight: 500; }
+    .market-row span.price { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.2rem; color: var(--terracotta-deep); }
+    .memory-bar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+    }
+    @media (min-width: 520px) {
+      .memory-bar { grid-template-columns: repeat(4, 1fr); }
+    }
+    .memory-tile {
+      border: 1px solid var(--line);
+      padding: 0.75rem;
+      background: rgba(92, 99, 72, 0.08);
+    }
+    .memory-tile label {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive-muted);
+    }
+    .memory-tile strong {
+      display: block;
+      margin-top: 0.25rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+    }
+    .activity-stream {
+      border: 1px solid var(--line);
+      max-height: 16rem;
+      overflow: auto;
+      background: rgba(232, 223, 208, 0.35);
+    }
+    .activity-stream .row {
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.84rem;
+    }
+    .activity-stream .row:last-child { border-bottom: none; }
+    .activity-stream time {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky-muted);
+      margin-bottom: 0.15rem;
+    }
+    .err {
+      color: var(--terracotta-deep);
+      font-size: 0.85rem;
+      margin: 0.5rem 0 0;
+      text-align: center;
+    }
+    .payment-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--charcoal-soft);
+      color: var(--parchment);
+      border-top: 1px solid var(--olive);
+    }
+    .payment-toast {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: 18rem;
+      padding: 0.85rem 1rem;
+      background: var(--parchment-deep);
+      border: 1px solid var(--terracotta);
+      box-shadow: 0 4px 12px var(--shadow);
+      font-size: 0.82rem;
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .payment-toast.visible { opacity: 1; pointer-events: auto; }
+    .payment-toast strong { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; margin-bottom: 0.25rem; color: var(--charcoal-soft); }
+    .empty-hint { font-size: 0.85rem; color: var(--sky-muted); font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div class="profit-counter" id="profit-main" aria-live="polite">£0.00</div>
+      <div class="profit-sub">
+        <span>Today: <strong id="profit-today">£0.00</strong></span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>Active: <strong id="profit-active">0</strong></span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>Win rate: <strong id="profit-winrate">—</strong></span>
+      </div>
+    </header>
+
+    <div class="mode-bar" role="group" aria-label="Execution mode">
+      <button type="button" id="mode-auto" data-mode="autonomous">Autonomous mode</button>
+      <button type="button" id="mode-assisted" data-mode="assisted">Assisted mode</button>
+    </div>
+
+    <div class="seed-row">
+      <label for="seed">Opportunity seed <span style="font-weight:400;letter-spacing:0.06em;">(assisted & manual deploy)</span></label>
+      <input type="text" id="seed" placeholder="e.g. hydration powder B2B" autocomplete="off"/>
+    </div>
+
+    <div class="actions-four">
+      <button type="button" class="action-block" id="act-deploy">
+        <h3>Deploy opportunity</h3>
+        <p>Full execution loop — detect, build, launch, measure, capitalise.</p>
+      </button>
+      <button type="button" class="action-block" id="act-clinic">
+        <h3>Run business clinic</h3>
+        <p>Monetised clinic dossier — sellable report artefact.</p>
+      </button>
+      <button type="button" class="action-block" id="act-access">
+        <h3>Access opportunities</h3>
+        <p>Intelligence feed — unlock depth via reports.</p>
+      </button>
+      <button type="button" class="action-block" id="act-scale">
+        <h3>Scale winners</h3>
+        <p>Amplify capital on the strongest live position.</p>
+      </button>
+    </div>
+
+    <p class="err" id="err" hidden></p>
+
+    <div class="metrics-strip" aria-label="High signal metrics">
+      <div>
+        <label>Revenue today</label>
+        <strong id="metric-rev-today">£0.00</strong>
+      </div>
+      <div>
+        <label>Conversion rate</label>
+        <strong id="metric-conv">—</strong>
+      </div>
+      <div>
+        <label>Top performer</label>
+        <strong id="metric-top">—</strong>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <section class="panel" id="opportunities-panel">
+        <h2>Opportunity cards</h2>
+        <div id="opportunities-mount"></div>
+      </section>
+      <section class="panel">
+        <h2>Business portfolio</h2>
+        <div id="businesses-mount"></div>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Report marketplace</h2>
+      <div class="marketplace-list">
+        <div class="market-row">
+          <span class="title">Opportunity report</span>
+          <span class="price">£29</span>
+          <button type="button" class="btn-money" data-pay="opportunity_report">Unlock</button>
+        </div>
+        <div class="market-row">
+          <span class="title">Clinic report</span>
+          <span class="price">£79</span>
+          <button type="button" class="btn-money" data-pay="clinic_report">Unlock</button>
+        </div>
+        <div class="market-row">
+          <span class="title">Trend intelligence</span>
+          <span class="price">£99</span>
+          <button type="button" class="btn-money" data-pay="premium_access">Unlock</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Portfolio memory</h2>
+      <div class="memory-bar">
+        <div class="memory-tile"><label>Businesses created</label><strong id="mem-created">0</strong></div>
+        <div class="memory-tile"><label>Scaled</label><strong id="mem-scaled">0</strong></div>
+        <div class="memory-tile"><label>Killed</label><strong id="mem-killed">0</strong></div>
+        <div class="memory-tile"><label>Total revenue</label><strong id="mem-revenue">£0</strong></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Activity stream</h2>
+      <div class="activity-stream" id="activity-mount" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <div class="payment-banner">Activation pending · Stripe live tomorrow</div>
+  <div class="payment-toast" id="pay-toast" role="status">
+    <strong id="pay-toast-title">Checkout</strong>
+    <span id="pay-toast-body"></span>
+  </div>
+
+  <script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const LS_SIM = "aethra_display_profit_gbp";
+  const LS_SIM_TS = "aethra_display_profit_ts";
+
+  let autonomousServer = false;
+  let autoCycleTimer = null;
+  let profitDisplay = 0;
+  let profitAnim = null;
+
+  function fmtMoney(n) {
+    const v = Number(n) || 0;
+    return "£" + v.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function placeholderPaymentHandler(productId) {
+    const labels = {
+      opportunity_report: "Opportunity report",
+      clinic_report: "Clinic report",
+      business_build: "Business build",
+      premium_access: "Premium access",
+    };
+    const toast = $("pay-toast");
+    $("pay-toast-title").textContent = "Activation pending";
+    $("pay-toast-body").textContent =
+      (labels[productId] || productId) + " — checkout queued (" + productId + "). Stripe live tomorrow.";
+    toast.classList.add("visible");
+    clearTimeout(placeholderPaymentHandler._t);
+    placeholderPaymentHandler._t = setTimeout(function () {
+      toast.classList.remove("visible");
+    }, 4200);
+  }
+
+  function showErr(msg) {
+    const el = $("err");
+    if (!msg) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = msg;
+  }
+
+  function api(path, body) {
+    return fetch(path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body ? JSON.stringify(body) : "{}",
+    }).then(function (r) {
+      return r.json().then(function (j) {
+        return { ok: r.ok, status: r.status, j: j };
+      });
+    });
+  }
+
+  function demandLabel(score, difficulty) {
+    if (score >= 78) return "High";
+    if (score >= 70) return "Medium";
+    return "Building";
+  }
+
+  function speedFromIdea(row) {
+    return row.time_to_money || row.time_to_cash || "—";
+  }
+
+  function animateProfitTo(target) {
+    const start = profitDisplay;
+    const t0 = performance.now();
+    const dur = 900;
+    if (profitAnim) cancelAnimationFrame(profitAnim);
+    function frame(now) {
+      const u = Math.min(1, (now - t0) / dur);
+      const ease = 1 - Math.pow(1 - u, 2);
+      profitDisplay = start + (target - start) * ease;
+      $("profit-main").textContent = fmtMoney(profitDisplay);
+      if (u < 1) profitAnim = requestAnimationFrame(frame);
+      else {
+        profitDisplay = target;
+        $("profit-main").textContent = fmtMoney(target);
+      }
+    }
+    profitAnim = requestAnimationFrame(frame);
+  }
+
+  function sumBusinessRevenue(businesses) {
+    return businesses.reduce(function (a, b) {
+      return a + (Number(b.metrics && b.metrics.revenue) || 0);
+    }, 0);
+  }
+
+  function applySimulatedFloor(realTotal, businesses) {
+    if (realTotal > 0 || (businesses && businesses.length)) return realTotal;
+    let sim = Number(localStorage.getItem(LS_SIM)) || 0;
+    const lastTs = Number(localStorage.getItem(LS_SIM_TS)) || 0;
+    const now = Date.now();
+    if (now - lastTs > 3000) {
+      sim = Math.round((sim + Math.random() * 0.85 + 0.05) * 100) / 100;
+      if (sim > 12480.75) sim = 12480.75;
+      localStorage.setItem(LS_SIM, String(sim));
+      localStorage.setItem(LS_SIM_TS, String(now));
+    } else {
+      sim = Math.max(sim, realTotal);
+    }
+    return sim;
+  }
+
+  function setModeButtons() {
+    $("mode-auto").setAttribute("data-active", autonomousServer ? "true" : "false");
+    $("mode-assisted").setAttribute("data-active", autonomousServer ? "false" : "true");
+  }
+
+  function stopAutoCycle() {
+    if (autoCycleTimer) {
+      clearInterval(autoCycleTimer);
+      autoCycleTimer = null;
+    }
+  }
+
+  function startAutoCycle() {
+    stopAutoCycle();
+    if (!autonomousServer) return;
+    autoCycleTimer = setInterval(function () {
+      var seed = $("seed").value.trim();
+      api("/api/v1/portfolio-execution/cycle", {
+        seed_text: seed,
+        autonomous_enabled: true,
+      }).then(function (r) {
+        if (!r.ok && r.j && r.j.error === "access_denied") stopAutoCycle();
+        return refresh();
+      });
+    }, 90000);
+  }
+
+  function renderBusinesses(businesses) {
+    const mount = $("businesses-mount");
+    mount.innerHTML = "";
+    if (!businesses || !businesses.length) {
+      mount.innerHTML = '<p class="empty-hint">No businesses yet — deploy capital to create a live asset.</p>';
+      return;
+    }
+    businesses.slice(0, 12).forEach(function (b) {
+      const name = (b.brand && b.brand.name) || b.opportunity_ref || b.id;
+      const rev = Number(b.metrics && b.metrics.revenue) || 0;
+      const st = b.status || "—";
+      const path = (b.launch && b.launch.public_url_path) || (b.launch && b.launch.landing_url_path) || "";
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML =
+        "<h4></h4><div class=\"meta\">Revenue: <span class=\"rev\"></span></div><div class=\"meta\">Status: <span class=\"st\"></span></div><div class=\"card-actions\"></div>";
+      card.querySelector("h4").textContent = name;
+      card.querySelector(".rev").textContent = fmtMoney(rev);
+      card.querySelector(".st").textContent = st;
+      const actions = card.querySelector(".card-actions");
+      if (path) {
+        var a = document.createElement("a");
+        a.href = path;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.className = "btn-ghost";
+        a.textContent = "View site";
+        actions.appendChild(a);
+      }
+      var buy = document.createElement("button");
+      buy.type = "button";
+      buy.className = "btn-money";
+      buy.textContent = "Buy product";
+      buy.addEventListener("click", function () {
+        placeholderPaymentHandler("business_build");
+      });
+      actions.appendChild(buy);
+      var clone = document.createElement("button");
+      clone.type = "button";
+      clone.className = "btn-ghost";
+      clone.textContent = "Clone & deploy";
+      clone.addEventListener("click", function () {
+        placeholderPaymentHandler("business_build");
+        var seed = b.opportunity_ref || (b.opportunity && b.opportunity.idea) || b.id;
+        $("seed").value = seed;
+        void deployOpportunity();
+      });
+      actions.appendChild(clone);
+      mount.appendChild(card);
+    });
+  }
+
+  function renderOpportunities(ideas) {
+    const mount = $("opportunities-mount");
+    mount.innerHTML = "";
+    if (!ideas || !ideas.length) {
+      mount.innerHTML = '<p class="empty-hint">Open the feed to load intelligence.</p>';
+      return;
+    }
+    ideas.slice(0, 8).forEach(function (row) {
+      const title = row.idea || row.title || "Opportunity";
+      const score = Number(row.score) || 0;
+      const sc = (score / 10).toFixed(1);
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML =
+        "<h4></h4>" +
+        "<div class=\"meta\">Demand: <span class=\"d\"></span></div>" +
+        "<div class=\"meta\">Speed: <span class=\"s\"></span></div>" +
+        "<div class=\"meta\">Score: <span class=\"sc\"></span></div>" +
+        "<div class=\"card-actions\"></div>";
+      card.querySelector("h4").textContent = title;
+      card.querySelector(".d").textContent = demandLabel(score, row.difficulty);
+      card.querySelector(".s").textContent = speedFromIdea(row);
+      card.querySelector(".sc").textContent = sc;
+      const actions = card.querySelector(".card-actions");
+      var build = document.createElement("button");
+      build.type = "button";
+      build.className = "btn-money";
+      build.textContent = "Build this";
+      build.addEventListener("click", function () {
+        placeholderPaymentHandler("business_build");
+        $("seed").value = title;
+        void deployOpportunity();
+      });
+      var unlock = document.createElement("button");
+      unlock.type = "button";
+      unlock.className = "btn-ghost";
+      unlock.textContent = "Unlock full report (£29)";
+      unlock.addEventListener("click", function () {
+        placeholderPaymentHandler("opportunity_report");
+      });
+      actions.appendChild(build);
+      actions.appendChild(unlock);
+      mount.appendChild(card);
+    });
+  }
+
+  function renderActivity(feed) {
+    const mount = $("activity-mount");
+    mount.innerHTML = "";
+    (feed || []).slice(0, 40).forEach(function (row) {
+      var div = document.createElement("div");
+      div.className = "row";
+      var t = new Date(row.ts || Date.now());
+      div.innerHTML = "<time></time><div class=\"txt\"></div>";
+      div.querySelector("time").textContent = t.toLocaleString("en-GB", { hour: "2-digit", minute: "2-digit", day: "numeric", month: "short" });
+      div.querySelector(".txt").textContent = String(row.text || "").replace(/</g, "\u003c");
+      mount.appendChild(div);
+    });
+    if (!feed || !feed.length) {
+      mount.innerHTML = '<div class="row"><div class="txt empty-hint">System motion will appear here as you deploy.</div></div>';
+    }
+  }
+
+  function countScaled(businesses) {
+    return businesses.filter(function (b) {
+      return b.capital_decision && b.capital_decision.action === "scale";
+    }).length;
+  }
+
+  function winRate(businesses) {
+    var live = businesses.filter(function (b) {
+      return b.status === "live";
+    }).length;
+    var killed = businesses.filter(function (b) {
+      return b.status === "killed";
+    }).length;
+    var denom = live + killed;
+    if (!denom) return null;
+    return Math.round((100 * live) / denom) + "%";
+  }
+
+  function topPerformerName(businesses) {
+    if (!businesses.length) return "—";
+    var best = businesses.reduce(function (a, b) {
+      var ra = Number(a.metrics && a.metrics.revenue) || 0;
+      var rb = Number(b.metrics && b.metrics.revenue) || 0;
+      return rb > ra ? b : a;
+    });
+    var nm = (best.brand && best.brand.name) || best.opportunity_ref || best.id;
+    return nm.length > 22 ? nm.slice(0, 20) + "…" : nm;
+  }
+
+  function avgConversion(businesses) {
+    var live = businesses.filter(function (b) {
+      return b.status === "live";
+    });
+    if (!live.length) return null;
+    var sum = live.reduce(function (a, b) {
+      return a + (Number(b.metrics && b.metrics.conversion_rate) || 0);
+    }, 0);
+    return ((sum / live.length) * 100).toFixed(1) + "%";
+  }
+
+  async function refresh() {
+    showErr("");
+    var r = await fetch("/api/v1/portfolio-execution/status");
+    var d = await r.json();
+    if (!d.ok) {
+      showErr("Portfolio status unavailable.");
+      return;
+    }
+    autonomousServer = !!d.autonomous_enabled;
+    setModeButtons();
+
+    var businesses = d.businesses || [];
+    var realTotal = sumBusinessRevenue(businesses);
+    var displayTotal = applySimulatedFloor(realTotal, businesses);
+
+    $("profit-today").textContent = fmtMoney(d.revenue_today_gbp || 0);
+    $("profit-active").textContent = String(d.active_businesses ?? 0);
+    var wr = winRate(businesses);
+    $("profit-winrate").textContent = wr != null ? wr : "—";
+
+    animateProfitTo(displayTotal);
+
+    $("metric-rev-today").textContent = fmtMoney(d.revenue_today_gbp || 0);
+    var conv = avgConversion(businesses);
+    $("metric-conv").textContent = conv != null ? conv : "—";
+    $("metric-top").textContent = topPerformerName(businesses);
+
+    $("mem-created").textContent = String(businesses.length);
+    $("mem-scaled").textContent = String(countScaled(businesses));
+    $("mem-killed").textContent = String(
+      businesses.filter(function (b) {
+        return b.status === "killed";
+      }).length
+    );
+    $("mem-revenue").textContent = fmtMoney(realTotal);
+
+    renderBusinesses(businesses);
+    renderActivity(d.feed);
+
+    try {
+      var cr = await fetch("/api/v1/conversion/metrics");
+      var cj = await cr.json();
+      if (cj.ok && cj.metrics && conv == null) {
+        var rate = Number(cj.metrics.conversion_rate);
+        if (Number.isFinite(rate)) $("metric-conv").textContent = (rate * 100).toFixed(1) + "%";
+      }
+    } catch (e) { /* ignore */ }
+
+    if (autonomousServer) startAutoCycle();
+    else stopAutoCycle();
+
+    updateAssistedUi();
+  }
+
+  function updateAssistedUi() {
+    var assisted = !autonomousServer;
+    $("seed").disabled = !assisted;
+    $("act-deploy").title = autonomousServer
+      ? "Autonomous loop is running; manual deploy still available."
+      : "Runs full portfolio cycle on your seed.";
+  }
+
+  async function deployOpportunity() {
+    showErr("");
+    var seed = $("seed").value.trim();
+    var { ok, j } = await api("/api/v1/portfolio-execution/deploy", {
+      seed_text: seed,
+      autonomous: autonomousServer,
+    });
+    if (!ok) showErr((j && (j.error || j.message)) || "Deploy failed.");
+    await refresh();
+  }
+
+  async function runClinic() {
+    showErr("");
+    placeholderPaymentHandler("clinic_report");
+    var { ok, j } = await api("/api/v1/portfolio-execution/clinic-report", {});
+    if (!ok) showErr((j && j.error) || "Clinic failed.");
+    await refresh();
+  }
+
+  async function scaleWinners() {
+    showErr("");
+    var { ok, j } = await api("/api/v1/portfolio-execution/scale", {});
+    if (!ok) showErr((j && j.error) || "Scale failed.");
+    await refresh();
+  }
+
+  async function loadOpportunities() {
+    showErr("");
+    var text = $("seed").value.trim();
+    var url = "/api/v1/ideas" + (text ? "?text=" + encodeURIComponent(text) : "");
+    var r = await fetch(url);
+    var j = await r.json();
+    if (!j.ok || !j.ideas) {
+      showErr("Opportunities feed failed.");
+      return;
+    }
+    renderOpportunities(j.ideas);
+    document.getElementById("opportunities-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function setAutonomous(enabled) {
+    showErr("");
+    var { ok, j } = await api("/api/v1/portfolio-execution/autonomous", { enabled: !!enabled });
+    if (!ok) showErr((j && j.error) || "Mode change denied.");
+    await refresh();
+  }
+
+  $("mode-auto").addEventListener("click", function () {
+    void setAutonomous(true);
+  });
+  $("mode-assisted").addEventListener("click", function () {
+    void setAutonomous(false);
+  });
+
+  $("act-deploy").addEventListener("click", function () {
+    placeholderPaymentHandler("business_build");
+    void deployOpportunity();
+  });
+  $("act-clinic").addEventListener("click", function () {
+    void runClinic();
+  });
+  $("act-access").addEventListener("click", function () {
+    void loadOpportunities();
+  });
+  $("act-scale").addEventListener("click", function () {
+    placeholderPaymentHandler("premium_access");
+    void scaleWinners();
+  });
+
+  document.querySelectorAll(".market-row .btn-money[data-pay]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      placeholderPaymentHandler(btn.getAttribute("data-pay"));
+    });
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") stopAutoCycle();
+    else if (autonomousServer) startAutoCycle();
+  });
+
+  void refresh();
+  void loadOpportunities();
+})();
+  </script>
+</body>
+</html>

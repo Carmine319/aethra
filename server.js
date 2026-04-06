@@ -95,6 +95,11 @@ const { assessProfitSurface } = require("./aethra_node/core/profitEnforcement.js
 
 const app = express();
 
+app.use(
+  "/portfolio-artifacts",
+  express.static(path.join(ROOT, "aethra_node", "portfolioExecution", "artifacts"))
+);
+
 app.post(
   "/webhooks/stripe",
   express.raw({ type: "application/json", limit: "2mb" }),
@@ -179,6 +184,262 @@ app.get("/api/v1/ideas", (req, res) => {
   const text = String((req.query && req.query.text) || "").trim();
   const { generateIdeas } = require("./aethra_node/idea/ideaGenerator.js");
   res.status(200).json({ ok: true, ideas: generateIdeas({ text }) });
+});
+
+const portfolioExecution = require("./aethra_node/portfolioExecution/index.js");
+const { getOrganismSnapshot } = require("./core/organismApi.js");
+const { executeCycle } = require("./core/cycle/executeCycle.js");
+const { startOrganismAutonomousLoop } = require("./core/cycle/scheduler.js");
+
+app.get("/api/v1/organism/snapshot", (_req, res) => {
+  try {
+    res.status(200).json(getOrganismSnapshot());
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.get("/api/v1/organism/mode", (_req, res) => {
+  try {
+    const snap = getOrganismSnapshot();
+    res.status(200).json({
+      ok: true,
+      autonomous_enabled: snap.portfolio.autonomous_enabled,
+      mode: snap.mode,
+    });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.post("/api/v1/organism/mode", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const gate = portfolioExecution.checkAccess(String(b.user_id || "anonymous"), "autonomous_cycle");
+  if (!gate.allowed) {
+    res.status(403).json({ ok: false, error: "access_denied", gate });
+    return;
+  }
+  try {
+    const s = portfolioExecution.loadState();
+    s.autonomous_enabled = !!b.enabled;
+    portfolioExecution.saveBusinesses(s);
+    res.status(200).json({ ok: true, autonomous_enabled: s.autonomous_enabled });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.post("/api/v1/organism/cycle", async (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || b.userId || "anonymous").trim();
+  const gate = portfolioExecution.checkAccess(userId, "portfolio_execution");
+  if (!gate.allowed) {
+    res.status(403).json({ ok: false, error: "access_denied", gate });
+    return;
+  }
+  try {
+    const out = await executeCycle({
+      seedText: b.seed_text || b.seedText,
+      baseUrl: b.base_url || b.baseUrl || "",
+      user_id: userId,
+      deploy_limit: b.deploy_limit ?? b.deployLimit,
+      mode: String(b.mode || "assisted").toLowerCase() === "autonomous" ? "autonomous" : "assisted",
+      autonomous_enabled: b.autonomous_enabled,
+      campaign_id: b.campaign_id ?? b.campaignId,
+      test_group: b.test_group ?? b.testGroup,
+      skip_access_check: false,
+    });
+    res.status(200).json(out);
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.get("/api/v1/portfolio-execution/status", (req, res) => {
+  const s = portfolioExecution.loadState();
+  const userId = String((req.query && req.query.user_id) || "anonymous").trim();
+  let organism = null;
+  try {
+    organism = getOrganismSnapshot();
+  } catch {
+    organism = null;
+  }
+  res.status(200).json({
+    ok: true,
+    capital_available_gbp: s.capital_available_gbp,
+    revenue_today_gbp: s.revenue_today_gbp,
+    autonomous_enabled: !!s.autonomous_enabled,
+    last_cycle_ts: s.last_cycle_ts,
+    active_businesses: s.businesses.filter((b) => b.status === "live").length,
+    businesses: s.businesses.slice(0, 40),
+    feed: s.feed.slice(0, 60),
+    rev_share: s.rev_share.slice(0, 20),
+    access: portfolioExecution.checkAccess(userId, "portfolio_execution"),
+    organism,
+  });
+});
+
+app.get("/api/v1/portfolio-execution/infra", (_req, res) => {
+  res.status(200).json({ ok: true, ...portfolioExecution.getSubscriptionTiers() });
+});
+
+app.get("/api/v1/portfolio-execution/recycle-stats", (req, res) => {
+  const userId = String((req.query && req.query.user_id) || "anonymous").trim();
+  const gate = portfolioExecution.checkAccess(userId, "portfolio_execution");
+  if (!gate.allowed) {
+    res.status(403).json({ ok: false, error: "access_denied", gate });
+    return;
+  }
+  const limit = req.query && req.query.limit != null ? Number(req.query.limit) : undefined;
+  res.status(200).json({
+    ok: true,
+    ...portfolioExecution.getRecycleStatsForApi({ limit }),
+  });
+});
+
+app.post("/api/v1/portfolio-execution/cycle", async (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || b.userId || "anonymous").trim();
+  const gate = portfolioExecution.checkAccess(userId, "portfolio_execution");
+  if (!gate.allowed) {
+    res.status(403).json({ ok: false, error: "access_denied", gate });
+    return;
+  }
+  try {
+    const useOrganism = !!(b.use_organism_loop ?? b.organism);
+    const out = useOrganism
+      ? await executeCycle({
+          seedText: b.seed_text || b.seedText,
+          baseUrl: b.base_url || b.baseUrl || "",
+          user_id: userId,
+          deploy_limit: b.deploy_limit ?? b.deployLimit,
+          mode: String(b.mode || "assisted").toLowerCase() === "autonomous" ? "autonomous" : "assisted",
+          autonomous_enabled: b.autonomous_enabled,
+          campaign_id: b.campaign_id ?? b.campaignId,
+          test_group: b.test_group ?? b.testGroup,
+          skip_access_check: false,
+        })
+      : await portfolioExecution.runAethraCycle({
+          seedText: b.seed_text || b.seedText,
+          baseUrl: b.base_url || b.baseUrl || "",
+          user_id: userId,
+          autonomous_enabled: !!b.autonomous_enabled,
+          deploy_limit: b.deploy_limit ?? b.deployLimit,
+          campaign_id: b.campaign_id ?? b.campaignId,
+          test_group: b.test_group ?? b.testGroup,
+        });
+    res.status(200).json(out);
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.post("/api/v1/portfolio-execution/deploy", async (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || "anonymous").trim();
+  portfolioExecution.trackUsage(userId, "deploy_opportunity");
+  try {
+    const out = await portfolioExecution.runAethraCycle({
+      seedText: b.seed_text || "",
+      baseUrl: b.base_url || "",
+      user_id: userId,
+      autonomous_enabled: !!b.autonomous,
+      deploy_limit: b.deploy_limit ?? b.deployLimit,
+      campaign_id: b.campaign_id ?? b.campaignId,
+      test_group: b.test_group ?? b.testGroup,
+    });
+    res.status(200).json({ ok: true, ...out });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e.message || e) });
+  }
+});
+
+app.post("/api/v1/portfolio-execution/clinic-report", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || "anonymous").trim();
+  portfolioExecution.trackUsage(userId, "clinic_report");
+  const s = portfolioExecution.loadState();
+  const bid = String(b.business_id || "").trim();
+  const business = bid ? s.businesses.find((x) => x.id === bid) : s.businesses[0];
+  const reports = portfolioExecution.generateReports(
+    {
+      business: business || {},
+      performance: business?.metrics || {},
+      opportunities: [],
+      stage: "clinic",
+    },
+    { writeFiles: true }
+  );
+  portfolioExecution.pushFeed(
+    s,
+    `Clinic report generated${business ? ` for ${business.id}` : ""}.`,
+    { type: "clinic" }
+  );
+  portfolioExecution.saveBusinesses(s);
+  res.status(200).json({ ok: true, reports, business_id: business?.id || null });
+});
+
+app.post("/api/v1/portfolio-execution/scale", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || "anonymous").trim();
+  portfolioExecution.trackUsage(userId, "scale_winner");
+  const s = portfolioExecution.loadState();
+  const bid = String(b.business_id || "").trim();
+  const business = bid ? s.businesses.find((x) => x.id === bid) : s.businesses.find((x) => x.status === "live");
+  if (!business) {
+    res.status(404).json({ ok: false, error: "no_business" });
+    return;
+  }
+  s.capital_available_gbp = Math.round((s.capital_available_gbp + 300) * 100) / 100;
+  business.capital_decision = { action: "scale", note: "Manual scale from control panel.", budget_delta_gbp: 300 };
+  portfolioExecution.pushFeed(s, `Manual scale: ${business.id}`, { type: "capital", action: "scale_manual" });
+  portfolioExecution.saveBusinesses(s);
+  res.status(200).json({
+    ok: true,
+    business_id: business.id,
+    capital_available_gbp: s.capital_available_gbp,
+  });
+});
+
+app.post("/api/v1/portfolio-execution/kill", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const userId = String(b.user_id || "anonymous").trim();
+  portfolioExecution.trackUsage(userId, "kill_project");
+  const s = portfolioExecution.loadState();
+  const bid = String(b.business_id || "").trim();
+  const idx = bid ? s.businesses.findIndex((x) => x.id === bid) : 0;
+  if (idx < 0 || !s.businesses[idx]) {
+    res.status(404).json({ ok: false, error: "not_found" });
+    return;
+  }
+  s.businesses[idx].status = "killed";
+  portfolioExecution.pushFeed(s, `Killed project: ${s.businesses[idx].id}`, { type: "capital", action: "kill_manual" });
+  portfolioExecution.saveBusinesses(s);
+  res.status(200).json({ ok: true, business_id: s.businesses[idx].id });
+});
+
+app.post("/api/v1/portfolio-execution/rev-share", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const out = portfolioExecution.enableRevShare({
+    user_id: b.user_id,
+    business_id: b.business_id,
+    revenue_gbp: b.revenue_gbp,
+    pct: b.pct,
+  });
+  res.status(out.ok ? 200 : 400).json(out);
+});
+
+app.post("/api/v1/portfolio-execution/autonomous", (req, res) => {
+  const b = req.body && typeof req.body === "object" ? req.body : {};
+  const s = portfolioExecution.loadState();
+  const gate = portfolioExecution.checkAccess(String(b.user_id || "anonymous"), "autonomous_cycle");
+  if (!gate.allowed) {
+    res.status(403).json({ ok: false, error: "access_denied", gate });
+    return;
+  }
+  s.autonomous_enabled = !!b.enabled;
+  portfolioExecution.saveBusinesses(s);
+  res.status(200).json({ ok: true, autonomous_enabled: s.autonomous_enabled });
 });
 
 app.get("/api/v1/wallet/capital-snapshot", (req, res) => {
@@ -473,13 +734,22 @@ app.post("/run", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(ROOT, "web")));
-app.use(express.static(path.join(ROOT, "public")));
-
 app.listen(PORT, () => {
+  const nextUi = process.env.AETHRA_NEXT_ORIGIN || "http://127.0.0.1:3000";
+  try {
+    startOrganismAutonomousLoop();
+  } catch {
+    /* non-fatal */
+  }
+  try {
+    const { runDiagnostics } = require("./core/dist-cjs/diagnostics/index.js");
+    runDiagnostics().catch(() => {});
+  } catch {
+    /* run `npm run build:core` if dist missing */
+  }
   console.log(
     `AETHRA server.js on http://127.0.0.1:${PORT}\n` +
-      `  UI: http://127.0.0.1:${PORT}/\n` +
+      `  Next.js UI: ${nextUi} (run: cd aethra-frontend && npm run dev)\n` +
       `  POST /run`
   );
 });

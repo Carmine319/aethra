@@ -11,7 +11,27 @@ python -m venv .venv
 pip install -e .
 ```
 
-## Web API + UI (Node)
+## Web UI (Next.js) — source of truth
+
+The public site lives in **`aethra-frontend/`** only (App Router). Vercel uses `rootDirectory: aethra-frontend`.
+
+```bash
+cd aethra-frontend
+npm install
+npm run dev
+```
+
+Open **http://127.0.0.1:3000** — homepage, `/ideas`, `/business`, `/portfolio`.
+
+From the **repository root** you can also run:
+
+```bash
+npm run dev:web
+```
+
+Copy **`aethra-frontend/.env.example`** to **`.env.local`** and set **`AETHRA_API_ORIGIN`** if your API is not on `http://localhost:4000`.
+
+## Web API (Node)
 
 From the project root (same folder as `index.js`):
 
@@ -19,14 +39,35 @@ From the project root (same folder as `index.js`):
 node index.js
 ```
 
-- UI: [http://127.0.0.1:3847/](http://127.0.0.1:3847/) (static `web/index.html`)
-- Health: `GET /health`
-- Schema: `GET /api/v1/schema`
-- Run pipelines: `POST /api/v1/idea`, `POST /api/v1/url`, `POST /api/v1/miae`, or unified `POST /api/v1/run` with `{ "mode": "idea"|"url"|"miae", ... }`
+- **API** (default): [http://localhost:4000/](http://localhost:4000/) — `GET /health`, `GET /api/v1/schema`, `POST` pipelines as below.
+- **Browser UI**: not served here — `GET /` redirects to **`AETHRA_NEXT_ORIGIN`** (default **http://127.0.0.1:3000**). Run the Next app alongside.
 
-Set `PORT` or `AETHRA_PORT` to change the listen port (default **3847**).
+Set **`PORT`** or **`AETHRA_PORT`** to change the API listen port (default **3847**).
 
-The server spawns `python -m aethra stdio` (JSON over stdin) so the browser never shells arguments; use `noCache: true` in JSON bodies while iterating in the UI.
+**Express variant** (`server.js`) defaults to port **3000**; if you use it as the backend, point Next at it:
+
+```bash
+# in aethra-frontend/.env.local
+AETHRA_API_ORIGIN=http://127.0.0.1:3000
+```
+
+### API routes
+
+- `POST /api/v1/idea`, `POST /api/v1/url`, `POST /api/v1/miae`, or unified `POST /api/v1/run` with `{ "mode": "idea"|"url"|"miae", ... }`
+
+The server spawns `python -m aethra stdio` (JSON over stdin) so the browser never shells arguments; use `noCache: true` in JSON bodies while iterating.
+
+### Optional static asset
+
+- **`aethra-frontend/public/control-panel.html`** — served at **`/control-panel.html`** on the Next origin when needed.
+
+## Root npm scripts
+
+| Script        | Purpose                                      |
+|---------------|----------------------------------------------|
+| `npm run dev:web` | `next dev` in `aethra-frontend`          |
+| `npm run build:web` | `next build` (deps must be installed) |
+| `npm run build` | CI-style: `npm ci` + build in `aethra-frontend` |
 
 ## CLI (Python or Node)
 

@@ -1,6 +1,6 @@
 /**
  * AETHRA Q+++ host
- * - Default (no args): HTTP API + static UI (web/)
+ * - Default (no args): HTTP API (UI: Next.js in aethra-frontend/)
  * - cli … : forward to Python CLI
  * Requires: pip install -e . and Python on PATH (python, py -3, or python3)
  */
@@ -12,8 +12,6 @@ const path = require("path");
 const { URL } = require("url");
 
 const ROOT = path.resolve(__dirname);
-const WEB_DIR = path.join(ROOT, "web");
-const WEB_INDEX = path.join(WEB_DIR, "index.html");
 const { runAethra } = require(path.join(ROOT, "aethra-core", "engine", "core.loop.js"));
 const AETHRA_PORTFOLIO_FILE = path.join(ROOT, "aethra_memory", "portfolio.state.json");
 const AETHRA_ACTIONS_FILE = path.join(ROOT, "aethra_memory", "aethra.actions.jsonl");
@@ -378,6 +376,105 @@ async function handleApi(req, res, urlPath) {
       return;
     }
     sendJson(res, 200, schema);
+    return;
+  }
+
+  if (urlPath === "/api/v1/organism/snapshot" && req.method === "GET") {
+    try {
+      const { getOrganismSnapshot } = require(path.join(ROOT, "core", "organismApi.js"));
+      sendJson(res, 200, getOrganismSnapshot());
+    } catch (e) {
+      sendJson(res, 500, { ok: false, error: String(e.message || e) });
+    }
+    return;
+  }
+
+  if (urlPath === "/api/v1/organism/mode" && req.method === "GET") {
+    try {
+      const { getOrganismSnapshot } = require(path.join(ROOT, "core", "organismApi.js"));
+      const snap = getOrganismSnapshot();
+      sendJson(res, 200, {
+        ok: true,
+        autonomous_enabled: snap.portfolio.autonomous_enabled,
+        mode: snap.mode,
+      });
+    } catch (e) {
+      sendJson(res, 500, { ok: false, error: String(e.message || e) });
+    }
+    return;
+  }
+
+  if (urlPath === "/api/v1/organism/mode" && req.method === "POST") {
+    let raw;
+    try {
+      raw = await readBody(req);
+    } catch (e) {
+      sendJson(res, 400, { ok: false, error: String(e.message || e) });
+      return;
+    }
+    let body = {};
+    try {
+      body = raw ? JSON.parse(raw) : {};
+    } catch {
+      sendJson(res, 400, { ok: false, error: "invalid_json" });
+      return;
+    }
+    try {
+      const portfolioExecution = require(path.join(ROOT, "aethra_node", "portfolioExecution", "index.js"));
+      const gate = portfolioExecution.checkAccess(String(body.user_id || "anonymous"), "autonomous_cycle");
+      if (!gate.allowed) {
+        sendJson(res, 403, { ok: false, error: "access_denied", gate });
+        return;
+      }
+      const s = portfolioExecution.loadState();
+      s.autonomous_enabled = !!body.enabled;
+      portfolioExecution.saveBusinesses(s);
+      sendJson(res, 200, { ok: true, autonomous_enabled: s.autonomous_enabled });
+    } catch (e) {
+      sendJson(res, 500, { ok: false, error: String(e.message || e) });
+    }
+    return;
+  }
+
+  if (urlPath === "/api/v1/organism/cycle" && req.method === "POST") {
+    let raw;
+    try {
+      raw = await readBody(req);
+    } catch (e) {
+      sendJson(res, 400, { ok: false, error: String(e.message || e) });
+      return;
+    }
+    let body = {};
+    try {
+      body = raw ? JSON.parse(raw) : {};
+    } catch {
+      sendJson(res, 400, { ok: false, error: "invalid_json" });
+      return;
+    }
+    const userId = String(body.user_id || body.userId || "anonymous").trim();
+    try {
+      const portfolioExecution = require(path.join(ROOT, "aethra_node", "portfolioExecution", "index.js"));
+      const gate = portfolioExecution.checkAccess(userId, "portfolio_execution");
+      if (!gate.allowed) {
+        sendJson(res, 403, { ok: false, error: "access_denied", gate });
+        return;
+      }
+      const { executeCycle } = require(path.join(ROOT, "core", "cycle", "executeCycle.js"));
+      const out = await executeCycle({
+        seedText: body.seed_text || body.seedText,
+        baseUrl: body.base_url || body.baseUrl || "",
+        user_id: userId,
+        deploy_limit: body.deploy_limit ?? body.deployLimit,
+        mode: String(body.mode || "assisted").toLowerCase() === "autonomous" ? "autonomous" : "assisted",
+        autonomous_enabled: body.autonomous_enabled,
+        campaign_id: body.campaign_id ?? body.campaignId,
+        test_group: body.test_group ?? body.testGroup,
+        skip_access_check: false,
+      });
+      sendJson(res, 200, out);
+    } catch (e) {
+      sendJson(res, 500, { ok: false, error: String(e.message || e) });
+    }
     return;
   }
 
@@ -1012,6 +1109,18 @@ async function handleApi(req, res, urlPath) {
 
 function startServer() {
   ensureAethraContinuousLoop();
+  try {
+    const { startOrganismAutonomousLoop } = require(path.join(ROOT, "core", "cycle", "scheduler.js"));
+    startOrganismAutonomousLoop();
+  } catch {
+    /* organism scheduler optional */
+  }
+  try {
+    const { runDiagnostics } = require(path.join(ROOT, "core", "dist-cjs", "diagnostics", "index.js"));
+    runDiagnostics().catch(() => {});
+  } catch {
+    /* run `npm run build:core` if dist missing */
+  }
   const server = http.createServer(async (req, res) => {
     const u = new URL(req.url || "/", `http://127.0.0.1:${PORT}`);
     const p = u.pathname.replace(/\/$/, "") || "/";
@@ -1028,28 +1137,13 @@ function startServer() {
         return;
       }
       if (req.method === "GET" && (p === "/" || p === "/index.html")) {
-        if (!fs.existsSync(WEB_INDEX)) {
-          sendText(res, 404, "web/index.html missing", "text/plain; charset=utf-8");
-          return;
-        }
-        const html = fs.readFileSync(WEB_INDEX, "utf-8");
-        sendText(res, 200, html, "text/html; charset=utf-8");
+        const nextOrigin = (process.env.AETHRA_NEXT_ORIGIN || "http://127.0.0.1:3000").replace(
+          /\/$/,
+          ""
+        );
+        res.writeHead(302, { Location: `${nextOrigin}/` });
+        res.end();
         return;
-      }
-      if (req.method === "GET" && p.length > 1 && !p.includes("..")) {
-        const rel = p.replace(/^\//, "");
-        const candidate = path.join(WEB_DIR, rel);
-        if (candidate.startsWith(WEB_DIR) && fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
-          const ext = path.extname(candidate).toLowerCase();
-          const type =
-            ext === ".js"
-              ? "application/javascript; charset=utf-8"
-              : ext === ".css"
-                ? "text/css; charset=utf-8"
-                : "application/octet-stream";
-          sendText(res, 200, fs.readFileSync(candidate, "utf-8"), type);
-          return;
-        }
       }
       sendJson(res, 404, { error: "not_found" });
     } catch (e) {
@@ -1058,9 +1152,10 @@ function startServer() {
   });
 
   server.listen(PORT, () => {
+    const nextUi = process.env.AETHRA_NEXT_ORIGIN || "http://127.0.0.1:3000";
     console.error(
       `AETHRA Q+++ listening on http://127.0.0.1:${PORT}\n` +
-        `  UI: http://127.0.0.1:${PORT}/\n` +
+        `  Next.js UI: ${nextUi} (cd aethra-frontend && npm run dev)\n` +
         `  Health: GET /health · Schema: GET /api/v1/schema`
     );
   });
@@ -1069,9 +1164,9 @@ function startServer() {
 function printHelp() {
   console.error(
     "AETHRA Q+++ (Node host)\n\n" +
-      "  node index.js              Start API + web UI (PORT=" +
+      "  node index.js              Start API (PORT=" +
       PORT +
-      ")\n" +
+      "); UI: cd aethra-frontend && npm run dev\n" +
       "  node index.js server       Same as above\n" +
       "  node index.js cli idea \"…\"\n" +
       "  node index.js cli url https://…\n" +

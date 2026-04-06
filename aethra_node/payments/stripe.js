@@ -6,6 +6,15 @@ const ledger = require("../wallet/ledger");
 const { splitPayment } = require("../billing/performanceEngine");
 const { setUserPlan } = require("../billing/planStore");
 const { recordPaymentEvent } = require("../memory/learningEngine");
+const { applyVenturePilotFirstSale } = require("../portfolioExecution/firstSaleCapital");
+const path = require("path");
+const stripeBridge = (() => {
+  try {
+    return require(path.join(__dirname, "..", "..", "core", "profit", "stripeBridge.js"));
+  } catch {
+    return null;
+  }
+})();
 /**
  * Stripe Checkout (test mode) — simulate when STRIPE_SECRET_KEY missing.
  * Env: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, AETHRA_PUBLIC_BASE_URL
@@ -13,8 +22,8 @@ const { recordPaymentEvent } = require("../memory/learningEngine");
 
 function getBaseUrl() {
   return (
-    String(process.env.AETHRA_PUBLIC_BASE_URL || "http://127.0.0.1:3847").replace(/\/$/, "") ||
-    "http://127.0.0.1:3847"
+    String(process.env.AETHRA_PUBLIC_BASE_URL || "http://localhost:4000").replace(/\/$/, "") ||
+    "http://localhost:4000"
   );
 }
 
@@ -25,6 +34,9 @@ async function createCheckoutSession(product) {
   const amountP = Math.round(amountGbp * 100);
   const productType = String(product?.product_type || "service_booking");
   const ventureId = product?.venture_id != null ? String(product.venture_id) : "";
+  const campaignId = product?.campaign_id != null ? String(product.campaign_id).slice(0, 120) : "";
+  const testGroup = product?.test_group != null ? String(product.test_group).slice(0, 64) : "";
+  const priceTier = product?.price_tier != null ? String(product.price_tier).slice(0, 80) : "";
   const customerEmail = product?.customer_email ? String(product.customer_email).trim() : "";
 
   if (!key || key.startsWith("sk_placeholder")) {
@@ -38,6 +50,9 @@ async function createCheckoutSession(product) {
       amount_gbp: amountGbp,
       product_type: productType,
       venture_id: ventureId || undefined,
+      campaign_id: campaignId || undefined,
+      test_group: testGroup || undefined,
+      price_tier: priceTier || undefined,
     };
   }
 
@@ -59,7 +74,30 @@ async function createCheckoutSession(product) {
     params.append("line_items[0][price_data][product_data][metadata][aethra_product_type]", productType);
     params.append("metadata[aethra_product_type]", productType);
   }
-  if (ventureId) params.append("metadata[venture_id]", ventureId);
+  if (ventureId) {
+    params.append("metadata[venture_id]", ventureId);
+    if (productType !== "subscription") {
+      params.append("line_items[0][price_data][product_data][metadata][venture_id]", ventureId);
+    }
+  }
+  if (campaignId) {
+    params.append("metadata[campaign_id]", campaignId);
+    if (productType !== "subscription") {
+      params.append("line_items[0][price_data][product_data][metadata][campaign_id]", campaignId);
+    }
+  }
+  if (testGroup) {
+    params.append("metadata[test_group]", testGroup);
+    if (productType !== "subscription") {
+      params.append("line_items[0][price_data][product_data][metadata][test_group]", testGroup);
+    }
+  }
+  if (priceTier) {
+    params.append("metadata[price_tier]", priceTier);
+    if (productType !== "subscription") {
+      params.append("line_items[0][price_data][product_data][metadata][price_tier]", priceTier);
+    }
+  }
   if (customerEmail) params.append("customer_email", customerEmail);
 
   let res;
@@ -89,6 +127,9 @@ async function createCheckoutSession(product) {
     amount_gbp: amountGbp,
     product_type: productType,
     venture_id: ventureId || undefined,
+    campaign_id: campaignId || undefined,
+    test_group: testGroup || undefined,
+    price_tier: priceTier || undefined,
   };
 }
 
@@ -169,6 +210,12 @@ function handleWebhook(rawBody, signatureHeader) {
         stripe_session_id: o?.id,
         product_type: "wallet_topup",
       });
+      if (stripeBridge) {
+        stripeBridge.notifyStripeRevenue(amountGbp, "stripe_wallet_topup", {
+          user_id: userId,
+          stripe_session_id: o?.id,
+        });
+      }
       return { received: true, type, recorded_gbp: amountGbp, credited: "ledger" };
     }
 
@@ -186,6 +233,13 @@ function handleWebhook(rawBody, signatureHeader) {
         stripe_session_id: o?.id,
         product_type: "subscription",
       });
+      if (stripeBridge) {
+        stripeBridge.notifyStripeRevenue(amountGbp, "stripe_subscription", {
+          user_id: userId,
+          plan,
+          stripe_session_id: o?.id,
+        });
+      }
       return { received: true, type, recorded_gbp: amountGbp, plan_set: plan };
     }
 
@@ -211,11 +265,29 @@ function handleWebhook(rawBody, signatureHeader) {
         stripe_session_id: o?.id,
         product_type: "deal_payment",
       });
+      if (stripeBridge) {
+        stripeBridge.notifyStripeRevenue(amountGbp, "stripe_deal_payment", {
+          user_id: userId,
+          net_gbp: net,
+          fee_gbp: fee,
+          stripe_session_id: o?.id,
+        });
+      }
       return { received: true, type, recorded_gbp: amountGbp, net, fee };
     }
 
     const venture = meta.venture_id || meta.ventureId;
     const customer = o?.customer_details?.email || o?.customer_email || "stripe_customer";
+
+    let portfolio_first_sale = null;
+    if (productType === "venture_pilot" && venture) {
+      portfolio_first_sale = applyVenturePilotFirstSale({
+        ventureId: String(venture),
+        amountGbp: amountGbp,
+        stripeSessionId: o?.id || null,
+      });
+    }
+
     recordPayment({
       amount_gbp: amountGbp,
       customer,
@@ -225,8 +297,16 @@ function handleWebhook(rawBody, signatureHeader) {
       stripe_session_id: o?.id,
       stripe_payment_intent: o?.payment_intent || null,
       product_type: productType || "service_booking",
+      campaign_id: meta.campaign_id || meta.campaignId || null,
+      test_group: meta.test_group || meta.testGroup || null,
+      price_tier: meta.price_tier || meta.priceTier || null,
     });
-    return { received: true, type, recorded_gbp: amountGbp };
+    return {
+      received: true,
+      type,
+      recorded_gbp: amountGbp,
+      portfolio_first_sale: portfolio_first_sale || undefined,
+    };
   }
 
   return { received: true, type: type || "ignored" };
@@ -254,7 +334,18 @@ function recordPayment(data) {
     source: String(data.source || "manual"),
     stripe_session_id: data.stripe_session_id || null,
     product_type: data.product_type || "service_booking",
+    campaign_id: data.campaign_id || null,
+    test_group: data.test_group || null,
+    price_tier: data.price_tier || null,
   });
+
+  if (stripeBridge) {
+    stripeBridge.notifyStripeRevenue(amount, String(data.source || "stripe"), {
+      venture_id: data.venture_id || null,
+      product_type: data.product_type || "service_booking",
+      stripe_session_id: data.stripe_session_id || null,
+    });
+  }
 
   return { ok: true, balance_after: wallet.getBalance() };
 }

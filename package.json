@@ -2,8 +2,15 @@
   "name": "aethra-qppp",
   "version": "1.0.0",
   "private": true,
-  "description": "AETHRA Q+++ — Node host + Python intelligence core",
+  "description": "AETHRA Q+++ — Python intelligence core, Node API, Next.js UI (aethra-frontend)",
   "scripts": {
+    "build": "cd aethra-frontend && npm ci && npm run build",
+    "build:web": "cd aethra-frontend && npm run build",
+    "dev:frontend": "cd aethra-frontend && npm run dev -- -p 3000",
+    "dev:backend": "ts-node -P server/tsconfig.json server/index.ts",
+    "predev": "kill-port 3000 4000",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:web": "cd aethra-frontend && npm run dev",
     "start": "node index.js",
     "host": "node index.js",
     "server": "node server.js",
@@ -11,12 +18,23 @@
     "idea": "node index.js cli idea",
     "test:py": "python -m aethra schema",
     "smoke": "node scripts/smoke.js",
-    "selftest:stress": "node scripts/stress-selftest.js"
+    "selftest:stress": "node scripts/stress-selftest.js",
+    "build:core": "tsc -p core/tsconfig.json"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "concurrently": "^9.0.1",
+    "cors": "^2.8.5",
+    "kill-port": "^2.0.1",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.3",
+    "@types/node": "^25.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
   }
 }

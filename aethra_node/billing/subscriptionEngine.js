@@ -4,8 +4,8 @@ const crypto = require("crypto");
 
 function getBaseUrl() {
   return (
-    String(process.env.AETHRA_PUBLIC_BASE_URL || "http://127.0.0.1:3847").replace(/\/$/, "") ||
-    "http://127.0.0.1:3847"
+    String(process.env.AETHRA_PUBLIC_BASE_URL || "http://localhost:4000").replace(/\/$/, "") ||
+    "http://localhost:4000"
   );
 }
 

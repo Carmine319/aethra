@@ -1,6 +1,56 @@
 {
   "cycles": [
     {
+      "ts": 1775406330142,
+      "leads": 1,
+      "suppliers_found": 0,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 0,
+      "simulated_closes": 1,
+      "revenue_delta_gbp": 67.13
+    },
+    {
+      "ts": 1775405429613,
+      "leads": 1,
+      "suppliers_found": 0,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 0,
+      "simulated_closes": 1,
+      "revenue_delta_gbp": 72.7
+    },
+    {
+      "ts": 1775325535506,
+      "leads": 1,
+      "suppliers_found": 0,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 0,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 27.12
+    },
+    {
+      "ts": 1775324838019,
+      "leads": 2,
+      "suppliers_found": 0,
+      "emails_sent": 0,
+      "emails_simulated": 2,
+      "replies_classified": 0,
+      "simulated_closes": 0,
+      "revenue_delta_gbp": 117.76
+    },
+    {
+      "ts": 1775254950191,
+      "leads": 1,
+      "suppliers_found": 0,
+      "emails_sent": 0,
+      "emails_simulated": 1,
+      "replies_classified": 0,
+      "simulated_closes": 1,
+      "revenue_delta_gbp": 101.15
+    },
+    {
       "ts": 1775041276906,
       "leads": 6,
       "suppliers_found": 1,
@@ -981,10 +1031,10 @@
     }
   ],
   "aggregates": {
-    "total_runs": 89,
-    "total_emails": 89,
-    "total_leads": 534,
-    "total_simulated_revenue_gbp": 0
+    "total_runs": 94,
+    "total_emails": 95,
+    "total_leads": 540,
+    "total_simulated_revenue_gbp": 385.86
   },
   "payments": [],
   "portfolio_brain_memory": [

@@ -13,11 +13,11 @@ const ATTRIBUTION_LINE =
 const REFERRAL_UNLOCK_THRESHOLD = 3;
 
 function getPublicBase() {
-  return String(process.env.AETHRA_PUBLIC_BASE_URL || "http://127.0.0.1:3847").replace(/\/$/, "");
+  return String(process.env.AETHRA_PUBLIC_BASE_URL || "http://localhost:4000").replace(/\/$/, "");
 }
 
 function getShareBase() {
-  const s = process.env.AETHRA_SHARE_BASE || process.env.AETHRA_PUBLIC_BASE_URL || "http://127.0.0.1:3847";
+  const s = process.env.AETHRA_SHARE_BASE || process.env.AETHRA_PUBLIC_BASE_URL || "http://localhost:4000";
   return String(s).replace(/\/$/, "");
 }
 
